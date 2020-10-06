@@ -1,0 +1,146 @@
+---
+# Jekyll automatically transpiles this file; access via {{site.url}}/assets/css/main.css
+---
+
+$background_image: '{{site.background_image}}';
+
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+@import 'font-awesome.min.css';
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900');
+
+@charset "utf-8";
+
+// Our variables
+$base-font-family:  Arial, Helvetica, sans-serif, "Hiragino Sans GB", "WenQuanYi Zen Hei", Microsoft Yahei,  '微软雅黑';
+$base-font-size:    16px;
+$small-font-size:   $base-font-size * 0.85;
+$tiny-font-size:    $small-font-size * 0.85;
+$base-line-height:  1.6;
+
+$spacing-unit:      30px;
+
+$magenta-color:     #ff00ff;
+$magenta-color-light: lighten($magenta-color, 35%);
+$magenta-color-dark:  darken($magenta-color, 35%);
+
+$green-color:       #00ee00;
+$green-color-light: lighten($green-color, 40%);
+$green-color-dark:  darken($green-color, 15%);
+
+// Same color scheme as google plus
+$red-color:         #d34836;
+$red-color-light:   lighten($red-color, 40%);
+$red-color-dark:    darken($red-color, 15%);
+
+$blue-color:        #0077B5;
+$blue-color-light:  lighten($blue-color, 40%);
+$blue-color-dark:   darken($blue-color,  25%);
+
+$white-color:       #ffffff;
+$white-color-dark:  darken($white-color, 5%);
+
+$grey-color:        #828282;
+$grey-color-light:  lighten($grey-color, 40%);
+$grey-color-bright: lighten($grey-color, 50%);
+$grey-color-dark:   darken($grey-color, 35%);
+
+$text-color:        #111;
+$background-color:  #f9f9f9;
+$brand-color:       #2a7ae2;
+$brand-color-light: lighten($brand-color, 40%);
+$brand-color-dark:  darken($brand-color, 25%);
+
+$boya-color:        #46251F;
+$linkedin-color:    #0077B5;
+$twitter-color:     #4099ff;
+$facebook-color:    #3B5998;
+$github-color:      #000000;
+$wechat-color:      #32CD32;
+$bilibili-color:    #4dc3ff;
+$zhihu-color:       #1e83b6;
+$steam-color:       #000000;
+
+// Site color scheme[primary and secondary]
+$primary-color:             $red-color-dark;
+$primary-color-light:       $red-color;
+$primary-color-dark:        $red-color-dark;
+
+$secondary-color:           $brand-color;
+$secondary-color-light:     $brand-color-light;
+$secondary-color-dark:      $brand-color-dark;
+
+// Width of the content area
+$content-width:     65rem;
+
+$on-mobile:         800px;
+$on-palm:           600px;
+$on-laptop:         800px;
+
+/*
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+	@include skel-breakpoints((
+		xlarge: '(max-width: 1680px)',
+		large: '(max-width: 1280px)',
+		medium: '(max-width: 980px)',
+		small: '(max-width: 736px)',
+		xsmall: '(max-width: 480px)',
+		xxsmall: '(max-width: 360px)'
+	));
+
+	@include skel-layout((
+		reset: 'full',
+		boxModel: 'border',
+		grid: ( gutters: 1.5rem )
+	));
+
+	@mixin color($p) {
+		@include color-typography($p);
+		@include color-box($p);
+		@include color-button($p);
+		@include color-form($p);
+		@include color-list($p);
+		@include color-section($p);
+		@include color-table($p);
+		@include color-pagination($p);
+	}
+
+	@mixin media-query($device) {
+		@media screen and (max-width: $device) {
+			@content;
+		}
+	}
+
+// Base.
+
+	@import 'base/page';
+	@import 'base/typography';
+
+// Component.
+
+	@import 'components/box';
+	@import 'components/timeline';
+	@import 'components/button';
+	@import 'components/form';
+	@import 'components/icon';
+	@import 'components/image';
+	@import 'components/list';
+	@import 'components/section';
+	@import 'components/table';
+	@import 'components/pagination';
+
+// Layout.
+
+	@import 'layout/wrapper';
+	@import 'layout/intro';
+	@import 'layout/header';
+	@import 'layout/nav';
+	@import 'layout/main';
+	@import 'layout/footer';
+	@import 'layout/navPanel';
