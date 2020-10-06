@@ -3,8 +3,8 @@ title:              TIM LÖHR
 bio:                '23 year old Machine Learning Engineer from Germany'
 description:        "Passionate about Data Science"
 locale:             de_DE
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://mavengence.github.io" # the base hostname & protocol for your site
+baseurl: / # the subpath of your site, e.g. /blog
+url: https://mavengence.github.io # the base hostname & protocol for your site
 
 # Comments
 disqus_shortname:   mavengence
