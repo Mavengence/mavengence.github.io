@@ -3,8 +3,8 @@ title:              TIM LÖHR
 bio:                '23 year old Machine Learning Engineer from Germany'
 description:        "Passionate about Data Science"
 locale:             de_DE
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "timloehr.me" # the base hostname & protocol for your site
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "mavengence.github.io" # the base hostname & protocol for your site
 
 # Comments
 disqus_shortname:   mavengence
@@ -63,7 +63,7 @@ paginate: 6
 paginate_path: "/blog/page:num/"
 
 jekyll-mentions:
-    base_url: https://github.com
+    base_url: https://mavengence.github.io
 
 # Exclude list
 exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, old]
