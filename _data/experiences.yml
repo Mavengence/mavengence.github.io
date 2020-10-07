@@ -1,12 +1,12 @@
 - date:  "2020 Apr. - Present."
-  title: "CS Graduate student @ UNIVERSITY OF ERLANGEN-NUREMBERG"
-  desc:  "Major: Artificial Intelligence. Minor: Medicine"
-  host:
-    name: "<a href='http://aigames.nctu.edu.tw/~icwu/'>Prof. I-Chen Wu</a>"
-    role: "Supervisor"
+  title: "CS Graduate student @ <a href='https://www.fau.de/'>UNIVERSITY OF ERLANGEN-NUREMBERG</a>"
+  desc:  "Major: Artificial Intelligence"
+  host: 
+    name: "Medicine"
+    role: "Minor"
   brief: True
 - date:  "2020 Mar. - Present."
-  title: "Machine Learning Engineer @ Siemens AG"
+  title: "Machine Learning Engineer @ <a href='https://www.siemens.de/'>Siemens AG</a>"
   desc:  "Prototyping an NLP application which takes as input raw log files from production machines and predicts the most likely person from the Software Engineering team which is responsible to fix a bug. Implemented the automated ETL and prediction pipeline based on a weekly scheduled training of the
 freshly scraped log files with the XG Boost classifier and made available on a Webserver"
   host:
@@ -14,7 +14,7 @@ freshly scraped log files with the XG Boost classifier and made available on a W
     role: "Supervisor"
   brief: true
 - date:  "2019 August. - 2020 Jan."
-  title: "Semester Abroad @ City University of Hong Kong"
+  title: "Semester Abroad @ <a href='https://www.https://www.cityu.edu.hk/'>City University of Hong Kong</a>"
   desc:  "During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. 
 Taking data engineering and learning systems as my first choice, I learned a lot about classification and I visualized it with R and Python. I am really strong in making good visualizations. 
 To gain more in-depth understanding of the mathematics of the algorithms themselves, I enrolled in, and successfully completed Machine Learning. Lastly I experienced insights of a data analyst position by choosing Machine Learning for Business. "
@@ -23,7 +23,7 @@ To gain more in-depth understanding of the mathematics of the algorithms themsel
     role: "Supervisor"
   brief: true
 - date:  "2019 Apr. - 2019 Aug."
-  title: "Working Student @ Rehau AG"
+  title: "Working Student @ <a href='https://www.rehau.de/'>Rehau AG</a>"
   desc:  "Created an Java-Applet to scrape raw data from IoT home devices and wrote a live analysis tool. Checking what data is sent back and forth from the IoT device and the Wi-Fi router and implemented it
 in such a way, that no classified persona data is shown in the logs."
   brief: true
@@ -31,7 +31,7 @@ in such a way, that no classified persona data is shown in the logs."
     name: "<a>Peter Perzl</a>"
     role: "Instructor"
 - date:  "2018 Oct. - 2019 Mar."
-  title: "Internship @ Tokyostay Ltd. in Tokyo"
+  title: "Internship @ <a href='https://www.tokyostay.jp/'>Tokyostay Ltd. in Tokyo</a>"
   desc:  "Focus on ReactJS and Wordpress and managing IT related tasks regarding hostel renting"
   brief: true
   host: 
@@ -45,7 +45,7 @@ in such a way, that no classified persona data is shown in the logs."
     role: "Supervisor"
   brief: true
 - date:  "2014 August. - 2015 Jul."
-  title: "Internship @ CosH Consulting GmbH"
+  title: "Internship @ <a href='https://www.cosh.de/'>CosH Consulting GmbH</a>"
   desc:  "School internship with focus on networking and repair computers, also supporting and learning how project-based networking works"
   host: 
     name: "<a>Manuel Wagner</a>"

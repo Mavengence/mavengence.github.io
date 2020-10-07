@@ -1,6 +1,6 @@
 # Site
 title:              TIM LÖHR
-bio:                '23 year old Machine Learning Engineer from Germany'
+bio:                'Tim Löhr, 23 year old Machine Learning Engineer from Germany'
 description:        "Passionate about Data Science"
 locale:             de_DE
 baseurl: / # the subpath of your site, e.g. /blog
