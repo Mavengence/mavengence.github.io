@@ -12,7 +12,7 @@ freshly scraped log files with the XG Boost classifier and made available on a W
   host:
     name: "<a>Armin Hadzalic</a>"
     role: "Supervisor"
-  brief: false
+  brief: true
 - date:  "2019 August. - 2020 Jan."
   title: "Semester Abroad @ City University of Hong Kong"
   desc:  "During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. 
@@ -33,7 +33,7 @@ in such a way, that no classified persona data is shown in the logs."
 - date:  "2018 Oct. - 2019 Mar."
   title: "Internship @ Tokyostay Ltd. in Tokyo"
   desc:  "Focus on ReactJS and Wordpress and managing IT related tasks regarding hostel renting"
-  brief: false
+  brief: true
   host: 
     name: "<a>Yosuke Suzuki</a>"
     role: "Supervisor"
@@ -50,4 +50,4 @@ in such a way, that no classified persona data is shown in the logs."
   host: 
     name: "<a>Manuel Wagner</a>"
     role: "Supervisor"
-  brief: false
+  brief: true
