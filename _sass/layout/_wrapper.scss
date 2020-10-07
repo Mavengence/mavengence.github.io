@@ -21,9 +21,9 @@
 			background-color:		_palette(wrapper-bg);
 			background-image:		url('../../images/pixels.png'),	linear-gradient(0deg, rgba(96,240,240,0.05), rgba(96,240,240,0.1)),	url($background_image);
 			background-size:		auto,								auto,														100% auto;
-			background-position:	top center,								top center,														top center;
-			background-repeat:		no-repeat,								no-repeat,													no-repeat;
-			background-attachment:	fixed,								fixed,														fixed;
+			background-position:	center,								center,														top center;
+			background-repeat:		repeat,								no-repeat,													no-repeat;
+			background-attachment:	scroll,								scroll,														scroll;
 			z-index: -1;
 			overflow: hidden;
 			&.fixed {
