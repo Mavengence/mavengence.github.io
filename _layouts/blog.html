@@ -33,9 +33,8 @@
 
           <article class="post featured">
             <header class="major">
-              <h2><a href="#">My Data Science Blog</a></h2>
-              <p>I want to share some parts of my experience through my blog. I post more private blog posts on my 
-				  website here and more technical general blogs on my Medium profile.</p>
+              <h2>My Data Science Projects</h2>
+              <p>Have a look at all of my past projects</p>
             </header>
 
           </article>
@@ -51,17 +50,10 @@
 								<a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.image | absolute_url }}" alt="" /></a>
 								<p>{{ post.excerpt }}</p>
 								<ul class="actions">
-									<li><a href="{{ post.url | absolute_url }}" class="button">Full Story</a></li>
+									<li><a href="{{ post.url | absolute_url }}" class="button">Full Project</a></li>
 								</ul>
 							</article>
-							{% if mod3 == 0 %}
-							<article>
-								<header>
-									<h2><a href="#">Sponsored</a></h2>
-								</header>
-
-							</article>
-							{% endif %}
+					
 						{% endfor %}
 
 					</section>
