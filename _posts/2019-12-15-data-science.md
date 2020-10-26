@@ -2,8 +2,30 @@
 layout: post
 title:  "Final Project <br> Machine Learning for Business at the City University of Hong Kong"
 date:   2019-12-15
-excerpt: "How can the effectiveness of marketing be improved ‘Airbnb Seattle’? Dataset of 2016"
+excerpt: "How can the effectiveness of marketing be improved for Airbnb Seattle?"
 image: "/images/cityu.jpg"
 ---
 
-Coming soon
+Click: [View the Project on Github](https://github.com/Mavengence/https://github.com/Mavengence/Kaggle-Seattle-Airbnb-Analysis-IS4861-Assignment)
+
+## My official Paper:
+
+<center>
+<object data="http://127.0.0.1:4000/images/Löhr_Tim_ML_for_Business_final_paper.pdf" type="application/pdf" width="800px" height="700px">
+    <embed src="http://127.0.0.1:4000/images/Löhr_Tim_ML_for_Business_final_paper.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://127.0.0.1:4000/images/Löhr_Tim_ML_for_Business_final_paper.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+</center>
+
+<hr>
+
+## My official Presentation:
+
+<center>
+<object data="http://127.0.0.1:4000/images/Löhr_Tim_ML_for_Business_final_presentation.pdf" type="application/pdf" width="800px" height="700px">
+    <embed src="http://127.0.0.1:4000/images/Löhr_Tim_ML_for_Business_final_presentation.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://127.0.0.1:4000/images/Löhr_Tim_ML_for_Business_final_presentation.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+</center>
