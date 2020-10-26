@@ -8,7 +8,16 @@ sitemap:
     changefreq: weekly
 ---
 
+<img src="/images/Tim2.jpg"
+     alt="Tim Löhr"
+     style="float: left; margin-right: 100px; height: 300px;" />
+
+<br>
+
 # Tim Löhr
+
+<br> <br> <br>
+
 
 ## Computer Science Master Student
 #### At the University of Erlangen-Nürnberg
