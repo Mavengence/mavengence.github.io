@@ -45,7 +45,7 @@ Due to my Bachelor not being Computer Science, but Information Systems and Manag
 
 My final year project for my bachelor was about Natural Language Processing. The title of this thesis is „Automatic Text Summarization with the Use of Text Generation“. I gained the knowledge for this Natural Language Processing related topic through the website www.udacity.com, where I successfully finished two courses, namely Natural Language Processing and Data Science, whereas in the Data Science Nanodegree I chose the Bertelsmann project as my final project, it can be seen on my Github profile.
 
-In 2018 I had a mandatory internship at a small company in Tokyo, where I worked as a Web Developer with the MEAN stack. So I am able to build Machine Learning models and ship them as prototype to webservers and build websites.
+In 2018, I had a mandatory internship at a small company in Tokyo, where I worked as a Web Developer with the MEAN stack. So I am able to build Machine Learning models and ship them as prototype to webservers and build websites.
 
 
 ## Certificates
