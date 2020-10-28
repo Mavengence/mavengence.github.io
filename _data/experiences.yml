@@ -55,6 +55,6 @@ in such a way, that no classified persona data is shown in the logs."
   title: "Born @ <a>Neumarkt Hospital</a>"
   desc:  "Mandatory 1 week internship at the Hospital in Neumarkt"
   host: 
-    name: "<a>My Mom Beate Löhr</a>"
+    name: "<a>My Mom</a>"
     role: "Supervisor"
   brief: true
