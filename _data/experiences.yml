@@ -1,5 +1,5 @@
 - date:  "2020 Apr. - Present."
-  title: "CS Graduate student @ <a href='https://www.fau.de/'>UNIVERSITY OF ERLANGEN-NUREMBERG</a>"
+  title: "Computer Science Graduate Student @ <a href='https://www.fau.de/'>University of Erlangen-Nuremberg</a>"
   desc:  "Major: Artificial Intelligence"
   host: 
     name: "Medicine"
@@ -14,7 +14,7 @@ freshly scraped log files with the XG Boost classifier and made available on a W
     role: "Supervisor"
   brief: true
 - date:  "2019 August. - 2020 Jan."
-  title: "Semester Abroad @ <a href='https://www.https://www.cityu.edu.hk/'>City University of Hong Kong</a>"
+  title: "Exchange Student @ <a href='https://www.https://www.cityu.edu.hk/'>City University of Hong Kong</a>"
   desc:  "During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. 
 Taking data engineering and learning systems as my first choice, I learned a lot about classification and I visualized it with R and Python. I am really strong in making good visualizations. 
 To gain more in-depth understanding of the mathematics of the algorithms themselves, I enrolled in, and successfully completed Machine Learning. Lastly I experienced insights of a data analyst position by choosing Machine Learning for Business. "
@@ -38,7 +38,7 @@ in such a way, that no classified persona data is shown in the logs."
     name: "<a>Yosuke Suzuki</a>"
     role: "Supervisor"
 - date:  "2016 Oct. - 2020 Mar."
-  title: "IS Under Graduate student @ <a href='https://www.th-nuernberg.de/'>NUREMBERG INSTITUTE OF TECHNOLOGY GEORG SIMON OHM</a>"
+  title: "Information Systems and Management Undergraduate Student @ <a href='https://www.th-nuernberg.de/'>Nuremberg Institute of Technology Georg Simon Ohm</a>"
   desc:  "Major: Information Systems and Business. Thesis: IT-based Automatic Text Summarization with the Use of Textgeneration Methods <a href='https://github.com/Mavengence/Bachelor-Thesis-Textgeneration-TH.OHM/blob/master/report/thesis.pdf'>(Thesis)</a>"
   host:
     name: "<a href='https://www.th-nuernberg.de/person/holl-alfred/'>Prof. Dr. Alfred Holl</a>"
@@ -49,5 +49,12 @@ in such a way, that no classified persona data is shown in the logs."
   desc:  "School internship with focus on networking and repair computers, also supporting and learning how project-based networking works"
   host: 
     name: "<a>Manuel Wagner</a>"
+    role: "Supervisor"
+  brief: true
+- date:  "1997 Jan. 27th"
+  title: "Born @ <a>Neumarkt Hospital</a>"
+  desc:  "Mandatory 1 week internship at the Hospital in Neumarkt"
+  host: 
+    name: "<a>My Mom Beate Löhr</a>"
     role: "Supervisor"
   brief: true

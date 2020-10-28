@@ -27,7 +27,7 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 #### First Master Semester Courses (2020/04 - 2020/10)
 
 - Seminar: Machine Learning in the Industry 4.0
-- Deep Learning, 
+- Deep Learning 
 - Clinical Data Science
 - Bioinformatics
 - Mathematics in Data Science
@@ -41,9 +41,9 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - Machine Learning in Timeseries
 - Machine Learning in Bioinformatics
 - eBusiness Technologies
-- Programming Techniques and Design
+- Advanced Programming and Design
 
-## Exchange Semester in Hong Kong 
+## Exchange Student in Hong Kong 
 #### @[City University of Hong Kong](https://www.https://www.cityu.edu.hk/)
 
 During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. Taking data engineering and learning systems as my first choice, I learned a lot about classification and visualization with R and Python. I am really strong at making good visualizations. To gain more in-depth understanding of the mathematics of the algorithms themselves, I participated in the course Machine Learning. Lastly, I experienced insights of a data analyst's position by choosing Machine Learning for Business. 
@@ -57,6 +57,9 @@ My final year project for my bachelor was about Natural Language Processing. The
 
 In 2018, I had a mandatory internship at a small company in Tokyo, where I worked as a Web Developer with the MEAN stack. So I am able to build Machine Learning models and ship them as prototype to webservers and build websites.
 
+## Extracurricular Activities
+
+- Associate Writer at Towards Data Science
 
 ## Certificates
 
