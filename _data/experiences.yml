@@ -7,23 +7,21 @@
   brief: True
 - date:  "2020 Mar. - Present."
   title: "Machine Learning Engineer @ <a href='https://www.siemens.de/'>Siemens AG</a>"
-  desc:  "Prototyping an NLP application which takes as input raw log files from production machines and predicts the most likely person from the Software Engineering team which is responsible to fix a bug. Implemented the automated ETL and prediction pipeline based on a weekly scheduled training of the
-freshly scraped log files with the XG Boost classifier and made available on a Webserver"
+  desc:  "Prototyping an NLP application which takes as input raw log files from production machines and predicts the most likely person from the Software Engineering team which is responsible to fix a bug. Implemented the automated ETL and prediction pipeline based on a weekly scheduled training of thfreshly scraped log files with the XG Boost classifier and made available on a Webserver"
   host:
     name: "<a>Armin Hadzalic</a>"
     role: "Supervisor"
   brief: true
 - date:  "2019 August. - 2020 Jan."
   title: "Exchange Student @ <a href='https://www.https://www.cityu.edu.hk/'>City University of Hong Kong</a>"
-  desc:  "Major: Machine Learning. <br Final Project: How can the effectiveness of marketing be improved for Airbnb Seattle?"
+  desc:  "Major: Machine Learning. <br> Final Project: How can the effectiveness of marketing be improved for Airbnb Seattle?"
   host: 
     name: "<a href='https://www.cb.cityu.edu.hk/staff/junmiliu/'>Dr. Junming Liu</a>"
     role: "Supervisor"
   brief: true
 - date:  "2019 Apr. - 2019 Aug."
   title: "Working Student @ <a href='https://www.rehau.de/'>Rehau AG</a>"
-  desc:  "Created an Java-Applet to scrape raw data from IoT home devices and wrote a live analysis tool. Checking what data is sent back and forth from the IoT device and the Wi-Fi router and implemented it
-in such a way, that no classified persona data is shown in the logs."
+  desc:  "Created an Java-Applet to scrape raw data from IoT home devices and wrote a live analysis tool. Checking what data is sent back and forth from the IoT device and the Wi-Fi router and implemented it in such a way, that no classified persona data is shown in the logs."
   brief: true
   host:
     name: "<a>Peter Perzl</a>"

@@ -2,7 +2,7 @@
 layout: post
 title:  "Bachelor Project <br> Autonomously driving <br> Remote-Control Car"
 date:   2019-07-13
-excerpt: "IT-Projekt: Autonmously driving Remote Control Car with DonkeyCar and Raspberry Pi 3B+"
+excerpt: "IT-Projekt: Autonmously driving Remote Control Car with DonkeyCar and Raspberry Pi 3B+."
 image: "/images/car.jpeg"
 ---
 
