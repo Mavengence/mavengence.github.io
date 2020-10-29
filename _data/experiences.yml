@@ -1,5 +1,5 @@
 - date:  "2020 Apr. - Present."
-  title: "Computer Science Graduate Student @ <a href='https://www.fau.de/'>University of Erlangen-Nuremberg</a>"
+  title: "M.Sc. Computer Science @ <a href='https://www.fau.de/'>University of Erlangen-Nuremberg</a>"
   desc:  "Major: Artificial Intelligence"
   host: 
     name: "Medicine"
@@ -38,8 +38,8 @@ in such a way, that no classified persona data is shown in the logs."
     name: "<a>Yosuke Suzuki</a>"
     role: "Supervisor"
 - date:  "2016 Oct. - 2020 Mar."
-  title: "Information Systems and Management Undergraduate Student @ <a href='https://www.th-nuernberg.de/'>Nuremberg Institute of Technology Georg Simon Ohm</a>"
-  desc:  "Major: Information Systems and Business. Thesis: IT-based Automatic Text Summarization with the Use of Textgeneration Methods <a href='https://github.com/Mavengence/Bachelor-Thesis-Textgeneration-TH.OHM/blob/master/report/thesis.pdf'>(Thesis)</a>"
+  title: "B.Sc. Information Systems and Management @ <a href='https://www.th-nuernberg.de/'>Nuremberg Institute of Technology Georg Simon Ohm</a>"
+  desc:  "Major: Information Systems and Business. <br> Thesis: IT-based Automatic Text Summarization with the Use of Textgeneration Methods <a href='https://github.com/Mavengence/Bachelor-Thesis-Textgeneration-TH.OHM/blob/master/report/thesis.pdf'>(Thesis)</a>"
   host:
     name: "<a href='https://www.th-nuernberg.de/person/holl-alfred/'>Prof. Dr. Alfred Holl</a>"
     role: "Supervisor"
