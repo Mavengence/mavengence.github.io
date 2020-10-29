@@ -11,9 +11,9 @@ Click: [View the Project on Github](https://github.com/Mavengence/IT-Project-Aut
 ## My official Paper:
 
 <center>
-<object data="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_paper.pdf" type="application/pdf" width="800px" height="700px">
-    <embed src="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_paper.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_paper.pdf">Download PDF</a>.</p>
+<object data="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_paper.pdf" type="application/pdf" width="800px" height="700px">
+    <embed src="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_paper.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_paper.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 </center>
@@ -23,9 +23,9 @@ Click: [View the Project on Github](https://github.com/Mavengence/IT-Project-Aut
 ## My official Presentation:
 
 <center>
-<object data="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_presentation.pdf" type="application/pdf" width="800px" height="700px">
-    <embed src="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_presentation.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_presentation.pdf">Download PDF</a>.</p>
+<object data="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_presentation.pdf" type="application/pdf" width="800px" height="700px">
+    <embed src="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_presentation.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Löhr_Tim_Bachelor_project_final_presentation.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 </center>
