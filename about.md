@@ -72,7 +72,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 ## Extracurricular Activities
 
-- Associate Writer at Towards Data Science
+- Associate writer @[Towards Data Science](https://towardsdatascience.com/)
 
 ## Language Courses taken during my Bachelor
 
