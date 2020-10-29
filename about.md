@@ -48,6 +48,12 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 
 During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. Taking data engineering and learning systems as my first choice, I learned a lot about classification and visualization with R and Python. I am really strong at making good visualizations. To gain more in-depth understanding of the mathematics of the algorithms themselves, I participated in the course Machine Learning. Lastly, I experienced insights of a data analyst's position by choosing Machine Learning for Business. 
 
+#### Exchange Semester Courses (8/2019 - 1/2020)
+
+- Machine Learning
+- Machine Learning for Business
+- Data Engineering and Learning Systems
+
 ## Information Systems and Management Bachelor Student 
 #### @[Insitute of Technology Nürnberg Georg Simon Ohm](https://www.th-nuernberg.de)
 
@@ -57,9 +63,23 @@ My final year project for my bachelor was about Natural Language Processing. The
 
 In 2018, I had a mandatory internship at a small company in Tokyo, where I worked as a Web Developer with the MEAN stack. So I am able to build Machine Learning models and ship them as prototype to webservers and build websites.
 
+#### Bachelor Elective Courses (4/2019 - 8/2019)
+
+- NoSQL Database Systems
+- Programming Microcontrollers
+- IT-Project: Autonomously driving Remote Control Car with Donkeycar and a Raspberry Pi 3B+
+
+
 ## Extracurricular Activities
 
 - Associate Writer at Towards Data Science
+
+## Language Courses taken during my Bachelor
+
+- Russian A1 Level
+- Spanish A1 Level
+- Chinese (mandarin) A2 Level
+- Japanese B1 Level
 
 ## Certificates
 
