@@ -24,7 +24,7 @@ sitemap:
 
 Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germany) as a Master student in Computer Science with the major in Artificial Intelligence. I focused so far on the medicine side of Artificial Intelligence. This taught me how to handle classified data very carefully, which benefits not only medicine related tasks, but it improved my work quality in general as well.
 
-#### First Master Semester Courses (2020/04 - 2020/10)
+#### First Master Semester Courses (4/2020 - 10/2020)
 
 - Seminar: Machine Learning in the Industry 4.0
 - Deep Learning 
@@ -34,7 +34,7 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - Introduction to Computer Science in Medicine
 - Pattern Analysis
 
-#### Second Master Semester Courses (2020/11 - 2021/04)
+#### Second Master Semester Courses (11/2020 - 4/2021)
 
 - Master Project: Style Classification in Posters
 - Pattern Recognition
