@@ -22,7 +22,7 @@ sitemap:
 ## Computer Science Master Student
 #### @[University of Erlangen-Nürnberg](https://www.fau.de/)
 
-Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germany) as a Master student in Computer Science with the major in Artificial Intelligence. I focused so far on the medicine side of Artificial Intelligence. This taught me how to handle classified data very carefully, which benefits not only medicine related tasks, but it improved my work quality in general as well.
+Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germany) as a Master student in Computer Science with the major in Artificial Intelligence. I focus so far on Artificial Intelligence in medicine with medicin as my minor. This taught me how to handle classified data very carefully, which benefits not only medicine related tasks, but it also improved my work quality in general.
 
 #### First Master Semester Courses (4/2020 - 10/2020)
 
@@ -80,17 +80,16 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 - Spanish A1 Level
 - Chinese (mandarin) A2 Level
 - Japanese B1 Level
+- <a href="./images/toeffl.pdf">Toeffl Advanced English</a>
 
 ## Certificates
 
-- Udacity: Data Scientist Nanodegree
-- Udacity: Natural Language Processing
-- Coursera: Deep Learning Specialization
-- Coursera: AI for Medicine
-- Coursera: GAN Specialization
-- Udemy: Python Course
-- Udemy: ReactJS Course
-- Udemy: ReactJS Advanced Course
+- Udacity: <a href="../images/Udacity_DS.pdf">Data Scientist Nanodegree</a>
+- Udacity: <a href="../images/Udacity_NLP.pdf">Natural Language Processing</a>
+- Coursera: <a href="../images/Coursera_DL.pdf">Deep Learning Specialization</a>
+- Coursera: <a href="../images/Coursera_Med.pdf">AI for Medicine</a>
+- Coursera: <a href="../images/Coursera_GAN.pdf">GAN Specialization</a>
+- Udemy: <a href="../images/Udemy_Python.pdf">Python Course</a>
 
 ## Hackathons
 
