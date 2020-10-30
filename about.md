@@ -92,7 +92,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 - Spanish A1 Level
 - Chinese (mandarin) A2 Level
 - Japanese B1 Level
-- <a href="../images/toeffl.pdf"><ins>Toeffl Advanced English</ins></a>
+- Toeffl Advanced English 90/120 Score
 
 ## <a name="6">Certificates</a>
 
