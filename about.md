@@ -96,3 +96,9 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 - Beiersdorf Battleweeks Oscar&Paul: 2nd Place
 - Hugo Boss: 2nd Place
+
+## Hobbies
+
+- Bouldering
+- Piano
+- Reading
