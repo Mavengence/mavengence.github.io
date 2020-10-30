@@ -79,29 +79,29 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 ## <a name="4">Extracurricular Activities</a>
 
-- Associate writer @[Towards Data Science](https://towardsdatascience.com/)
+- Associate writer @[Towards Data Science](https://towardsdatascience.com/dimensionality-reduction-forensics-50014430767f)
 
 ##### Hackathons
 
-- Beiersdorf Battleweeks Oscar&Paul: 2nd Place
-- Hugo Boss: 2nd Place
+- Beiersdorf Battleweeks Oscar&Paul: <a href="../images/Löhr_Tim_beiersdorf.pdf"><ins>2nd Place</ins></a> (9/2020)
+- Hugo Boss: 2nd Place (10/2020)
 
 ## <a name="5">Language Courses taken during my Bachelor</a>
 
-- Russian A1 Level
-- Spanish A1 Level
-- Chinese (mandarin) A2 Level
-- Japanese B1 Level
-- Toeffl Advanced English 90/120 Score
+- Russian A1 Level (7/2017)
+- Spanish A1 Level (3/2018)
+- Chinese (mandarin) A2 Level (7/2018)
+- Japanese B1 Level (7/2019)
+- Toeffl Advanced English 90/120 Score (5/2019)
 
 ## <a name="6">Certificates</a>
 
-- Udacity: <a href="../images/Udacity_DS.pdf"><ins>Data Scientist Nanodegree</ins> (3/2020)</a>
-- Udacity: <a href="../images/Udacity_NLP.pdf"><ins>Natural Language Processing</ins> (7/2019)</a>
-- Coursera: <a href="../images/Coursera_GAN.pdf"><ins>GAN Specialization</ins> (7/2020)</a>
-- Coursera: <a href="../images/Coursera_DL.pdf"><ins>Deep Learning Specialization</ins> (4/2020)</a>
-- Coursera: <a href="../images/Coursera_Med.pdf"><ins>AI for Medicine</ins> (4/2020)</a>
-- Udemy: <a href="../images/Udemy_Python.pdf"><ins>Python Course</ins> (7/2018)</a>
+- Udacity: <a href="../images/Udacity_DS.pdf"><ins>Data Scientist Nanodegree</ins></a> (3/2020)
+- Udacity: <a href="../images/Udacity_NLP.pdf"><ins>Natural Language Processing</ins></a> (7/2019)
+- Coursera: <a href="../images/Coursera_GAN.pdf"><ins>GAN Specialization</ins></a> (7/2020)
+- Coursera: <a href="../images/Coursera_DL.pdf"><ins>Deep Learning Specialization</ins></a> (4/2020)
+- Coursera: <a href="../images/Coursera_Med.pdf"><ins>AI for Medicine</ins></a> (4/2020)
+- Udemy: <a href="../images/Udemy_Python.pdf"><ins>Python Course</ins></a> (7/2018)
 
 
 
