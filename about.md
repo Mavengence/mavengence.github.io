@@ -15,11 +15,18 @@ sitemap:
 <br>
 
 # Tim Löhr
+<br><br>
 
-<br> <br> <br>
+> #### Table of Contents (clickable):
+- [Master Courses](#1)
+- [Exchange Semester Courses](#2)
+- [Bachelor Courses](#3)
+- [Extracurricular Activities](#4)
+- [Languages](#5)
+- [Certificates](#6)
+- [Hobbies](#7)
 
-
-## Computer Science Master Student
+## <a name="1">Computer Science Master Student</a>
 #### @[University of Erlangen-Nürnberg](https://www.fau.de/)
 
 Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germany) as a Master student in Computer Science with the major in Artificial Intelligence. I focus so far on Artificial Intelligence in medicine with medicin as my minor. This taught me how to handle classified data very carefully, which benefits not only medicine related tasks, but it also improved my work quality in general.
@@ -43,7 +50,7 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - eBusiness Technologies
 - Advanced Programming and Design
 
-## Exchange Student in Hong Kong 
+## <a name="2">Exchange Student in Hong Kong</a>
 #### @[City University of Hong Kong](https://www.https://www.cityu.edu.hk/)
 
 During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. Taking data engineering and learning systems as my first choice, I learned a lot about classification and visualization with R and Python. I am really strong at making good visualizations. To gain more in-depth understanding of the mathematics of the algorithms themselves, I participated in the course Machine Learning. Lastly, I experienced insights of a data analyst's position by choosing Machine Learning for Business. 
@@ -54,7 +61,7 @@ During my last bachelor semester, I participated as an exchange student at the C
 - Machine Learning for Business
 - Data Engineering and Learning Systems
 
-## Information Systems and Management Bachelor Student 
+## <a name="3">Information Systems and Management Bachelor Student</a>
 #### @[Insitute of Technology Nürnberg Georg Simon Ohm](https://www.th-nuernberg.de)
 
 Due to my Bachelor not being Computer Science, but Information Systems and Management, it was the ideal combination for working as a Data Scientist. I chose NoSQL Databases as my elective course in big data. The different methods I undertook to store and retrieve data in various databases were enlightening. I gained a lot of knowledge in how to solve problems with different NoSQL databases.
@@ -70,33 +77,35 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 - IT-Project: Autonomously driving Remote Control Car with Donkeycar and a Raspberry Pi 3B+
 
 
-## Extracurricular Activities
+## <a name="4">Extracurricular Activities</a>
 
 - Associate writer @[Towards Data Science](https://towardsdatascience.com/)
 
-## Language Courses taken during my Bachelor
+##### Hackathons
+
+- Beiersdorf Battleweeks Oscar&Paul: 2nd Place
+- Hugo Boss: 2nd Place
+
+## <a name="5">Language Courses taken during my Bachelor</a>
 
 - Russian A1 Level
 - Spanish A1 Level
 - Chinese (mandarin) A2 Level
 - Japanese B1 Level
-- <a href="./images/toeffl.pdf">Toeffl Advanced English</a>
+- <a href="../images/toeffl.pdf"><ins>Toeffl Advanced English</ins></a>
 
-## Certificates
+## <a name="6">Certificates</a>
 
-- Udacity: <a href="../images/Udacity_DS.pdf">Data Scientist Nanodegree</a>
-- Udacity: <a href="../images/Udacity_NLP.pdf">Natural Language Processing</a>
-- Coursera: <a href="../images/Coursera_DL.pdf">Deep Learning Specialization</a>
-- Coursera: <a href="../images/Coursera_Med.pdf">AI for Medicine</a>
-- Coursera: <a href="../images/Coursera_GAN.pdf">GAN Specialization</a>
-- Udemy: <a href="../images/Udemy_Python.pdf">Python Course</a>
+- Udacity: <a href="../images/Udacity_DS.pdf"><ins>Data Scientist Nanodegree</ins> (3/2020)</a>
+- Udacity: <a href="../images/Udacity_NLP.pdf"><ins>Natural Language Processing</ins> (7/2019)</a>
+- Coursera: <a href="../images/Coursera_GAN.pdf"><ins>GAN Specialization</ins> (7/2020)</a>
+- Coursera: <a href="../images/Coursera_DL.pdf"><ins>Deep Learning Specialization</ins> (4/2020)</a>
+- Coursera: <a href="../images/Coursera_Med.pdf"><ins>AI for Medicine</ins> (4/2020)</a>
+- Udemy: <a href="../images/Udemy_Python.pdf"><ins>Python Course</ins> (7/2018)</a>
 
-## Hackathons
 
-- Beiersdorf Battleweeks Oscar&Paul: 2nd Place
-- Hugo Boss: 2nd Place
 
-## Hobbies
+## <a name="7">Hobbies</a>
 
 - Bouldering
 - Piano
