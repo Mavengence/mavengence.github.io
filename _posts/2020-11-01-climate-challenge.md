@@ -17,9 +17,9 @@ Click: [View the Project on Github](https://github.com/Mavengence/Climate_Challe
 ## Our official Report:
 
 <center>
-<object data="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Report.pdf" type="application/pdf" width="800px" height="700px">
-    <embed src="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Report.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Report.pdf">Download PDF</a>.</p>
+<object data="https://timloehr.me/images/Final_Report.pdf" type="application/pdf" width="800px" height="700px">
+    <embed src="https://timloehr.me/images/Final_Report.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Final_Report.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 </center>
