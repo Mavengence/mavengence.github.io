@@ -8,25 +8,25 @@ image: "/images/climate.png"
 
 Click: [View the Project on Github](https://github.com/Mavengence/Climate_Challenge_Hackathon)
 
-## My official Prototype:
+## Our official Prototype:
 
 <img src="/images/prototype.gif"
 					alt="Prototype"
 					style="width: 100%;" />
 
-## My official Paper:
+## Our official Report:
 
 <center>
-<object data="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Paper.pdf" type="application/pdf" width="800px" height="700px">
-    <embed src="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Paper.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Paper.pdf">Download PDF</a>.</p>
+<object data="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Report.pdf" type="application/pdf" width="800px" height="700px">
+    <embed src="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Report.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Report.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 </center>
 
 <hr>
 
-## My official Presentation:
+## Our official Presentation:
 
 <center>
 <object data="https://timloehr.me/images/Löhr_Tim_Climate_Hackathon_Final_Presentation.pdf" type="application/pdf" width="800px" height="700px">
