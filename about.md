@@ -18,14 +18,16 @@ sitemap:
 <br><br>
 
 > #### Table of Contents (clickable):
-- Courses
+- University Courses:
     - [Master Courses](#1)
     - [Exchange Semester Courses](#2)
     - [Bachelor Courses](#3)
-- [Extracurricular Activities](#4)
-- [Languages](#5)
-- [Certificates](#6)
-- [Hobbies](#7)
+
+- Outside University Activities
+    - [Extracurricular Activities](#4)
+    - [Languages](#5)
+    - [Certificates](#6)
+    - [Hobbies](#7)
 
 ## <a name="1">Computer Science Master Student</a>
 #### @[University of Erlangen-Nürnberg](https://www.fau.de/)
@@ -108,5 +110,5 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 ## <a name="7">Hobbies</a>
 
 - Bouldering
-- Piano
+- Playing Piano
 - Reading
