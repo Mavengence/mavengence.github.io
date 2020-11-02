@@ -18,9 +18,10 @@ sitemap:
 <br><br>
 
 > #### Table of Contents (clickable):
-- [Master Courses](#1)
-- [Exchange Semester Courses](#2)
-- [Bachelor Courses](#3)
+- Courses
+    - [Master Courses](#1)
+    - [Exchange Semester Courses](#2)
+    - [Bachelor Courses](#3)
 - [Extracurricular Activities](#4)
 - [Languages](#5)
 - [Certificates](#6)
@@ -33,33 +34,34 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 
 #### First Master Semester Courses (4/2020 - 10/2020)
 
-- Seminar: Machine Learning in the Industry 4.0
-- Deep Learning 
+- [Seminar: Machine Learning in the Industry 4.0](https://www.mad.tf.fau.de/teaching/ss19-madi40/)
+- [Deep Learning](https://www5.cs.fau.de/lectures/ws-1718/deep-learning-dl/index.html)
 - Clinical Data Science
 - Bioinformatics
-- Mathematics in Data Science
+- [Mathematics in Data Science](https://univis.fau.de:1234/formbot/dsc_3Danew_2Flecture_view_26lvs_3Dnat_2Fdma_2Fcontro_2_2Fpdebas_26dir_3Dnat_2Fdma_2Fcontro_2_26ref_3Dlecture)
 - Introduction to Computer Science in Medicine
-- Pattern Analysis
+- [Pattern Analysis](http://www5.informatik.uni-erlangen.de/lectures/ss-13/pattern-analysis-pa/)
 
 #### Second Master Semester Courses (11/2020 - 4/2021)
 
 - Master Project: Style Classification in Posters
-- Pattern Recognition
-- Machine Learning in Timeseries
-- Machine Learning in Bioinformatics
-- eBusiness Technologies
-- Advanced Programming and Design
+- [Pattern Recognition](https://www5.cs.fau.de)
+- [Machine Learning in Timeseries](https://www.mad.tf.fau.de/teaching/courses/lv_id/41852857&sem=2020w/)
+- [Machine Learning in Bioinformatics](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dmed_2FIMSD_2Fmedinf_2F2_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2019s_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33624_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_2)
+- [eBusiness Technologies](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2FIMMD6_2F3_1_26autoexports_3Dmodules_semfilter,modules_pversion_26camefrom_3D__sat_2Frechts_2Fwirtsc_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D632%2365%23H_26modules_pversion_3D632%2365%23H%232018w_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Frewifa_2Fintern)
+- [Multimedia Security](https://www.cs1.tf.fau.de/research/multimedia-security/)
+- [Database Systems Db2](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2FIMMD5_2F65_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33622_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede)
 
 ## <a name="2">Exchange Student in Hong Kong</a>
-#### @[City University of Hong Kong](https://www.https://www.cityu.edu.hk/)
+#### @[City University of Hong Kong](www.https://www.cityu.edu.hk/)
 
 During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. Taking data engineering and learning systems as my first choice, I learned a lot about classification and visualization with R and Python. I am really strong at making good visualizations. To gain more in-depth understanding of the mathematics of the algorithms themselves, I participated in the course Machine Learning. Lastly, I experienced insights of a data analyst's position by choosing Machine Learning for Business. 
 
 #### Exchange Semester Courses (8/2019 - 1/2020)
 
-- Machine Learning
-- Machine Learning for Business
-- Data Engineering and Learning Systems
+- [Machine Learning](http://www.cityu.edu.hk/catalogue/ug/201617/course/CS4487.htm)
+- [Machine Learning for Business](https://www.cityu.edu.hk/catalogue/ug/current/course/IS4861.htm)
+- [Data Engineering and Learning Systems](https://www.cityu.edu.hk/catalogue/pg/201718/course/CS5481.htm)
 
 ## <a name="3">Information Systems and Management Bachelor Student</a>
 #### @[Insitute of Technology Nürnberg Georg Simon Ohm](https://www.th-nuernberg.de)
@@ -72,8 +74,8 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 #### Bachelor Elective Courses (4/2019 - 8/2019)
 
-- NoSQL Database Systems
-- Programming Microcontrollers
+- [NoSQL Database Systems](https://fwpf.in-tra.th-nuernberg.de/fwpf/Info_Angebote.asp?Ang_ID=4518&strlang=)
+- [Programming Microcontrollers](https://fwpf.in-tra.th-nuernberg.de/fwpf/Info_Angebote.asp?Ang_ID=4551&strlang=)
 - IT-Project: Autonomously driving Remote Control Car with Donkeycar and a Raspberry Pi 3B+
 
 
@@ -85,6 +87,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 - Beiersdorf Battleweeks Oscar&Paul: <a href="../images/Löhr_Tim_Beiersdorf.pdf"><ins>2nd Place</ins></a> (9/2020)
 - Hugo Boss: 2nd Place (10/2020)
+- The Climate Challenge by Goethe Institute (11/2020)
 
 ## <a name="5">Language Courses taken during my Bachelor</a>
 
