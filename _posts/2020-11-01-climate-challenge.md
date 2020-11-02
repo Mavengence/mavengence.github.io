@@ -8,7 +8,7 @@ image: "/images/climate.png"
 
 Click: [View the Project on Github](https://github.com/Mavengence/Climate_Challenge_Hackathon)
 
-## Our official Prototype:
+## Our Prototype:
 
 <img src="/images/prototype.gif"
 					alt="Prototype"
