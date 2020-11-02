@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tim Löhr
-description: When building a website it's helpful to see what the focus of your site is. This page is an example of how to show a website's focus.
+description: 
 sitemap:
     priority: 0.7
     lastmod: 2020-10-06
@@ -34,7 +34,7 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 
 #### First Master Semester Courses (4/2020 - 10/2020)
 
-- [Seminar: Machine Learning in the Industry 4.0](https://www.mad.tf.fau.de/teaching/ss19-madi40/)
+- [Seminar: Machine Learning in the Industry 4.0](https://timloehr.me/blog/seminar/)
 - [Deep Learning](https://www5.cs.fau.de/lectures/ws-1718/deep-learning-dl/index.html)
 - Clinical Data Science
 - Bioinformatics
@@ -53,7 +53,7 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - [Database Systems Db2](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2FIMMD5_2F65_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33622_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede)
 
 ## <a name="2">Exchange Student in Hong Kong</a>
-#### @[City University of Hong Kong](www.https://www.cityu.edu.hk/)
+#### @[City University of Hong Kong](https://www.cityu.edu.hk/)
 
 During my last bachelor semester, I participated as an exchange student at the City University of Hong Kong. Among all courses there, I focused only on Machine Learning related topics too. Taking data engineering and learning systems as my first choice, I learned a lot about classification and visualization with R and Python. I am really strong at making good visualizations. To gain more in-depth understanding of the mathematics of the algorithms themselves, I participated in the course Machine Learning. Lastly, I experienced insights of a data analyst's position by choosing Machine Learning for Business. 
 
@@ -76,7 +76,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 - [NoSQL Database Systems](https://fwpf.in-tra.th-nuernberg.de/fwpf/Info_Angebote.asp?Ang_ID=4518&strlang=)
 - [Programming Microcontrollers](https://fwpf.in-tra.th-nuernberg.de/fwpf/Info_Angebote.asp?Ang_ID=4551&strlang=)
-- IT-Project: Autonomously driving Remote Control Car with Donkeycar and a Raspberry Pi 3B+
+- [IT-Project: Autonomously driving Remote Control Car with Donkeycar and a Raspberry Pi 3B+](https://timloehr.me/blog/ohm-project/)
 
 
 ## <a name="4">Extracurricular Activities</a>
@@ -87,11 +87,10 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 - Beiersdorf Battleweeks Oscar&Paul: <a href="../images/Löhr_Tim_Beiersdorf.pdf"><ins>2nd Place</ins></a> (9/2020)
 - Hugo Boss: 2nd Place (10/2020)
-- The Climate Challenge by Goethe Institute (11/2020)
+- [The Climate Challenge by Goethe Institute (11/2020)](https://timloehr.me/blog/climate-challenge/)
 
 ## <a name="5">Language Courses taken during my Bachelor</a>
 
-- Russian A1 Level (7/2017)
 - Spanish A1 Level (3/2018)
 - Chinese (mandarin) A2 Level (7/2018)
 - Japanese B1 Level (7/2019)
@@ -105,8 +104,6 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 - Coursera: <a href="../images/Coursera_DL.pdf"><ins>Deep Learning Specialization</ins></a> (4/2020)
 - Coursera: <a href="../images/Coursera_Med.pdf"><ins>AI for Medicine</ins></a> (4/2020)
 - Udemy: <a href="../images/Udemy_Python.pdf"><ins>Python Course</ins></a> (7/2018)
-
-
 
 ## <a name="7">Hobbies</a>
 
