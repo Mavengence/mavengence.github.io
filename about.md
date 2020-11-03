@@ -88,7 +88,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 ##### Hackathons
 
 - Beiersdorf Battleweeks Oscar&Paul: <a href="../images/Löhr_Tim_Beiersdorf.pdf"><ins>2nd Place</ins></a> (9/2020)
-- Hugo Boss: 2nd Place (10/2020)
+- Hugo Boss: <a href="../images/Löhr_Tim_Hugo_Boss.png"><ins>2nd Place</ins></a> (10/2020)
 - [The Climate Challenge by Goethe Institute (11/2020)](https://timloehr.me/blog/climate-challenge/)
 
 ## <a name="5">Language Courses taken during my Bachelor</a>
