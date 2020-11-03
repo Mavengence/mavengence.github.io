@@ -79,6 +79,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 - [Programming Microcontrollers](https://fwpf.in-tra.th-nuernberg.de/fwpf/Info_Angebote.asp?Ang_ID=4551&strlang=)
 - [IT-Project: Autonomously driving Remote Control Car with Donkeycar and a Raspberry Pi 3B+](https://timloehr.me/blog/ohm-project/)
 
+<hr>
 
 ## <a name="4">Extracurricular Activities</a>
 
