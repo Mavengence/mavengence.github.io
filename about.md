@@ -22,7 +22,6 @@ sitemap:
     - [Master Courses](#1)
     - [Exchange Semester Courses](#2)
     - [Bachelor Courses](#3)
-
 - Outside University Activities
     - [Extracurricular Activities](#4)
     - [Languages](#5)
