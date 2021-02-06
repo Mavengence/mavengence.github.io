@@ -2,7 +2,7 @@
 layout: post
 title:  "Representation Learning <br> Gait Analysis <br> for Parkinson's diseased"
 date:   2020-11-01
-excerpt: "This project aims to quantify how accurately Mor- bus Parkinson’s can be classified by different types of deep learning architecture without preprocessing the original sensor data."
+excerpt: "Classify Parkinson with different types of deep learning architecture."
 image: "/images/parkinson-min.png"
 ---
 

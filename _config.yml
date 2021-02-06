@@ -24,7 +24,7 @@ email:              timloehr@icloud.com # change this to your email to receive f
 
 # Other
 background_image:   /images/bg4.jpg
-background_image2:   /images/bg5.jpg
+background_image2:   /images/bg4.jpg
 
 # Tip: The color palette and other styles can be configured in /_sass/lib/_vars.scss
 slapform_thankyou_page: /thank-you
