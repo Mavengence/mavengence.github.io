@@ -2,7 +2,7 @@
 layout: post
 title:  "Representation Learning <br> for Gait Analysis <br> in Parkinson's Patients"
 date:   2020-11-01
-excerpt: "Classify Parkinson with different types of deep learning architecture."
+excerpt: "Binary classification of Parkinson's patients with different types of deep learning architecture."
 image: "/images/parkinson-min.png"
 ---
 
