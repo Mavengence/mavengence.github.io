@@ -6,7 +6,7 @@ excerpt: "Classify Parkinson with different types of deep learning architecture.
 image: "/images/parkinson-min.png"
 ---
 
-Click: [View the Project on Github](hhttps://github.com/Mavengence/Representation-Learning-for-Gait-Analysis-in-Parkinson-s-Patients)
+Click: [View the Project on Github](https://github.com/Mavengence/Representation-Learning-for-Gait-Analysis-in-Parkinson-s-Patients)
 
 ## My official Report:
 
