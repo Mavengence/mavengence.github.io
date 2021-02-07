@@ -51,7 +51,12 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - [Machine Learning in Bioinformatics](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dmed_2FIMSD_2Fmedinf_2F2_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2019s_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33624_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_2)
 - [eBusiness Technologies](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2FIMMD6_2F3_1_26autoexports_3Dmodules_semfilter,modules_pversion_26camefrom_3D__sat_2Frechts_2Fwirtsc_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D632%2365%23H_26modules_pversion_3D632%2365%23H%232018w_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Frewifa_2Fintern)
 - [Multimedia Security](https://www.cs1.tf.fau.de/research/multimedia-security/)
-- [Database Systems Db2](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2FIMMD5_2F65_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33622_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede)
+- [Pervasive Computing](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2Flehrst_2F5_0_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33623_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_3)
+
+#### Third Master Semester Courses (4/2021 - 8/2021)
+- [Artificial Intelligence 2](https://kwarc.info/courses/ai2/)
+- [SWAT Analyse](https://univis.fau.de/form?__s=2&dsc=anew/module_view&studricht=111224&mod=tech/IMMD/IMMD6/92&sem=2021s&autoexports=modules_pversion&anonymous=1&camefrom=__sat/studie/inform&modules_oldsem=2021s&modules_pordnrtitle=079%2365%23H-33523-33529-33622&modules_pversion=079%2365%23H%232010&ref=tumstud&tdir=__mod/fau/techfa/inform_6/master/wahlpf/sulede&__e=665)
+- [Human Factors in Security and Privacy](https://univis.fau.de/form?__s=2&dsc=anew/module_view&studricht=113230&mod=tech/IMMD/lehrst/0_3&sem=2021s&autoexports=modules_pversion&anonymous=1&camefrom=__sat/studie/inform&modules_oldsem=2021s&modules_pordnrtitle=079%2365%23H-33523-33529-33623&modules_pversion=079%2365%23H%232010&ref=tumstud&tdir=__mod/fau/techfa/inform_6/master/wahlpf/sulede_3&__e=665)
 
 ## <a name="2">Exchange Student in Hong Kong</a>
 #### @[City University of Hong Kong](https://www.cityu.edu.hk/)

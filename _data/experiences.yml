@@ -1,3 +1,17 @@
+- date:  "2021 Feb. - 2021 July"
+  title: "Business Intelligence Engineer Internship @ <a href='https://www.amazon.de/'>Amazon</a>"
+  desc:  "Long-term Network Planning: Predicting the upcoming amount of sales for special events like Black Friday to optimize the logistical processes."
+  host: 
+    name: "<a>Efthymiou Dimitris</a>"
+    role: "Supervisor"
+  brief: True
+- date:  "2020 Oct. - Present."
+  title: "MBA @ <a href='https://www.thepowermba.com'>ThePowerMBA</a>"
+  desc:  "Major: MBA"
+  host: 
+    name: "Online MBA Certificate with startup focus and teachers such as Chad Hurley (Co-Founder YouTube)"
+    role: "Supervisors"
+  brief: True
 - date:  "2020 Apr. - Present."
   title: "M.Sc. Computer Science @ <a href='https://www.fau.de/'>University of Erlangen-Nuremberg</a>"
   desc:  "Major: Artificial Intelligence"
@@ -5,8 +19,8 @@
     name: "Medicine"
     role: "Minor"
   brief: True
-- date:  "2020 Mar. - Present."
-  title: "Machine Learning Engineer @ <a href='https://www.siemens.de/'>Siemens AG</a>"
+- date:  "2020 Mar. - 2021 Feb."
+  title: "Machine Learning Engineer Working Student@ <a href='https://www.siemens.de/'>Siemens AG</a>"
   desc:  "Prototyping an NLP application which takes as input raw log files from production machines and predicts the most likely person from the Software Engineering team which is responsible to fix a bug. Implemented the automated ETL and prediction pipeline based on a weekly scheduled training of thfreshly scraped log files with the XG Boost classifier and made available on a Webserver"
   host:
     name: "<a>Armin Hadzalic</a>"
@@ -20,14 +34,14 @@
     role: "Supervisor"
   brief: true
 - date:  "2019 Apr. - 2019 Aug."
-  title: "Working Student @ <a href='https://www.rehau.de/'>Rehau AG</a>"
+  title: "Java Software Engineer Working Student @ <a href='https://www.rehau.de/'>Rehau AG</a>"
   desc:  "Created an Java-Applet to scrape raw data from IoT home devices and wrote a live analysis tool. Checking what data is sent back and forth from the IoT device and the Wi-Fi router and implemented it in such a way, that no classified persona data is shown in the logs."
   brief: true
   host:
     name: "<a>Peter Perzl</a>"
     role: "Instructor"
 - date:  "2018 Oct. - 2019 Mar."
-  title: "Internship @ <a href='https://www.tokyostay.jp/'>Tokyostay Ltd. in Tokyo</a>"
+  title: "Web Developer Internship @ <a href='https://www.tokyostay.jp/'>Tokyostay Ltd. in Tokyo</a>"
   desc:  "Focus on ReactJS and Wordpress and managing IT related tasks regarding hostel renting"
   brief: true
   host: 
@@ -41,7 +55,7 @@
     role: "Supervisor"
   brief: true
 - date:  "2014 August. - 2015 Jul."
-  title: "Internship @ <a href='https://www.cosh.de/'>CosH Consulting GmbH</a>"
+  title: "IT-Technician Internship @ <a href='https://www.cosh.de/'>CosH Consulting GmbH</a>"
   desc:  "School internship with focus on networking and repair computers, also supporting and learning how project-based networking works"
   host: 
     name: "<a>Manuel Wagner</a>"

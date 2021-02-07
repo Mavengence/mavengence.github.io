@@ -40,14 +40,17 @@
 				@include vendor('transition-delay', '0.75s');
 				background: _palette(invert, bg);
 				content: '';
-				display: block;
+				//display: block;
 				height: 100%;
 				left: 0;
 				opacity: 0;
-				position: fixed;
+				//position: fixed;
 				top: 0;
 				width: 100%;
+				position: relative;
+        		display: inline-block;
 			}
+
 
 			body.is-loading & {
 				&:before {
@@ -63,7 +66,7 @@
 		}
 	}
 
-	#wrapper:hover{
+	#img-change:hover{
 		@include vendor('transition', 'opacity #{_duration(menu)} ease');
 		position: relative;
 		z-index: 1;
