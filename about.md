@@ -55,8 +55,9 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 
 #### Third Master Semester Courses (4/2021 - 8/2021)
 - [Artificial Intelligence 2](https://kwarc.info/courses/ai2/)
-- [SWAT Analyse](https://univis.fau.de/form?__s=2&dsc=anew/module_view&studricht=111224&mod=tech/IMMD/IMMD6/92&sem=2021s&autoexports=modules_pversion&anonymous=1&camefrom=__sat/studie/inform&modules_oldsem=2021s&modules_pordnrtitle=079%2365%23H-33523-33529-33622&modules_pversion=079%2365%23H%232010&ref=tumstud&tdir=__mod/fau/techfa/inform_6/master/wahlpf/sulede&__e=665)
 - [Human Factors in Security and Privacy](https://univis.fau.de/form?__s=2&dsc=anew/module_view&studricht=113230&mod=tech/IMMD/lehrst/0_3&sem=2021s&autoexports=modules_pversion&anonymous=1&camefrom=__sat/studie/inform&modules_oldsem=2021s&modules_pordnrtitle=079%2365%23H-33523-33529-33623&modules_pversion=079%2365%23H%232010&ref=tumstud&tdir=__mod/fau/techfa/inform_6/master/wahlpf/sulede_3&__e=665)
+- Human Computer Interaction
+- Software Engineering for Artificial Intelligence
 
 ## <a name="2">Exchange Student in Hong Kong</a>
 #### @[City University of Hong Kong](https://www.cityu.edu.hk/)
@@ -89,6 +90,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 ## <a name="4">Extracurricular Activities</a>
 
 - Associate writer @[Towards Data Science](https://towardsdatascience.com/dimensionality-reduction-forensics-50014430767f)
+- <a href="../images/mentor.pdf"><ins>Freshman Mentor Programm</ins></a> @[University of Applied Sciences Georg Simon Ohm](https://www.th-nuernberg.de/)
 
 ##### Hackathons
 
@@ -105,6 +107,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 ## <a name="6">Certificates</a>
 
+- Udacity: <a href="../images/Udacity_DSBL.pdf"><ins>Data Science for Business Leaders</ins></a> (1/2021)
 - Udacity: <a href="../images/Udacity_DS.pdf"><ins>Data Scientist Nanodegree</ins></a> (3/2020)
 - Udacity: <a href="../images/Udacity_NLP.pdf"><ins>Natural Language Processing</ins></a> (7/2019)
 - Coursera: <a href="../images/Coursera_GAN.pdf"><ins>GAN Specialization</ins></a> (7/2020)

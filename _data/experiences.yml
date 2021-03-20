@@ -1,10 +1,10 @@
-#- date:  "2021 Feb. - 2021 July"
-#  title: "Business Intelligence Engineer Internship @ <a href='https://www.amazon.de/'>Amazon</a>"
-#  desc:  "Long-term Network Planning: Predicting the upcoming amount of sales for special events like Black Friday to optimize the logistical processes."
-#  host: 
-#    name: "<a>Efthymiou Dimitris</a>"
- #   role: "Supervisor"
-  #brief: True
+- date:  "2021 Feb. - 2021 July"
+  title: "Business Intelligence Engineer Internship @ <a href='https://www.amazon.de/'>Amazon</a>"
+  desc:  "Long-term Network Planning: Predicting the upcoming amount of sales for special events like Black Friday to optimize the logistical processes."
+  host: 
+    name: "<a>Efthymiou Dimitris</a>"
+    role: "Supervisor"
+  brief: True
 - date:  "2020 Oct. - Present."
   title: "MBA @ <a href='https://www.thepowermba.com'>ThePowerMBA</a>"
   desc:  "Major: MBA"
