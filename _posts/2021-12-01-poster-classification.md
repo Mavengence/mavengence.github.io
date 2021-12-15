@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Style Classification in Posters"
+title:  "Style Classification <br> and Unsupervised Clustering <br> in Posters"
 date:   2021-12-01
 excerpt: "Classifying of museum posters by classification, unsupervised clustering, and OCR Topic Modeling"
 image: "/images/bert.png"
