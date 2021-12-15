@@ -26,7 +26,8 @@ sitemap:
     - [Extracurricular Activities](#4)
     - [Languages](#5)
     - [Certificates](#6)
-    - [Hobbies](#7)
+    - [Scholarships](#7)
+    - [Hobbies](#8)
 
 ## <a name="1">Computer Science Master Student</a>
 #### @[University of Erlangen-Nürnberg](https://www.fau.de/)
@@ -45,19 +46,22 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 
 #### Second Master Semester Courses (11/2020 - 4/2021)
 
-- Master Project: Style Classification in Posters
-- [Pattern Recognition](https://www5.cs.fau.de)
 - [Machine Learning in Timeseries](https://www.mad.tf.fau.de/teaching/courses/lv_id/41852857&sem=2020w/)
 - [Machine Learning in Bioinformatics](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dmed_2FIMSD_2Fmedinf_2F2_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2019s_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33624_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_2)
-- [eBusiness Technologies](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2FIMMD6_2F3_1_26autoexports_3Dmodules_semfilter,modules_pversion_26camefrom_3D__sat_2Frechts_2Fwirtsc_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D632%2365%23H_26modules_pversion_3D632%2365%23H%232018w_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Frewifa_2Fintern)
 - [Multimedia Security](https://www.cs1.tf.fau.de/research/multimedia-security/)
 - [Pervasive Computing](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2Flehrst_2F5_0_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33623_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_3)
+- 
 
 #### Third Master Semester Courses (4/2021 - 8/2021)
-- [Artificial Intelligence 2](https://kwarc.info/courses/ai2/)
+- Master Project: Style Classification in Posters
 - [Human Factors in Security and Privacy](https://univis.fau.de/form?__s=2&dsc=anew/module_view&studricht=113230&mod=tech/IMMD/lehrst/0_3&sem=2021s&autoexports=modules_pversion&anonymous=1&camefrom=__sat/studie/inform&modules_oldsem=2021s&modules_pordnrtitle=079%2365%23H-33523-33529-33623&modules_pversion=079%2365%23H%232010&ref=tumstud&tdir=__mod/fau/techfa/inform_6/master/wahlpf/sulede_3&__e=665)
-- Human Computer Interaction
 - Software Engineering for Artificial Intelligence
+- Speech and Language Understanding
+
+#### Fourth Master Semester Courses (10/2021 - 4/2021)
+- Master Thesis: AI Trend Detection in Healthcare by applying Topic Clustering and Sentiment Analysis using Podcast Data
+- Commercial Open Source Startups
+- Advanced Programming Techniques
 
 ## <a name="2">Exchange Student in Hong Kong</a>
 #### @[City University of Hong Kong](https://www.cityu.edu.hk/)
@@ -88,12 +92,18 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 <hr>
 
 ## <a name="4">Extracurricular Activities</a>
-
+- PwC Next Digital Leader Summit 2021
+- Member of VDI (Verein deutscher Ingenieure, “Society of german Engineers”)
+- Member of young liberals (JuLis) part of the FDP (German government party)
+- PwC Next Digital Leader Summit 2020
 - Associate writer @[Towards Data Science](https://towardsdatascience.com/dimensionality-reduction-forensics-50014430767f)
 - <a href="../images/mentor.pdf"><ins>Freshman Mentor Programm</ins></a> @[University of Applied Sciences Georg Simon Ohm](https://www.th-nuernberg.de/)
 
 ##### Hackathons
 
+- KPMG Value Creation Championship 2nd Place
+- Huawei Seeds for the Future 1. Place
+- Talent Meets Bertelsmann 2021
 - Beiersdorf Battleweeks Oscar&Paul: <a href="../images/Löhr_Tim_Beiersdorf.pdf"><ins>2nd Place</ins></a> (9/2020)
 - Hugo Boss: <a href="../images/Löhr_Tim_Hugo_Boss.png"><ins>2nd Place</ins></a> (10/2020)
 - [The Climate Challenge by Goethe Institute (11/2020)](https://timloehr.me/blog/climate-challenge/)
@@ -115,7 +125,13 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 - Coursera: <a href="../images/Coursera_Med.pdf"><ins>AI for Medicine</ins></a> (4/2020)
 - Udemy: <a href="../images/Udemy_Python.pdf"><ins>Python Course</ins></a> (7/2018)
 
-## <a name="7">Hobbies</a>
+## <a name="7">Scholarships</a>
+
+- Germany National Scholarship
+- e-fellows Scholarship
+- Bertelsmann Technology Udacity Scholarship
+
+## <a name="8">Hobbies</a>
 
 - Bouldering
 - Playing Piano
