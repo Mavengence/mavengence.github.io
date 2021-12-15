@@ -52,7 +52,7 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - [Pervasive Computing](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2Flehrst_2F5_0_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33623_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_3)
 
 #### Third Master Semester Courses (4/2021 - 8/2021)
-- Master Project: Style Classification in Posters
+- [Master Project: Style Classification in Posters](https://timloehr.me/blog/poster-classification/)
 - [Human Factors in Security and Privacy](https://univis.fau.de/form?__s=2&dsc=anew/module_view&studricht=113230&mod=tech/IMMD/lehrst/0_3&sem=2021s&autoexports=modules_pversion&anonymous=1&camefrom=__sat/studie/inform&modules_oldsem=2021s&modules_pordnrtitle=079%2365%23H-33523-33529-33623&modules_pversion=079%2365%23H%232010&ref=tumstud&tdir=__mod/fau/techfa/inform_6/master/wahlpf/sulede_3&__e=665)
 - Software Engineering for Artificial Intelligence
 - Speech and Language Understanding
