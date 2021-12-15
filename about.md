@@ -126,9 +126,9 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 ## <a name="7">Scholarships</a>
 
-- Bertelsmann Technology Udacity Scholarship <a href="../images/Bertelsmann_Year_3_Scholarship_Badge.pdf"><ins>Attended</ins></a> (12/2021)
+- Bertelsmann Technology Udacity Scholarship <a href="../images/Bertelsmann_Year_3_Scholarship_Badge.pdf"><ins>Certificate</ins></a> (12/2021)
 - Germany National Scholarship
-- e-fellows Scholarship <a href="../images/efellows.pdf"><ins>Attended</ins></a> (11/2020)
+- e-fellows Scholarship <a href="../images/efellows.pdf"><ins>Certificate</ins></a> (11/2020)
 
 ## <a name="8">Hobbies</a>
 
