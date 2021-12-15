@@ -50,7 +50,6 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - [Machine Learning in Bioinformatics](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dmed_2FIMSD_2Fmedinf_2F2_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2019s_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33624_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_2)
 - [Multimedia Security](https://www.cs1.tf.fau.de/research/multimedia-security/)
 - [Pervasive Computing](https://univis.fau.de/formbot/dsc_3Danew_2Fmodule_view_26mod_3Dtech_2FIMMD_2Flehrst_2F5_0_26autoexports_3Dmodules_pversion_26camefrom_3D__sat_2Fstudie_2Finform_26modules_oldsem_3D2020w_26modules_pordnrtitle_3D079%2365%23H-33523-33529-33623_26modules_pversion_3D079%2365%23H%232010_26ref_3Dtumstud_26tdir_3D__mod_2Ffau_2Ftechfa_2Finform_6_2Fmaster_2Fwahlpf_2Fsulede_3)
-- 
 
 #### Third Master Semester Courses (4/2021 - 8/2021)
 - Master Project: Style Classification in Posters
