@@ -103,7 +103,7 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 - KPMG Value Creation Championship 2nd Place
 - Huawei Seeds for the Future 1. Place
-- Talent Meets Bertelsmann 2021
+- Talent Meets Bertelsmann 2021 <a href="../images/TMB21_Certificate_TimLoehr.pdf"><ins>Attended</ins></a> (4/2021)
 - Beiersdorf Battleweeks Oscar&Paul: <a href="../images/Löhr_Tim_Beiersdorf.pdf"><ins>2nd Place</ins></a> (9/2020)
 - Hugo Boss: <a href="../images/Löhr_Tim_Hugo_Boss.png"><ins>2nd Place</ins></a> (10/2020)
 - [The Climate Challenge by Goethe Institute (11/2020)](https://timloehr.me/blog/climate-challenge/)
@@ -127,9 +127,9 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 
 ## <a name="7">Scholarships</a>
 
+- Bertelsmann Technology Udacity Scholarship <a href="../images/Bertelsmann_Year_3_Scholarship_Badge.pdf"><ins>Attended</ins></a> (12/2021)
 - Germany National Scholarship
-- e-fellows Scholarship
-- Bertelsmann Technology Udacity Scholarship
+- e-fellows Scholarship <a href="../images/efellows.pdf"><ins>Attended</ins></a> (11/2020)
 
 ## <a name="8">Hobbies</a>
 
