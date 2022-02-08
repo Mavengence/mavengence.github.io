@@ -3,7 +3,7 @@ layout: post
 title:  "Commercial <br> Open Source Startups <br> CyberChat"
 date:   2022-01-07
 excerpt: "University course for founding an open source startup"
-image: "/images/cyberchat.jpg"
+image: "/images/cyberchat.jpeg"
 ---
 
 ## My official Presentation:
