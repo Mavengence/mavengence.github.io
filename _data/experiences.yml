@@ -1,3 +1,17 @@
+- date:  "2022 April. - currently"
+  title: "Student Assistant @ <a href='https://www.mad.tf.fau.de/team/'>Machine Learning and Data Analytics Lab</a>"
+  desc:  "Optimizing the lecture slides for the courses Machine Learning for Engineers 1 & 2." 
+  host: 
+    name: "<a>Thomas Altstidl</a>"
+    role: "Supervisor"
+  brief: True
+- date:  "2022 April. - 2022 July"
+  title: "Digital Tech Fellow @ <a href='https://www.dta.fau.de/'>DTA</a>"
+  desc:  "Selected as one of 20 exclusive participants among applicants from my entire university for the elite entrepreneurial and tech talents program at the University of Erlangen-Nuremberg."
+  host: 
+    name: "<a>Lisa Drescher & Klaus Konrad</a>"
+    role: "Supervisor"
+  brief: True
 - date:  "2021 Feb. - 2021 July"
   title: "Business Intelligence Engineer Internship @ <a href='https://www.amazon.de/'>Amazon</a>"
   desc:  "Long-term Network Planning: Predicting the upcoming amount of sales for special events like Black Friday to optimize the logistical processes."
