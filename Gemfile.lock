@@ -77,9 +77,10 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
-  jekyll (~> 3.2.1)
+  jekyll
   jekyll-feed
   jekyll-gist
   jekyll-mentions
@@ -87,4 +88,4 @@ DEPENDENCIES
   jekyll-sitemap
 
 BUNDLED WITH
-   1.16.2
+   2.3.15
