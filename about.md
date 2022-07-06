@@ -56,10 +56,10 @@ Currently I am enrolled at the Friedrich Alexander University in Erlangen (Germa
 - [Human Factors in Security and Privacy](https://univis.fau.de/form?__s=2&dsc=anew/module_view&studricht=113230&mod=tech/IMMD/lehrst/0_3&sem=2021s&autoexports=modules_pversion&anonymous=1&camefrom=__sat/studie/inform&modules_oldsem=2021s&modules_pordnrtitle=079%2365%23H-33523-33529-33623&modules_pversion=079%2365%23H%232010&ref=tumstud&tdir=__mod/fau/techfa/inform_6/master/wahlpf/sulede_3&__e=665)
 - Software Engineering for Artificial Intelligence
 - Speech and Language Understanding
+- Commercial Open Source Startups
 
 #### Fourth Master Semester Courses (10/2021 - 4/2021)
 - Master Thesis: AI Trend Detection in Healthcare by applying Topic Clustering and Sentiment Analysis using Podcast Data
-- Commercial Open Source Startups
 - Advanced Programming Techniques
 
 ## <a name="2">Exchange Student in Hong Kong</a>
@@ -91,6 +91,9 @@ In 2018, I had a mandatory internship at a small company in Tokyo, where I worke
 <hr>
 
 ## <a name="4">Extracurricular Activities</a>
+- Summer School in Madrid @[Universidad Politécnica de Madrid](https://www.upm.es/): AI Ethics
+- Seasonal School in Pisa @[Scuola Superiore Sant’Anna](https://www.santannapisa.it/en): Innovations management and the common good
+- DTA - [Digital Tech Academy](https://www.dta.fau.de/) @FAU
 - PwC Next Digital Leader Summit 2021
 - Member of VDI (Verein deutscher Ingenieure, “Society of german Engineers”)
 - Member of young liberals (JuLis) part of the FDP (German government party)
