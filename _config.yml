@@ -1,6 +1,6 @@
 # Site
 title:              TIM LÖHR
-bio:                'Tim Löhr, 25 year old Machine Learning Engineer from Germany'
+bio:                'Tim Löhr, 25 year old Ph.D. student from Germany'
 description:        "Passionate about Data Science"
 locale:             de_DE
 baseurl: / # the subpath of your site, e.g. /blog
@@ -16,7 +16,7 @@ instagram:          tim_loehr27
 github:             Mavengence
 medium:             mavengence
 linkedin:           tim-löhr-821ba8188
-google-scholar:     DLV7IqAAAAAJ&hl=de
+google:             DLV7IqAAAAAJ&hl=de
 
 # personal
 location:           Nürnberg, Germany
