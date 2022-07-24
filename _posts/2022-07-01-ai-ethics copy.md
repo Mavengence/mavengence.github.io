@@ -2,11 +2,13 @@
 layout: post
 title:  "AI Ethics <br> medical AI diagnosis <br> for breast cancer"
 date:   2022-07-01
-excerpt: "University course during the summer school @Universidad Politécnica de Madrid for the course AI ethics. Won the first prize with our project: Medical AI Diagnosis of Breast Cancer."
+excerpt: "One-week Summer school about the topic AI Ethics @Universidad Politécnica de Madrid."
 image: "/images/AI_Ethics.jpg"
 ---
 
 ## My official Presentation:
+
+Won the first prize with our project: Medical AI Diagnosis of Breast Cancer.
 
 <center>
     <object data="https://timloehr.me/images/Team1_AI_Diagnosis.pdf" type="application/pdf" width="800px" height="700px">
