@@ -1,7 +1,8 @@
-- date:  "2022 Oct. - present"
+- date:  "2022 Nov. - present"
   title: "Graduate Software Engineer in the Data Science Team @ Apple"
   desc:  "Collaborating with Software Engineers and business stakeholders to build full stack, MLOps data products for Apples supply chain business" 
-- date:  "2022 July - 2022 Nov."
+  brief: True
+- date:  "2022 July - 2022 Oct."
   title: "Data Science Career Coach for the Bosch AI Talent Scholarship Program @ <a href='https://www.udacity.com'>Udacity</a>"
   desc:  "Conducted weekly webinars to deliver careers and initial freelancing experience to Udacity learners"
   brief: True
