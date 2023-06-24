@@ -40,7 +40,7 @@
   brief: True
 - date:  "2020 Mar. - 2021 Feb."
   title: "Machine Learning Engineer Working Student@ <a href='https://www.siemens.de/'>Siemens AG</a>"
-  desc:  "Prototyping an NLP application which takes as input raw log files from production machines and predicts the most likely person from the Software Engineering team which is responsible to fix a bug. Implemented the automated ETL and prediction pipeline based on a weekly scheduled training of thfreshly scraped log files with the XG Boost classifier and made available on a Webserver"
+  desc:  "Prototyping an NLP application which takes as input raw log files from production machines and predicts the most likely person from the Software Engineering team which is responsible to fix a bug. Implemented the automated ETL and prediction pipeline based on a weekly scheduled training of the freshly scraped log files with the XG Boost classifier and made available on a Webserver"
   host:
     name: "<a>Armin Hadzalic</a>"
     role: "Supervisor"
