@@ -1,9 +1,6 @@
 - date:  "2022 Oct. - present"
-  title: "Graduate Software Engineer – Data Science Team @ Apple"
+  title: "Graduate Software Engineer in the Data Science Team @ Apple"
   desc:  "Collaborating with Software Engineers and business stakeholders to build full stack, MLOps data products for Apples supply chain business" 
-  host: 
-    name: "<a>Thomas Altstidl</a>"
-    role: "Supervisor"
 - date:  "2022 July - 2022 Nov."
   title: "Data Science Career Coach for the Bosch AI Talent Scholarship Program @ <a href='https://www.udacity.com'>Udacity</a>"
   desc:  "Conducted weekly webinars to deliver careers and initial freelancing experience to Udacity learners"
@@ -11,9 +8,6 @@
 - date:  "2022 April. - 2022 August"
   title: "Student Assistant @ <a href='https://www.mad.tf.fau.de/team/'>Machine Learning and Data Analytics Lab</a>"
   desc:  "Optimizing the lecture slides for the courses Machine Learning for Engineers 1 & 2." 
-  host: 
-    name: "<a>Thomas Altstidl</a>"
-    role: "Supervisor"
   brief: True
 - date:  "2022 April. - 2022 July"
   title: "Digital Tech Fellow @ <a href='https://www.dta.fau.de/'>DTA</a>"
