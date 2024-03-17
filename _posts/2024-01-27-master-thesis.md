@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Digital Tech Academy <br> Final Presentation <br> PeerBuilder"
+title:  "Master Thesis <br> University <br> Erlangen-Nuremberg"
 date:   2022-07-23
 excerpt: "My master thesis at the University of Erlangen-Nuremberg."
 image: "/images/thesis.jpg"
