@@ -1,4 +1,8 @@
-- date:  "2022 Nov. - present"
+- date:  "2024 July - present"
+  title: "Data Scientist @ Red Bull"
+  desc:  "Solving data science tasks for Red Bull Operations" 
+  brief: True
+- date:  "2022 Nov. - 2024 June"
   title: "Graduate Software Engineer in the Data Science Team @ Apple"
   desc:  "Collaborating with Software Engineers and business stakeholders to build full stack, MLOps data products for Apples supply chain business" 
   brief: True
