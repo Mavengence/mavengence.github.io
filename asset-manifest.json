@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/tim-loehr-portfolio/static/js/main.6cdbebc7.js",
+    "static/js/670.b8975c08.chunk.js": "/tim-loehr-portfolio/static/js/670.b8975c08.chunk.js",
+    "static/js/975.75d8f606.chunk.js": "/tim-loehr-portfolio/static/js/975.75d8f606.chunk.js",
+    "static/js/797.303863bb.chunk.js": "/tim-loehr-portfolio/static/js/797.303863bb.chunk.js",
+    "static/js/441.b7a3bc8a.chunk.js": "/tim-loehr-portfolio/static/js/441.b7a3bc8a.chunk.js",
+    "static/js/432.8b3a212d.chunk.js": "/tim-loehr-portfolio/static/js/432.8b3a212d.chunk.js",
+    "static/js/453.4b89b505.chunk.js": "/tim-loehr-portfolio/static/js/453.4b89b505.chunk.js",
+    "index.html": "/tim-loehr-portfolio/index.html",
+    "main.6cdbebc7.js.map": "/tim-loehr-portfolio/static/js/main.6cdbebc7.js.map",
+    "670.b8975c08.chunk.js.map": "/tim-loehr-portfolio/static/js/670.b8975c08.chunk.js.map",
+    "975.75d8f606.chunk.js.map": "/tim-loehr-portfolio/static/js/975.75d8f606.chunk.js.map",
+    "797.303863bb.chunk.js.map": "/tim-loehr-portfolio/static/js/797.303863bb.chunk.js.map",
+    "441.b7a3bc8a.chunk.js.map": "/tim-loehr-portfolio/static/js/441.b7a3bc8a.chunk.js.map",
+    "432.8b3a212d.chunk.js.map": "/tim-loehr-portfolio/static/js/432.8b3a212d.chunk.js.map",
+    "453.4b89b505.chunk.js.map": "/tim-loehr-portfolio/static/js/453.4b89b505.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.6cdbebc7.js"
+  ]
+}
