@@ -884,7 +884,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             style={{ 
-              marginTop: isVerySmallScreen ? '3rem' : (isMobile ? 'auto' : '3rem'),
+              marginTop: isVerySmallScreen ? '2rem' : (isMobile ? 'auto' : '1rem'),
               marginBottom: isMobile ? '12vh' : '0', /* Closer to the banner */
               position: isMobile ? 'relative' : 'static'
             }}
@@ -910,7 +910,7 @@ const Header = () => {
               textTransform: 'uppercase',
               fontWeight: 'bold'
             }}>
-              Scroll Down
+              {(isMobile ? '' : 'Scroll Down')}
             </span>
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
