@@ -23,6 +23,12 @@ const BannerContainer = styled(motion.div)`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
   margin: 2rem 0;
   
+  /* Regular margin on mobile */
+  @media (max-width: 768px) {
+    margin: 1.5rem 0;
+    padding: 10px 0; /* Slightly smaller padding on mobile */
+  }
+  
   /* Gradient fade edges for smooth scroll */
   &:before {
     content: '';

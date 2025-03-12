@@ -230,60 +230,23 @@ const App = React.memo(function App() {
             </Suspense>
           </article>
           
-          {/* Data Engineering Banner */}
-          <section>
+          {/* Hobbies Banner */}
+          <section style={{ padding: 0, marginTop: '-1rem', marginBottom: '-2rem' }}>
             <Suspense fallback={<LoadingPlaceholder />}>
               <RunningBanner items={[
-                { text: "ETL Pipeline Design", blink: true, icon: <BiCodeAlt /> },
-                { text: "Distributed Computing", blink: false, icon: <BiCodeAlt /> },
-                { text: "Kafka & Spark", blink: false, icon: <BiCodeAlt /> },
-                { text: "Data Warehousing", blink: true, icon: <BiCodeAlt /> },
-                { text: "SQL & NoSQL", blink: false, icon: <BiCodeAlt /> },
-                { text: "Airflow", blink: false, icon: <BiCodeAlt /> },
-                { text: "Cloud Infrastructure", blink: true, icon: <BiCodeAlt /> },
-                { text: "Database Optimization", blink: false, icon: <BiCodeAlt /> },
-                { text: "Data Pipelines", blink: true, icon: <BiCodeAlt /> },
-                { text: "Real-time Processing", blink: false, icon: <BiCodeAlt /> },
+                { text: "Cooking", blink: true, icon: <BiCodeAlt /> },
+                { text: "Programming", blink: false, icon: <BiCodeAlt /> },
+                { text: "Piano", blink: true, icon: <BiCodeAlt /> },
+                { text: "Guitar", blink: false, icon: <BiCodeAlt /> },
+                { text: "Reading", blink: true, icon: <BiCodeAlt /> },
+                { text: "Timchi", blink: false, icon: <BiCodeAlt /> },
+                { text: "Bouldering", blink: true, icon: <BiCodeAlt /> },
+                { text: "Golf", blink: false, icon: <BiCodeAlt /> },
+                { text: "Padel", blink: true, icon: <BiCodeAlt /> },
               ]} />
             </Suspense>
           </section>
-          
-          {/* Data Science Banner */}
-          <section>
-            <Suspense fallback={<LoadingPlaceholder />}>
-              <RunningBanner items={[
-                { text: "Machine Learning", blink: true, icon: <BiData /> },
-                { text: "Deep Learning", blink: false, icon: <BiData /> },
-                { text: "Neural Networks", blink: false, icon: <BiData /> },
-                { text: "NLP", blink: true, icon: <BiData /> },
-                { text: "Computer Vision", blink: false, icon: <BiData /> },
-                { text: "Time Series Analysis", blink: false, icon: <BiData /> },
-                { text: "Feature Engineering", blink: true, icon: <BiData /> },
-                { text: "Model Evaluation", blink: false, icon: <BiData /> },
-                { text: "PyTorch & TensorFlow", blink: true, icon: <BiData /> },
-                { text: "Statistical Modeling", blink: false, icon: <BiData /> },
-              ]} />
-            </Suspense>
-          </section>
-          
-          {/* Business Intelligence Banner */}
-          <section>
-            <Suspense fallback={<LoadingPlaceholder />}>
-              <RunningBanner items={[
-                { text: "Data Visualization", blink: true, icon: <BiData /> },
-                { text: "Dashboard Design", blink: false, icon: <BiData /> },
-                { text: "KPI Development", blink: false, icon: <BiData /> },
-                { text: "Tableau & PowerBI", blink: true, icon: <BiData /> },
-                { text: "Business Analytics", blink: false, icon: <BiData /> },
-                { text: "Predictive Modeling", blink: false, icon: <BiData /> },
-                { text: "A/B Testing", blink: true, icon: <BiData /> },
-                { text: "Decision Support", blink: false, icon: <BiData /> },
-                { text: "Forecasting", blink: true, icon: <BiData /> },
-                { text: "Trend Analysis", blink: false, icon: <BiData /> },
-              ]} />
-            </Suspense>
-          </section>
-          
+
           <section id="console">
             <Suspense fallback={<LoadingPlaceholder />}>
               <Console />

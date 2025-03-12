@@ -26,11 +26,18 @@ const flicker = keyframes`
  */
 const PikachuImage = styled.img`
   position: absolute;
-  bottom: 50px; /* Position above the running banner */
+  bottom: 38px; /* Position exactly above the running banner */
   right: 20px;
-  width: 70px;
+  width: 150px;
   height: auto;
   z-index: 10; /* Ensure visibility above other header elements */
+  
+  /* Smaller size on mobile and positioned exactly above banner */
+  @media (max-width: 768px) {
+    width: 65px; /* Slightly smaller size on mobile */
+    bottom: calc(5vh + 50px); /* Positioned higher to sit perfectly on top of banner */
+    right: 15px;
+  }
 `;
 
 /**
@@ -48,6 +55,17 @@ const HeaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 10; /* Appropriate stacking context */
+  
+  /* Mobile optimization to ensure the bottom banner is visible */
+  @media (max-width: 768px) {
+    height: 100vh; /* Full viewport height */
+    /* Adjust for safe area */
+    height: calc(100vh - env(safe-area-inset-bottom, 0));
+    /* Use padding instead of centering */
+    justify-content: flex-start;
+    padding-top: 10vh; /* Less top padding */
+    /* No margin-bottom needed since we handle spacing in child elements */
+  }
   
   /* Define the softWave animation for reuse */
   @keyframes softWave {
@@ -472,6 +490,14 @@ const RunningBanner = styled(motion.div)`
   justify-content: center;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
   
+  /* Mobile styling with 5% margin from bottom */
+  @media (max-width: 768px) {
+    bottom: 5vh; /* 5% margin from bottom */
+    padding: 11px 0; /* Slightly more padding for better visibility */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
   /* Gradient fade edges for smooth scroll */
   &:before {
     content: '';
@@ -700,14 +726,14 @@ const Header = () => {
     return () => clearInterval(interval);
   }, []);
   
-  // Modern data engineering and ML banner content
+  // Data Engineering banner content
   const bannerItems = [
-    { text: "Data Engineering", icon: <BiCodeAlt /> },
-    { text: "Machine Learning", icon: <BiData />, blink: true },
-    { text: "Business Intelligence", icon: <BiData /> },
-    { text: "Python · SQL · Spark", icon: <BiCodeAlt /> },
-    { text: "PyTorch · TensorFlow", icon: <BiData />, blink: true },
-    { text: "Cloud-native Solutions", icon: <BiCodeAlt /> }
+    { text: "ETL Pipeline Design", icon: <BiCodeAlt />, blink: true },
+    { text: "SQL & NoSQL Databases", icon: <BiCodeAlt /> },
+    { text: "Data Warehousing", icon: <BiCodeAlt />, blink: true },
+    { text: "Kafka & Spark", icon: <BiCodeAlt /> },
+    { text: "Airflow & Orchestration", icon: <BiCodeAlt />, blink: true },
+    { text: "Cloud Infrastructure", icon: <BiCodeAlt /> }
   ];
   
   const scrollToSection = (id) => {
@@ -764,13 +790,25 @@ const Header = () => {
       </NameContainer>
   
       {/* Header Content with centered elements */}
-      <HeaderContent style={{ opacity, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', position: 'relative', zIndex: 5 }}>
+      <HeaderContent style={{ 
+        opacity, 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        justifyContent: isMobile ? 'flex-start' : 'center', 
+        height: isMobile ? '80%' : '100%',  /* Reduced height on mobile */
+        paddingTop: isMobile ? '5vh' : '0',
+        position: 'relative', 
+        zIndex: 5 
+      }}>
         {/* Center content with job title and buzzword */}
         <motion.div style={{ 
           opacity: centerContentOpacity, 
           display: 'flex', 
           flexDirection: 'column', 
-          alignItems: 'center'
+          alignItems: 'center',
+          height: isMobile ? 'auto' : '100%', /* Don't use full height on mobile */
+          justifyContent: isMobile ? 'flex-start' : 'center' /* Align to top on mobile */
         }}>
           {/* Machine Loehrning buzzword - tech hipster spin */}
           <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -779,7 +817,10 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                style={{ margin: '1rem 0 2rem' }}
+                style={{ 
+                  margin: isMobile ? '0.5rem 0 1rem' : '1rem 0 2rem',
+                  fontSize: isMobile ? 'clamp(3.2rem, 4vw, 2.5rem)' : 'clamp(3.8rem, 4.5vw, 2.8rem)'
+                }}
               >
                 Machine Loehrning
               </MachineLoehrning>
@@ -790,10 +831,10 @@ const Header = () => {
                 alt="Astronaut logo" 
                 style={{ 
                   position: 'absolute',
-                  right: isMobile ? '-60px' : '-80px',
+                  right: isMobile ? '-40px' : '-80px',
                   top: '60%',
                   transform: 'translateY(-50%)',
-                  height: isMobile ? '100px' : '250px',
+                  height: isMobile ? '80px' : '250px',
                   zIndex: 100
                 }}
                 animate={{
@@ -814,7 +855,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{ 
-              marginTop: isVerySmallScreen ? '8rem' : '1rem'
+              marginTop: isVerySmallScreen ? '6rem' : (isMobile ? '0.5rem' : '1rem')
             }}
           >
             <span className="command">$</span>
@@ -832,8 +873,10 @@ const Header = () => {
               display: 'flex', 
               flexWrap: 'wrap', 
               justifyContent: 'center', 
-              marginTop: isVerySmallScreen ? '3rem' : '7rem',
-              gap: '12px'
+              marginTop: isVerySmallScreen ? '2rem' : (isMobile ? '3rem' : '7rem'),
+              marginBottom: isMobile ? '0.5rem' : '0',
+              gap: isMobile ? '8px' : '12px',
+              maxWidth: isMobile ? '300px' : '900px' /* Ensure it fits well on mobile */
             }}
           >
             <TerminalButton 
@@ -883,7 +926,10 @@ const Header = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            style={{ marginTop: isVerySmallScreen ? '0rem' : '5rem' }} /* Increased from 3rem to 5rem for even more spacing */
+            style={{ 
+              marginTop: isVerySmallScreen ? '0rem' : (isMobile ? '1rem' : '5rem'),
+              marginBottom: isMobile ? '20vh' : '0' /* Bottom margin on mobile to prevent overlap with the lower banner */
+            }}
         >
           <motion.div 
             onClick={() => scrollToSection('experience')}
