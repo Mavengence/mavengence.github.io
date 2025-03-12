@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "headline": "Tim Loehr | Data Science & Machine Learning Portfolio",
+  "description": "Data Engineer and Machine Learning specialist with expertise in data pipelines, ML engineering, and cloud data solutions. View projects and professional experience.",
+  "datePublished": "2025-03-11",
+  "dateModified": "2025-03-11",
+  "author": {
+    "@type": "Person",
+    "name": "Tim Loehr",
+    "jobTitle": "Data Engineer",
+    "url": "https://www.example.com/",
+    "sameAs": [
+      "https://www.github.com/yourusername",
+      "https://www.linkedin.com/in/yourusername",
+      "https://medium.com/@yourusername",
+      "https://scholar.google.com/citations?user=youruserid"
+    ],
+    "knowsAbout": [
+      "Data Science",
+      "Machine Learning",
+      "Data Engineering",
+      "Cloud Computing",
+      "Data Visualization",
+      "Neural Networks",
+      "Feature Engineering",
+      "Big Data",
+      "Real-time Processing"
+    ]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Work Experience",
+        "url": "https://www.example.com/#experience"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "url": "https://www.example.com/#projects"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Interactive Console",
+        "url": "https://www.example.com/#console"
+      }
+    ]
+  }
+}
