@@ -21,7 +21,7 @@ const flicker = keyframes`
 // Banner styling constants
 const BANNER_PADDING_DESKTOP = 12; // Desktop padding in pixels
 const BANNER_PADDING_MOBILE = 11; // Mobile padding value
-const BANNER_MARGIN_MOBILE = 15; // 7vh margin from bottom on mobile
+const BANNER_MARGIN_MOBILE = 11; // 7vh margin from bottom on mobile
 
 /**
  * Main header container
