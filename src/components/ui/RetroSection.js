@@ -50,7 +50,7 @@ const SectionTitle = styled(motion.h2)`
   font-family: ${FONTS.title};
   font-size: 5.5rem; /* Larger size */
   font-weight: 900;
-  color: ${COLORS.hivePrimary}; /* Main color */
+  color: ${COLORS.retroPrimary}; /* Main color */
   margin-bottom: 5rem;
   text-align: center;
   text-transform: uppercase;
@@ -132,8 +132,8 @@ const GridBackground = styled.div`
   background-image: 
     repeating-linear-gradient(
       45deg,
-      ${props => props.color || COLORS.hivePrimary}03 0px,
-      ${props => props.color || COLORS.hivePrimary}03 2px,
+      ${props => props.color || COLORS.retroPrimary}03 0px,
+      ${props => props.color || COLORS.retroPrimary}03 2px,
       transparent 2px,
       transparent 10px
     );
@@ -150,10 +150,10 @@ const GridBackground = styled.div`
     right: 0;
     bottom: 0;
     background-image: 
-      linear-gradient(45deg, ${props => props.color || COLORS.hivePrimary}05 25%, transparent 25%),
-      linear-gradient(-45deg, ${props => props.color || COLORS.hivePrimary}05 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, ${props => props.color || COLORS.hivePrimary}05 75%),
-      linear-gradient(-45deg, transparent 75%, ${props => props.color || COLORS.hivePrimary}05 75%);
+      linear-gradient(45deg, ${props => props.color || COLORS.retroPrimary}05 25%, transparent 25%),
+      linear-gradient(-45deg, ${props => props.color || COLORS.retroPrimary}05 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, ${props => props.color || COLORS.retroPrimary}05 75%),
+      linear-gradient(-45deg, transparent 75%, ${props => props.color || COLORS.retroPrimary}05 75%);
     background-size: 60px 60px;
     background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
     opacity: 0.3;
@@ -165,7 +165,7 @@ const FloatingElement = styled.div`
   position: absolute;
   width: 50px;
   height: 50px;
-  background: ${COLORS.hivePrimary};
+  background: ${COLORS.retroPrimary};
   border: 3px solid #000;
   z-index: 5;
   animation: ${floatAnimation} 6s ease-in-out infinite;

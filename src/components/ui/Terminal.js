@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { COLORS, FONTS } from './Theme';
 
 const TerminalContainer = styled(motion.div)`
-  background-color: ${COLORS.hiveDarkBg};
+  background-color: ${COLORS.retroDarkBg};
   border: 1px solid ${COLORS.retroPurple};
   border-radius: 0;
   position: relative;
@@ -21,7 +21,7 @@ const TerminalContainer = styled(motion.div)`
     right: -2px;
     width: 15px;
     height: 15px;
-    background: ${COLORS.hiveDarkBg};
+    background: ${COLORS.retroDarkBg};
     border-left: 1px solid ${COLORS.retroPurple};
     border-bottom: 1px solid ${COLORS.retroPurple};
     clip-path: polygon(100% 0, 0 0, 100% 100%);
@@ -71,11 +71,11 @@ const TerminalDots = styled.div`
     overflow: hidden;
     
     &:nth-child(1) {
-      background: ${COLORS.hivePrimary};
+      background: ${COLORS.retroPrimary};
     }
     
     &:nth-child(2) {
-      background: ${COLORS.hiveSecondary};
+      background: ${COLORS.retroSecondary};
     }
     
     &:nth-child(3) {
@@ -141,7 +141,7 @@ const TerminalContent = styled.div`
   }
   
   .path {
-    color: ${COLORS.hivePrimary};
+    color: ${COLORS.retroPrimary};
   }
   
   .prompt {
@@ -155,7 +155,7 @@ const TerminalContent = styled.div`
   }
   
   .highlight {
-    color: ${COLORS.hiveSecondary};
+    color: ${COLORS.retroSecondary};
     font-weight: bold;
   }
 `;

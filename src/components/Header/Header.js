@@ -21,37 +21,7 @@ const flicker = keyframes`
 // Banner styling constants
 const BANNER_PADDING_DESKTOP = 12; // Desktop padding in pixels
 const BANNER_PADDING_MOBILE = 11; // Mobile padding value
-const BANNER_MARGIN_MOBILE = 7; // 7vh margin from bottom on mobile
-
-/**
- * Pikachu image styling
- */
-// Pikachu sizing constants
-const PIKACHU_WIDTH_DESKTOP = 150; // Width at desktop size
-const PIKACHU_WIDTH_MOBILE = 65; // Width at mobile size
-const PIKACHU_OFFSET = 4; // Extra pixels of spacing between Pikachu and banner
-
-// Banner height calculation (padding * 2 accounts for top and bottom padding)
-const BANNER_HEIGHT_DESKTOP = BANNER_PADDING_DESKTOP * 2; // Approximate banner height on desktop
-const BANNER_HEIGHT_MOBILE = BANNER_PADDING_MOBILE * 2; // Approximate banner height on mobile
-
-const PikachuImage = styled.img`
-  position: absolute;
-  bottom: 100%; /* Position at the bottom of its container */
-  right: 20px;
-  width: ${PIKACHU_WIDTH_DESKTOP}px;
-  height: auto;
-  margin-bottom: 5px; /* Space between Pikachu and banner */
-  z-index: 10;
-  
-  /* Smaller size on mobile */
-  @media (max-width: 768px) {
-    width: ${PIKACHU_WIDTH_MOBILE}px;
-    height: auto;
-    right: 15px;
-    margin-bottom: 3px; /* Slightly smaller gap on mobile */
-  }
-`;
+const BANNER_MARGIN_MOBILE = 15; // 7vh margin from bottom on mobile
 
 /**
  * Main header container
@@ -106,10 +76,6 @@ const HeaderContainer = styled.div`
   }
 `;
 
-
-// We're removing this as we're using the app-wide background
-
-// Removing all particle-related components as we're using app-wide background
 
 // Main content wrapper
 const HeaderContent = styled.div`
@@ -322,10 +288,6 @@ const LastNameSuffix = styled(motion.div)`
     letter-spacing: -0.2rem;
   }
 `;
-
-// Connector line removed
-
-// Glow effect removed
 
 // Hover animation for logo
 const hoverRightLeft = keyframes`
@@ -706,12 +668,12 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // Hipster tech terminal cursor blinking text effect
+  // tech terminal cursor blinking text effect
   const [cursorVisible, setCursorVisible] = useState(true);
   const [typedText, setTypedText] = useState('');
   const fullText = 'Data Engineer';
   
-  // Typewriter effect for job title - hipster tech element
+  // Typewriter effect for job title
   useEffect(() => {
     if (typedText.length < fullText.length) {
       const timeout = setTimeout(() => {
@@ -761,7 +723,7 @@ const Header = () => {
           height: '1px',
           overflow: 'hidden'
         }}>
-          Tim Loehr - Data Engineer and Machine Learning Specialist
+          Tim Loehr - Data Engineer and Data Scientist
         </h1>
         <FirstName
           aria-hidden="true"
@@ -922,7 +884,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             style={{ 
-              marginTop: isVerySmallScreen ? '7rem' : (isMobile ? 'auto' : '5rem'),
+              marginTop: isVerySmallScreen ? '3rem' : (isMobile ? 'auto' : '3rem'),
               marginBottom: isMobile ? '12vh' : '0', /* Closer to the banner */
               position: isMobile ? 'relative' : 'static'
             }}
