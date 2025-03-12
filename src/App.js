@@ -279,7 +279,7 @@ const App = React.memo(function App() {
         <footer>
           <p>
             &copy; {new Date().getFullYear()} Tim Loehr · Made with 
-            <span style={{ color: COLORS.retroPrimary }}> Machine Loehrning</span>
+            <span style={{ color: COLORS.retroPrimary }}> Machine Loehrning and Rimchen</span>
           </p>
         </footer>
       </AppContainer>
