@@ -7,12 +7,12 @@ export const COLORS = {
   secondary: '#4CC9F0',     // Secondary cyan
   accent: '#F72585',        // Accent pink
   
-  // Technology-themed accent colors
-  hivePrimary: '#FDEE21',   // Bright yellow
-  hiveSecondary: '#F8BB00', // Amber
-  hiveTertiary: '#FF5722',  // Orange-red
-  hiveDarkBg: '#0F0F0F',    // Dark background
-  hiveDarkAccent: '#1E1E1E', // Slightly lighter dark accent
+  // Retro-themed accent colors
+  retroPrimary: '#FDEE21',   // Bright yellow
+  retroSecondary: '#F8BB00', // Amber
+  retroTertiary: '#FF5722',  // Orange-red
+  retroDarkBg: '#0F0F0F',    // Dark background
+  retroDarkAccent: '#1E1E1E', // Slightly lighter dark accent
   
   // Modern digital palette
   synthPink: '#FF41A6',    // Digital pink
@@ -126,7 +126,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: ${FONTS.primary};
-    background-color: ${COLORS.hiveDarkBg};
+    background-color: ${COLORS.retroDarkBg};
     color: ${COLORS.white};
     overflow-x: hidden;
     line-height: 1.6;
@@ -134,8 +134,8 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     /* Subtle data grid pattern */
     background-image: 
-      linear-gradient(to right, ${COLORS.hivePrimary}05 1px, transparent 1px),
-      linear-gradient(to bottom, ${COLORS.hivePrimary}05 1px, transparent 1px);
+      linear-gradient(to right, ${COLORS.retroPrimary}05 1px, transparent 1px),
+      linear-gradient(to bottom, ${COLORS.retroPrimary}05 1px, transparent 1px);
     background-size: 20px 20px;
     background-position: center;
   }
@@ -266,13 +266,13 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 0.85rem;
     padding: 0.6rem 1rem;
     margin: 0.5rem;
-    color: ${COLORS.hivePrimary};
+    color: ${COLORS.retroPrimary};
     background-color: transparent;
-    border: 2px solid ${COLORS.hivePrimary};
+    border: 2px solid ${COLORS.retroPrimary};
     border-radius: 0;
     position: relative;
     text-transform: uppercase;
-    text-shadow: 0 0 5px ${COLORS.hivePrimary};
+    text-shadow: 0 0 5px ${COLORS.retroPrimary};
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -287,9 +287,9 @@ export const GlobalStyle = createGlobalStyle`
       right: -2px;
       bottom: -2px;
       background: linear-gradient(90deg, 
-        ${COLORS.hivePrimary},
-        ${COLORS.hiveSecondary},
-        ${COLORS.hivePrimary}
+        ${COLORS.retroPrimary},
+        ${COLORS.retroSecondary},
+        ${COLORS.retroPrimary}
       );
       background-size: 200% 100%;
       z-index: -1;
@@ -303,14 +303,14 @@ export const GlobalStyle = createGlobalStyle`
       left: 2px;
       right: 2px;
       bottom: 2px;
-      background: ${COLORS.hiveDarkBg};
+      background: ${COLORS.retroDarkBg};
       z-index: -1;
     }
     
     &:hover {
       color: ${COLORS.white};
-      text-shadow: 0 0 8px ${COLORS.hivePrimary}, 
-                   0 0 12px ${COLORS.hiveSecondary};
+      text-shadow: 0 0 8px ${COLORS.retroPrimary}, 
+                   0 0 12px ${COLORS.retroSecondary};
       transform: translateY(-2px);
       
       &:before {

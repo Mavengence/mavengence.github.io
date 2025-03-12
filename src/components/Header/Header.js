@@ -21,7 +21,7 @@ const flicker = keyframes`
 // Banner styling constants
 const BANNER_PADDING_DESKTOP = 12; // Desktop padding in pixels
 const BANNER_PADDING_MOBILE = 11; // Mobile padding value
-const BANNER_MARGIN_MOBILE = 5; // 5vh margin from bottom on mobile
+const BANNER_MARGIN_MOBILE = 7; // 7vh margin from bottom on mobile
 
 /**
  * Pikachu image styling
@@ -74,7 +74,7 @@ const HeaderContainer = styled.div`
     height: 100vh; /* Full viewport height */
     height: calc(100vh - env(safe-area-inset-bottom, 0));
     justify-content: flex-start;
-    padding-top: 10vh;
+    padding-top: 15vh; /* Increased padding to move content down */
   }
   
   /* Define the softWave animation for reuse */
@@ -90,9 +90,9 @@ const HeaderContainer = styled.div`
     width: 100%;
     height: 300px;
     background: radial-gradient(circle at center, 
-      ${COLORS.hivePrimary}40,
-      ${COLORS.hiveSecondary}20,
-      ${COLORS.hivePrimary}05,
+      ${COLORS.retroPrimary}40,
+      ${COLORS.retroSecondary}20,
+      ${COLORS.retroPrimary}05,
       transparent 70%
     );
     top: 50%;
@@ -209,7 +209,7 @@ const FirstName = styled(motion.div)`
     margin-right: 0;
     letter-spacing: -0.2rem;
     left: 10%;
-    top: 7%;
+    top: 12%; /* Positioned lower */
     transform-origin: center;
     z-index: 5;
   }
@@ -267,7 +267,7 @@ const LastNamePrefix = styled(motion.div)`
     margin-left: 0;
     letter-spacing: -0.2rem;
     right: 10%;
-    top: 7%;
+    top: 12%; /* Positioned lower */
     z-index: 5;
     transform-origin: center;
   }
@@ -303,7 +303,7 @@ const LastNameSuffix = styled(motion.div)`
     top: 0;
     height: 100%;
     opacity: 0.3;
-    color: ${COLORS.hivePrimary};
+    color: ${COLORS.retroPrimary};
     filter: blur(4px) brightness(1.5);
     z-index: -1;
   }
@@ -338,7 +338,7 @@ const hoverRightLeft = keyframes`
 const MachineLoehrning = styled(motion.div)`
   font-family: ${FONTS.mono};
   font-size: clamp(3.8rem, 4.5vw, 2.8rem);
-  color: ${COLORS.hivePrimary};
+  color: ${COLORS.retroPrimary};
   margin-bottom: 2.5rem;
   letter-spacing: 2px;
   font-weight: 700;
@@ -349,7 +349,7 @@ const MachineLoehrning = styled(motion.div)`
   z-index: 20;
   
   /* Base text glow */
-  text-shadow: 0 0 8px ${COLORS.hivePrimary}40;
+  text-shadow: 0 0 8px ${COLORS.retroPrimary}40;
   
   /* Single shifted shadow effect */
   &:before {
@@ -360,7 +360,7 @@ const MachineLoehrning = styled(motion.div)`
     width: 100%;
     height: 100%;
     z-index: -1;
-    color: ${COLORS.hiveTertiary};
+    color: ${COLORS.retroTertiary};
     opacity: 0.6;
     filter: blur(1px);
   }
@@ -375,9 +375,9 @@ const MachineLoehrning = styled(motion.div)`
     font-size: 24px;
     font-weight: 300;
     letter-spacing: 2px;
-    color: ${COLORS.hivePrimary};
+    color: ${COLORS.retroPrimary};
     opacity: 0.85;
-    text-shadow: 0 0 8px ${COLORS.hivePrimary}40;
+    text-shadow: 0 0 8px ${COLORS.retroPrimary}40;
   }
   
   /* No media query needed - using conditional rendering */
@@ -387,31 +387,31 @@ const MachineLoehrning = styled(motion.div)`
   
   @keyframes textFlicker {
     0%, 100% { 
-      color: ${COLORS.hivePrimary};
-      text-shadow: 0 0 8px ${COLORS.hivePrimary}40; 
+      color: ${COLORS.retroPrimary};
+      text-shadow: 0 0 8px ${COLORS.retroPrimary}40; 
     }
     88%, 92% { 
-      color: ${COLORS.hivePrimary}; 
+      color: ${COLORS.retroPrimary}; 
       text-shadow: 0 0 0 transparent;
     }
     90% { 
-      color: ${COLORS.hivePrimary}50; 
+      color: ${COLORS.retroPrimary}50; 
       text-shadow: 0 0 0 transparent;
     }
     93%, 95% { 
-      color: ${COLORS.hivePrimary}; 
-      text-shadow: 0 0 10px ${COLORS.hivePrimary};
+      color: ${COLORS.retroPrimary}; 
+      text-shadow: 0 0 10px ${COLORS.retroPrimary};
     }
     94% { 
-      color: ${COLORS.hivePrimary}60; 
+      color: ${COLORS.retroPrimary}60; 
       text-shadow: 0 0 0 transparent;
     }
     25%, 27% { 
-      color: ${COLORS.hivePrimary}; 
-      text-shadow: 0 0 5px ${COLORS.hivePrimary}80;
+      color: ${COLORS.retroPrimary}; 
+      text-shadow: 0 0 5px ${COLORS.retroPrimary}80;
     }
     26% { 
-      color: ${COLORS.hivePrimary}70; 
+      color: ${COLORS.retroPrimary}70; 
       text-shadow: 0 0 0 transparent;
     }
   }
@@ -422,27 +422,27 @@ const MachineLoehrning = styled(motion.div)`
     
     @keyframes hoverFlicker {
       0%, 100% { 
-        color: ${COLORS.hivePrimary};
-        text-shadow: 0 0 10px ${COLORS.hivePrimary}; 
+        color: ${COLORS.retroPrimary};
+        text-shadow: 0 0 10px ${COLORS.retroPrimary}; 
       }
       49% { 
-        color: ${COLORS.hivePrimary};
-        text-shadow: 0 0 10px ${COLORS.hivePrimary}; 
+        color: ${COLORS.retroPrimary};
+        text-shadow: 0 0 10px ${COLORS.retroPrimary}; 
       }
       50% { 
-        color: ${COLORS.hivePrimary}30;
+        color: ${COLORS.retroPrimary}30;
         text-shadow: none; 
       }
       51% { 
-        color: ${COLORS.hivePrimary};
-        text-shadow: 0 0 10px ${COLORS.hivePrimary}; 
+        color: ${COLORS.retroPrimary};
+        text-shadow: 0 0 10px ${COLORS.retroPrimary}; 
       }
       75%, 77% { 
-        color: ${COLORS.hivePrimary};
-        text-shadow: 0 0 10px ${COLORS.hivePrimary}; 
+        color: ${COLORS.retroPrimary};
+        text-shadow: 0 0 10px ${COLORS.retroPrimary}; 
       }
       76% { 
-        color: ${COLORS.hivePrimary}50;
+        color: ${COLORS.retroPrimary}50;
         text-shadow: none; 
       }
     }
@@ -452,11 +452,11 @@ const MachineLoehrning = styled(motion.div)`
       animation: lineGlitch 1s infinite, shadowJumpHover 0.5s infinite steps(1);
       
       @keyframes shadowJumpHover {
-        0%, 100% { text-shadow: 5px 5px 0 ${COLORS.hiveTertiary}; }
-        20% { text-shadow: 3px 4px 0 ${COLORS.hiveTertiary}; }
-        40% { text-shadow: 6px 3px 0 ${COLORS.hiveTertiary}; }
-        60% { text-shadow: 4px 6px 0 ${COLORS.hiveTertiary}; }
-        80% { text-shadow: 3px 3px 0 ${COLORS.hiveTertiary}; }
+        0%, 100% { text-shadow: 5px 5px 0 ${COLORS.retroTertiary}; }
+        20% { text-shadow: 3px 4px 0 ${COLORS.retroTertiary}; }
+        40% { text-shadow: 6px 3px 0 ${COLORS.retroTertiary}; }
+        60% { text-shadow: 4px 6px 0 ${COLORS.retroTertiary}; }
+        80% { text-shadow: 3px 3px 0 ${COLORS.retroTertiary}; }
       }
     }
     
@@ -480,8 +480,6 @@ const MachineLoehrning = styled(motion.div)`
     animation: ${hoverRightLeft} 8s ease-in-out infinite;
   }
 `;
-
-// Modern data streaming banner with Apple-style elegance (positioned at bottom of header)
 
 const RunningBanner = styled(motion.div)`
   width: 100%;
@@ -603,7 +601,7 @@ const BannerContent = styled.div`
   }
 `;
 
-// Apache Hive inspired terminal job title
+// Terminal job title
 const JobTitle = styled(motion.div)`
   color: ${COLORS.white};
   font-size: 1.4rem;
@@ -614,18 +612,18 @@ const JobTitle = styled(motion.div)`
   position: relative;
   display: inline-flex;
   align-items: center;
-  background: ${COLORS.hiveDarkAccent};
+  background: ${COLORS.retroDarkAccent};
   padding: 8px 16px;
-  border: 1px solid ${COLORS.hivePrimary}40;
+  border: 1px solid ${COLORS.retroPrimary}40;
   border-radius: 0;
-  box-shadow: 3px 3px 0 ${COLORS.hivePrimary}30;
+  box-shadow: 3px 3px 0 ${COLORS.retroPrimary}30;
   
   /* Typewriter cursor - retro terminal look */
   span.cursor {
     display: inline-block;
     width: 12px;
     height: 20px;
-    background: ${COLORS.hivePrimary};
+    background: ${COLORS.retroPrimary};
     margin-left: 4px;
     animation: blink 1s step-end infinite;
     vertical-align: middle;
@@ -636,9 +634,9 @@ const JobTitle = styled(motion.div)`
     }
   }
   
-  /* Terminal prompt - Apache Hive style */
+  /* Terminal prompt style */
   span.command {
-    color: ${COLORS.hivePrimary};
+    color: ${COLORS.retroPrimary};
     font-weight: 500;
     margin-right: 8px;
     opacity: 0.9;
@@ -650,12 +648,12 @@ const JobTitle = styled(motion.div)`
   
   &:hover {
     transform: scale(1.02) translateY(-2px);
-    box-shadow: 5px 5px 0 ${COLORS.hivePrimary}50;
+    box-shadow: 5px 5px 0 ${COLORS.retroPrimary}50;
   }
   
   &:active {
     transform: scale(0.98) translateY(0);
-    box-shadow: 2px 2px 0 ${COLORS.hivePrimary}30;
+    box-shadow: 2px 2px 0 ${COLORS.retroPrimary}30;
   }
 `;
 
@@ -793,8 +791,8 @@ const Header = () => {
         flexDirection: 'column', 
         alignItems: 'center', 
         justifyContent: isMobile ? 'flex-start' : 'center', 
-        height: isMobile ? '80%' : '100%',  /* Reduced height on mobile */
-        paddingTop: isMobile ? '5vh' : '0',
+        height: isMobile ? '90%' : '100%',  /* Even taller on mobile */
+        paddingTop: isMobile ? '4vh' : '0',
         position: 'relative', 
         zIndex: 5 
       }}>
@@ -852,7 +850,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{ 
-              marginTop: isVerySmallScreen ? '6rem' : (isMobile ? '0.5rem' : '1rem')
+              marginTop: isVerySmallScreen ? '4rem' : (isMobile ? '1.5rem' : '1rem')
             }}
           >
             <span className="command">$</span>
@@ -868,12 +866,12 @@ const Header = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             style={{ 
               display: 'flex', 
-              flexWrap: 'wrap', 
               justifyContent: 'center', 
               marginTop: isVerySmallScreen ? '2rem' : (isMobile ? '3rem' : '7rem'),
               marginBottom: isMobile ? '0.5rem' : '0',
-              gap: isMobile ? '8px' : '12px',
-              maxWidth: isMobile ? '300px' : '900px' /* Ensure it fits well on mobile */
+              gap: '12px',
+              maxWidth: isMobile ? '380px' : '900px', /* Increased width for mobile */
+              flexFlow: isMobile ? 'row wrap' : 'row'
             }}
           >
             <TerminalButton 
@@ -924,8 +922,9 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             style={{ 
-              marginTop: isVerySmallScreen ? '0rem' : (isMobile ? '1rem' : '5rem'),
-              marginBottom: isMobile ? '20vh' : '0' /* Bottom margin on mobile to prevent overlap with the lower banner */
+              marginTop: isVerySmallScreen ? '7rem' : (isMobile ? 'auto' : '5rem'),
+              marginBottom: isMobile ? '12vh' : '0', /* Closer to the banner */
+              position: isMobile ? 'relative' : 'static'
             }}
         >
           <motion.div 
@@ -940,8 +939,8 @@ const Header = () => {
             }}
           >
             <span style={{ 
-              color: COLORS.hivePrimary, 
-              textShadow: `0 0 5px ${COLORS.hivePrimary}`,
+              color: COLORS.retroPrimary, 
+              textShadow: `0 0 5px ${COLORS.retroPrimary}`,
               marginBottom: '12px',
               fontFamily: FONTS.mono,
               fontSize: '0.9rem',
@@ -957,12 +956,12 @@ const Header = () => {
               height="40" 
               viewBox="0 0 24 24" 
               fill="none" 
-              stroke={COLORS.hivePrimary} 
+              stroke={COLORS.retroPrimary} 
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round"
               style={{
-                filter: `drop-shadow(0 0 8px ${COLORS.hivePrimary})`,
+                filter: `drop-shadow(0 0 8px ${COLORS.retroPrimary})`,
                 animation: 'bounce 2s infinite',
                 opacity: 0.9
               }}
@@ -995,7 +994,7 @@ const Header = () => {
             right: '20px',
             width: isMobile ? '65px' : '150px',
             height: 'auto',
-            marginBottom: '3px',
+            marginBottom: isMobile ? '5px' : '3px',
             zIndex: 10
           }}
         />

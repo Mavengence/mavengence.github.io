@@ -29,23 +29,25 @@ const crtFlicker = keyframes`
 `;
 
 // Retro terminal-style button with bottom-right shadow
-const ApacheButtonContainer = styled(motion.a)`
+const RetroButtonContainer = styled(motion.a)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px; /* Even larger padding */
+  padding: 10px 0; /* Vertical padding only */
+  width: 120px; /* Fixed width for all buttons */
+  height: 42px; /* Fixed height for all buttons */
   background-color: #000000; /* Black background */
   border: 1px solid #FFFFFF; /* White border */
   border-radius: 0; /* Rectangular shape */
   color: #FFFFFF; /* White text */
   font-family: ${FONTS.secondary};
-  font-size: 17px; /* Larger font */
+  font-size: 15px; /* Consistent font size */
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
-  margin: 0 12px; /* Increased margin */
+  margin: 5px; /* Reduced margin for consistent spacing */
   position: relative;
   transition: all 0.2s ease;
   overflow: hidden; /* Contains the wave effect */
@@ -130,16 +132,16 @@ const ApacheButtonContainer = styled(motion.a)`
   
   /* Icon styling */
   svg {
-    margin-right: 12px;
-    font-size: 20px; /* Larger icons */
+    margin-right: 8px;
+    font-size: 16px; /* Consistent icon size */
     position: relative;
     z-index: 3;
   }
 `;
 
-const ApacheButton = ({ children, href, onClick, icon, ...props }) => {
+const RetroButton = ({ children, href, onClick, icon, ...props }) => {
   return (
-    <ApacheButtonContainer
+    <RetroButtonContainer
       href={href}
       onClick={onClick}
       target={href && href.startsWith("http") ? "_blank" : undefined}
@@ -148,63 +150,63 @@ const ApacheButton = ({ children, href, onClick, icon, ...props }) => {
     >
       {icon && icon}
       {children}
-    </ApacheButtonContainer>
+    </RetroButtonContainer>
   );
 };
 
 // Predefined buttons for common platforms
 export const GitHubButton = ({ href }) => (
-  <ApacheButton 
+  <RetroButton 
     href={href || "https://github.com/mavengence"} 
     icon={<FaGithub />}
   >
     GitHub
-  </ApacheButton>
+  </RetroButton>
 );
 
 export const LinkedInButton = ({ href }) => (
-  <ApacheButton 
+  <RetroButton 
     href={href || "https://www.linkedin.com/in/timloehr/"} 
     icon={<FaLinkedin />}
   >
     LinkedIn
-  </ApacheButton>
+  </RetroButton>
 );
 
 export const MediumButton = ({ href }) => (
-  <ApacheButton 
+  <RetroButton 
     href={href || "https://medium.com/@tim.loehr"} 
     icon={<FaMedium />}
   >
     Medium
-  </ApacheButton>
+  </RetroButton>
 );
 
 export const GoogleScholarButton = ({ href }) => (
-  <ApacheButton 
+  <RetroButton 
     href={href || "https://scholar.google.com/"} 
     icon={<FaGraduationCap />}
   >
     Scholar
-  </ApacheButton>
+  </RetroButton>
 );
 
 export const InstagramButton = ({ href }) => (
-  <ApacheButton 
+  <RetroButton 
     href={href || "https://www.instagram.com/"} 
     icon={<FaInstagram />}
   >
     Instagram
-  </ApacheButton>
+  </RetroButton>
 );
 
 export const ResumeButton = ({ href }) => (
-  <ApacheButton 
+  <RetroButton 
     href={href || "/images/resume.pdf"} 
     icon={<FaFileAlt />}
   >
     Resume
-  </ApacheButton>
+  </RetroButton>
 );
 
-export default ApacheButton;
+export default RetroButton;

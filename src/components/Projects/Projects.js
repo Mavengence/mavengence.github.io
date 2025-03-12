@@ -351,7 +351,6 @@ const ProjectActions = styled.div`
   }
 `;
 
-// Apple/Meta styled button
 const ProjectButton = styled.button`
   background: ${props => props.primary ? 'rgba(59, 130, 246, 0.9)' : 'rgba(255, 255, 255, 0.1)'};
   color: white;

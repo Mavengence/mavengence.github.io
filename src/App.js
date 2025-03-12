@@ -108,6 +108,25 @@ const AppContainer = styled.div`
  * Uses memoization to prevent unnecessary re-renders
  */
 const App = React.memo(function App() {
+  // State for tracking screen size
+  const [isMobile, setIsMobile] = React.useState(false);
+  
+  // Check for mobile devices on component mount
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add listener for window resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup listener on unmount
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
   // Get scroll progress for scroll-based animations
   const { scrollYProgress } = useScroll();
   
@@ -247,17 +266,20 @@ const App = React.memo(function App() {
             </Suspense>
           </section>
 
-          <section id="console">
-            <Suspense fallback={<LoadingPlaceholder />}>
-              <Console />
-            </Suspense>
-          </section>
+          {/* Only render console on non-mobile devices */}
+          {!isMobile && (
+            <section id="console">
+              <Suspense fallback={<LoadingPlaceholder />}>
+                <Console />
+              </Suspense>
+            </section>
+          )}
         </main>
         
         <footer>
           <p>
             &copy; {new Date().getFullYear()} Tim Loehr · Made with 
-            <span style={{ color: COLORS.hivePrimary }}> Machine Loehrning</span>
+            <span style={{ color: COLORS.retroPrimary }}> Machine Loehrning</span>
           </p>
         </footer>
       </AppContainer>

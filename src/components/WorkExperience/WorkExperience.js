@@ -295,7 +295,6 @@ const ExperienceCard = styled(motion.div)`
   }
 `;
 
-// Apple/Meta styled company info section
 const CompanyInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -449,7 +448,6 @@ const JobDetails = styled.div`
   }
 `;
 
-// Apple-style tag pills with company-themed coloring - styled more like project buttons
 const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -457,7 +455,6 @@ const TechStack = styled.div`
   margin-top: auto;
 `;
 
-// Tech skill tag styled as a button (exactly like project tags)
 const TechButton = styled.button`
   font-size: 0.7rem;
   padding: 0.35rem 0.75rem;
@@ -555,7 +552,6 @@ const WorkExperience = () => {
   // State for tracking active cards
   const [activeCard, setActiveCard] = useState(null);
   
-  // We don't need the HR opacity anymore as we're using an Apple/Meta style
   const { scrollYProgress } = useScroll();
 
   return (
@@ -576,7 +572,7 @@ const WorkExperience = () => {
               
               {/* Year markers with subtle blue styling - positioned to match card centers */}
               <YearMarker 
-                top="17%" /* Meta position - percentage for responsiveness */
+                top="17%" 
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.4, ease: "easeOut" }}
@@ -598,7 +594,7 @@ const WorkExperience = () => {
               </YearMarker>
               
               <YearMarker 
-                top="60%" /* Apple position - percentage for responsiveness */
+                top="60%" 
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
