@@ -7,7 +7,7 @@ import { SiGooglescholar } from 'react-icons/si';
 import { COLORS, FONTS } from '../ui/Theme';
 import TerminalButton from '../ui/TerminalButton';
 
-// Subtle flicker effect for cinematic feel - define this first to avoid reference errors
+// Flicker animation for text effects
 const flicker = keyframes`
   0%, 91%, 93.5%, 95%, 100% { opacity: 1; }
   92% { opacity: 0.8; }
@@ -18,25 +18,38 @@ const flicker = keyframes`
   99% { opacity: 0.8; }
 `;
 
+// Banner styling constants
+const BANNER_PADDING_DESKTOP = 12; // Desktop padding in pixels
+const BANNER_PADDING_MOBILE = 11; // Mobile padding value
+const BANNER_MARGIN_MOBILE = 5; // 5vh margin from bottom on mobile
 
 /**
- * Pikachu mascot image 
- * Positioned in bottom-right corner of header section
- * Appears only in header and doesn't follow on scroll
+ * Pikachu image styling
  */
+// Pikachu sizing constants
+const PIKACHU_WIDTH_DESKTOP = 150; // Width at desktop size
+const PIKACHU_WIDTH_MOBILE = 65; // Width at mobile size
+const PIKACHU_OFFSET = 4; // Extra pixels of spacing between Pikachu and banner
+
+// Banner height calculation (padding * 2 accounts for top and bottom padding)
+const BANNER_HEIGHT_DESKTOP = BANNER_PADDING_DESKTOP * 2; // Approximate banner height on desktop
+const BANNER_HEIGHT_MOBILE = BANNER_PADDING_MOBILE * 2; // Approximate banner height on mobile
+
 const PikachuImage = styled.img`
   position: absolute;
-  bottom: 38px; /* Position exactly above the running banner */
+  bottom: 100%; /* Position at the bottom of its container */
   right: 20px;
-  width: 150px;
+  width: ${PIKACHU_WIDTH_DESKTOP}px;
   height: auto;
-  z-index: 10; /* Ensure visibility above other header elements */
+  margin-bottom: 5px; /* Space between Pikachu and banner */
+  z-index: 10;
   
-  /* Smaller size on mobile and positioned exactly above banner */
+  /* Smaller size on mobile */
   @media (max-width: 768px) {
-    width: 65px; /* Slightly smaller size on mobile */
-    bottom: calc(5vh + 50px); /* Positioned higher to sit perfectly on top of banner */
+    width: ${PIKACHU_WIDTH_MOBILE}px;
+    height: auto;
     right: 15px;
+    margin-bottom: 3px; /* Slightly smaller gap on mobile */
   }
 `;
 
@@ -56,15 +69,12 @@ const HeaderContainer = styled.div`
   align-items: center;
   z-index: 10; /* Appropriate stacking context */
   
-  /* Mobile optimization to ensure the bottom banner is visible */
+  /* Mobile styling */
   @media (max-width: 768px) {
     height: 100vh; /* Full viewport height */
-    /* Adjust for safe area */
     height: calc(100vh - env(safe-area-inset-bottom, 0));
-    /* Use padding instead of centering */
     justify-content: flex-start;
-    padding-top: 10vh; /* Less top padding */
-    /* No margin-bottom needed since we handle spacing in child elements */
+    padding-top: 10vh;
   }
   
   /* Define the softWave animation for reuse */
@@ -472,10 +482,8 @@ const MachineLoehrning = styled(motion.div)`
 `;
 
 // Modern data streaming banner with Apple-style elegance (positioned at bottom of header)
+
 const RunningBanner = styled(motion.div)`
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -483,17 +491,16 @@ const RunningBanner = styled(motion.div)`
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 12px 0;
+  padding: ${BANNER_PADDING_DESKTOP}px 0;
   z-index: 30;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
   
-  /* Mobile styling with 5% margin from bottom */
+  /* Mobile styling */
   @media (max-width: 768px) {
-    bottom: 5vh; /* 5% margin from bottom */
-    padding: 11px 0; /* Slightly more padding for better visibility */
+    padding: ${BANNER_PADDING_MOBILE}px 0; /* Padding for visibility */
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
@@ -726,7 +733,7 @@ const Header = () => {
     return () => clearInterval(interval);
   }, []);
   
-  // Data Engineering banner content
+  // Banner content items
   const bannerItems = [
     { text: "ETL Pipeline Design", icon: <BiCodeAlt />, blink: true },
     { text: "SQL & NoSQL Databases", icon: <BiCodeAlt /> },
@@ -745,16 +752,6 @@ const Header = () => {
 
   return (
     <HeaderContainer id="home" role="banner" aria-label="Tim Loehr, Data Engineer">
-      
-      {/* Mascot character in bottom right corner */}
-      <PikachuImage 
-        src={`${process.env.PUBLIC_URL}/images/pikachu.png`}
-        alt="Pikachu"
-        aria-hidden="true"
-        loading="lazy" 
-        decoding="async"
-      />
-      
       {/* Name display with visually hidden H1 for SEO and accessibility */}
       <NameContainer>
         {/* Screen reader accessible h1 that's visually hidden */}
@@ -977,25 +974,51 @@ const Header = () => {
         </motion.div>
       </HeaderContent>
 
-      {/* Running text banner at bottom of header */}
-      <RunningBanner
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <BannerContent>
-          {bannerItems.map((item, index) => (
-            <span key={index} className={item.blink ? 'blink' : ''}>
-              {item.icon} {item.text}
-            </span>
-          ))}
-          {bannerItems.map((item, index) => (
-            <span key={`repeat-${index}`} className={item.blink ? 'blink' : ''}>
-              {item.icon} {item.text}
-            </span>
-          ))}
-        </BannerContent>
-      </RunningBanner>
+      {/* Bottom banner */}
+      <div style={{ 
+        position: 'absolute',
+        bottom: isMobile ? `${BANNER_MARGIN_MOBILE}vh` : 0,
+        left: 0,
+        width: '100%',
+        zIndex: 30
+      }}>
+        {/* Pikachu mascot */}
+        <img 
+          src={`${process.env.PUBLIC_URL}/images/pikachu.png`}
+          alt="Pikachu"
+          aria-hidden="true"
+          loading="lazy" 
+          decoding="async"
+          style={{
+            position: 'absolute',
+            bottom: '100%',
+            right: '20px',
+            width: isMobile ? '65px' : '150px',
+            height: 'auto',
+            marginBottom: '3px',
+            zIndex: 10
+          }}
+        />
+        
+        <RunningBanner
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <BannerContent>
+            {bannerItems.map((item, index) => (
+              <span key={index} className={item.blink ? 'blink' : ''}>
+                {item.icon} {item.text}
+              </span>
+            ))}
+            {bannerItems.map((item, index) => (
+              <span key={`repeat-${index}`} className={item.blink ? 'blink' : ''}>
+                {item.icon} {item.text}
+              </span>
+            ))}
+          </BannerContent>
+        </RunningBanner>
+      </div>
     </HeaderContainer>
   );
 };

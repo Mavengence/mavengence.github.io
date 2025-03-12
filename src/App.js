@@ -230,7 +230,7 @@ const App = React.memo(function App() {
             </Suspense>
           </article>
           
-          {/* Hobbies Banner */}
+          {/* Personal interests banner */}
           <section style={{ padding: 0, marginTop: '-1rem', marginBottom: '-2rem' }}>
             <Suspense fallback={<LoadingPlaceholder />}>
               <RunningBanner items={[
