@@ -147,7 +147,7 @@ const NameContainer = styled.div`
 // Vertical text styling for first name with cinematic 3D effect
 const FirstName = styled(motion.div)`
   font-family: 'Impact', 'Anton', ${FONTS.title};
-  font-size: clamp(7rem, 16vw, 13rem);
+  font-size: clamp(13rem, 13vw, 13rem);
   font-weight: 800;
   color: #FFFFFF; /* Main color is white */
   writing-mode: vertical-lr;
@@ -196,7 +196,7 @@ const FirstName = styled(motion.div)`
   
   /* Tablet styling */
   @media (min-width: 769px) and (max-width: 1024px) {
-    font-size: clamp(8rem, 10vh, 8rem);
+    font-size: clamp(8rem, 10vh, 10rem);
     transform: none;
     writing-mode: horizontal-tb;
     margin-right: 0;
@@ -273,7 +273,7 @@ const LastName = styled(motion.div)`
   
   /* Tablet styling */
   @media (min-width: 769px) and (max-width: 1024px) {
-    font-size: clamp(8rem, 10vh, 8rem);
+    font-size: clamp(8rem, 10vh, 10rem);
     transform: none;
     writing-mode: horizontal-tb;
     margin-left: 0;
@@ -845,7 +845,7 @@ const Header = () => {
         justifyContent: isMobile ? 'flex-start' : 'center', 
         height: isMobile ? '90%' : '100%',
         paddingTop: isMobile ? '6vh' : (isTablet ? '0' : '0'),
-        paddingBottom: isTablet ? '5vh' : '0',
+        paddingBottom: isTablet ? '6vh' : '0',
         position: 'relative', 
         zIndex: 5 
       }}>
@@ -857,7 +857,7 @@ const Header = () => {
           alignItems: 'center',
           height: isMobile ? 'auto' : '100%', 
           justifyContent: isMobile ? 'flex-start' : 'center',
-          marginTop: isMobile ? '15vh' : (isTablet ? '18vh' : '0') /* Push content below horizontal names on tablet */
+          marginTop: isMobile ? '15vh' : (isTablet ? '25vh' : '0') 
         }}>
           {/* Machine Loehrning */}
           <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -910,8 +910,8 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{ 
-              marginTop: isMobile ? '2.5rem' : (isTablet ? '1.8rem' : '1rem'),
-              fontSize: isTablet ? '1.2rem' : '1.4rem'
+              marginTop: '2.5rem',
+              fontSize: '1.4rem'
             }}
           >
             <span className="command">$</span>
@@ -984,7 +984,7 @@ const Header = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             style={{ 
               marginTop: isMobile ? '8vh' : (isTablet ? '2rem' : '5rem'),
-              marginBottom: isMobile ? '12vh' : (isTablet ? '10vh' : '0'),
+              marginBottom: isMobile ? '12vh' : (isTablet ? '12vh' : '0'),
               position: (isMobile || isTablet) ? 'relative' : 'static'
             }}
         >
