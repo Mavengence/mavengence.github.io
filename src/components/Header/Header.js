@@ -190,8 +190,8 @@ const FirstName = styled(motion.div)`
   }
   
   /* media query for smaller laptop screens */
-  @media (max-height: 800px) and (min-width: 1025px) {
-    font-size: clamp(10rem, 9vh, 9rem);
+  @media (max-height: 900px) and (min-width: 1025px) {
+    font-size: clamp(10rem, 12vh, 12rem);
   }
   
   /* Tablet styling */
@@ -209,13 +209,13 @@ const FirstName = styled(motion.div)`
   
   /* Mobile styling */
   @media (max-width: 768px) {
-    font-size: clamp(5rem, 11vh, 10rem);
+    font-size: clamp(5rem, 6vh, 6rem);
     transform: rotate(-90deg);
     writing-mode: horizontal-tb;
     margin-right: 0;
     letter-spacing: -0.2rem;
     left: 10%;
-    top: 18%; 
+    top: 20%; 
     transform-origin: center;
     z-index: 5;
   }
@@ -267,7 +267,7 @@ const LastName = styled(motion.div)`
   }
   
   /* media query for smaller laptop screens */
-  @media (max-height: 800px) and (min-width: 1025px) {
+  @media (max-height: 900px) and (min-width: 1025px) {
     font-size: clamp(7rem, 9vh, 8rem);
   }
   
@@ -287,13 +287,13 @@ const LastName = styled(motion.div)`
   
   /* Mobile styling */
   @media (max-width: 768px) {
-    font-size: clamp(5rem, 13vw, 10rem);
+    font-size: clamp(5rem, 6vw, 6rem);
     transform: rotate(90deg);
     writing-mode: horizontal-tb;
     margin-left: 0;
     letter-spacing: -0.2rem;
     right: 10%;
-    top: 18%; 
+    top: 20%; 
     z-index: 5;
     transform-origin: center;
   }
@@ -982,7 +982,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             style={{ 
-              marginTop: isMobile ? 'auto' : (isTablet ? '2rem' : '5rem'),
+              marginTop: isMobile ? '8vh' : (isTablet ? '2rem' : '5rem'),
               marginBottom: isMobile ? '12vh' : (isTablet ? '10vh' : '0'),
               position: (isMobile || isTablet) ? 'relative' : 'static'
             }}
