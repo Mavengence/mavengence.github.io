@@ -35,7 +35,6 @@ import RetroSection from '../ui/RetroSection';
 import RetroButton from '../ui/RetroButton';
 import { COLORS, FONTS } from '../ui/Theme';
 
-// Modern, minimalist contemporary styling
 const ProjectsContainer = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -43,7 +42,7 @@ const ProjectsContainer = styled.div`
   padding: 2rem 1.5rem;
 `;
 
-// Clean grid layout without decorative elements
+// Clean grid layout
 const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -91,7 +90,7 @@ const ProjectTagStyles = css`
   background: rgba(255, 255, 255, 0.15);
 `;
 
-// Modern minimalist card with glass effect
+// minimalist card with glass effect
 const ProjectCard = styled(motion.div)`
   position: relative;
   background: rgba(22, 22, 26, 0.8);
@@ -237,7 +236,7 @@ const ProjectTitle = styled.h3`
   }
 `;
 
-// Clean content area
+// content area
 const ProjectContent = styled.div`
   padding: 1.25rem;
   display: flex;
@@ -251,7 +250,7 @@ const ProjectContent = styled.div`
   }
 `;
 
-// Modern tag pills
+// tag pills
 const ProjectTags = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -278,7 +277,7 @@ const ProjectTags = styled.div`
   }
 `;
 
-// Modern rounded tag pills
+// rounded tag pills
 const ProjectTag = styled.span`
   font-size: 0.6rem;
   padding: 0.2rem 0.5rem;
@@ -298,7 +297,7 @@ const ProjectTag = styled.span`
   }
 `;
 
-// Clean description text
+// description text
 const ProjectDescription = styled.div`
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;

@@ -25,7 +25,7 @@ const pulse = keyframes`
   50% { opacity: 1; transform: scale(1.05); }
 `;
 
-// Modern sleek container for timeline
+// container for timeline
 const ExperienceContainer = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -36,7 +36,6 @@ const ExperienceContainer = styled.div`
   z-index: 10;
 `;
 
-// Clean, minimalist timeline with modern styling
 const TimelineAxis = styled.div`
   position: absolute;
   left: -27px;
@@ -82,7 +81,7 @@ const TimelineAxis = styled.div`
   }
 `;
 
-// Contemporary year marker for timeline
+// year marker for timeline
 const YearMarker = styled(motion.div)`
   position: absolute;
   left: -15px;
@@ -157,7 +156,7 @@ const YearMarker = styled(motion.div)`
   }
 `;
 
-// Modern glass-morphism job card with consistent spacing
+// glass-morphism job card with consistent spacing
 const ExperienceCard = styled(motion.div)`
   position: relative;
   background: ${props => `linear-gradient(120deg, rgba(22, 22, 26, 0.9) 0%, rgba(${props.bgColorRGB || '22, 22, 26'}, 0.06) 100%)`};
@@ -409,7 +408,7 @@ const CompanyInfo = styled.div`
   }
 `;
 
-// Clean job details
+// job details
 const JobDetails = styled.div`
   display: flex;
   flex-direction: column;

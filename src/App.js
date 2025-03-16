@@ -15,7 +15,6 @@ const QuantumBackground = lazy(() => import('./components/ui/QuantumBackground')
 
 // Animation keyframes for performance-optimized UI effects
 const animations = {
-  // Optimized with will-change hints for browser rendering
   glow: keyframes`
     0%, 100% { filter: drop-shadow(0 0 8px ${COLORS.hivePrimary}40); }
     50% { filter: drop-shadow(0 0 12px ${COLORS.hivePrimary}70); }
@@ -185,7 +184,7 @@ const App = React.memo(function App() {
       <GlobalStyle />
       <AppContainer>
         
-        {/* Quantum-inspired animated background layer */}
+        {/* animated background layer */}
         <Suspense fallback={<LoadingPlaceholder />}>
           <QuantumBackground />
         </Suspense>
@@ -229,7 +228,7 @@ const App = React.memo(function App() {
             zIndex: 2,
             pointerEvents: 'none',
             mixBlendMode: 'multiply',
-            willChange: 'opacity', // Performance optimization
+            willChange: 'opacity', 
             transform: 'translateZ(0)' // Forces GPU acceleration
           }}
           aria-hidden="true"

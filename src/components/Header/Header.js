@@ -299,7 +299,7 @@ const LastName = styled(motion.div)`
   }
 `;
 
-// Artsy retro electrified text with creative shadow placement
+// electrified text with creative shadow placement
 const MachineLoehrning = styled(motion.div)`
   font-family: ${FONTS.mono};
   font-size: clamp(3.8rem, 4.5vw, 2.8rem);
@@ -680,6 +680,8 @@ const Header = () => {
   // State for responsive design with optimized resize handling
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const [shouldShowPikachu, setShouldShowPikachu] = useState(false);
+  const [pikachuImage, setPikachuImage] = useState(null);
   
   // Optimization: debounced resize handler with requestAnimationFrame
   useEffect(() => {
@@ -694,8 +696,14 @@ const Header = () => {
       // Schedule resize calculation in next animation frame for performance
       frameId = requestAnimationFrame(() => {
         const width = window.innerWidth;
-        setIsMobile(width <= DIMENSIONS.MOBILE_BREAKPOINT);
-        setIsTablet(width > DIMENSIONS.MOBILE_BREAKPOINT && width <= DIMENSIONS.TABLET_BREAKPOINT);
+        const newIsMobile = width <= DIMENSIONS.MOBILE_BREAKPOINT;
+        const newIsTablet = width > DIMENSIONS.MOBILE_BREAKPOINT && width <= DIMENSIONS.TABLET_BREAKPOINT;
+        
+        setIsMobile(newIsMobile);
+        setIsTablet(newIsTablet);
+        
+        // Only show Pikachu on desktop (not mobile or tablet)
+        setShouldShowPikachu(!newIsMobile && !newIsTablet);
       });
     };
     
@@ -714,6 +722,19 @@ const Header = () => {
     };
   }, []);
   
+  // Effect to dynamically load Pikachu image only on desktop
+  useEffect(() => {
+    // Only load the image when we actually need to show it (desktop only)
+    if (shouldShowPikachu && !pikachuImage) {
+      // Create a new image object and set it to state only when loaded
+      const img = new Image();
+      img.onload = () => {
+        setPikachuImage(`${process.env.PUBLIC_URL}/images/pikachu.png`);
+      };
+      img.src = `${process.env.PUBLIC_URL}/images/pikachu.png`;
+    }
+  }, [shouldShowPikachu, pikachuImage]);
+
   // Terminal typewriter effect with optimized implementation
   const [cursorVisible, setCursorVisible] = useState(true);
   const [typedText, setTypedText] = useState('');
@@ -837,7 +858,7 @@ const Header = () => {
           justifyContent: isMobile ? 'flex-start' : 'center',
           marginTop: isMobile ? '15vh' : (isTablet ? '18vh' : '0') /* Push content below horizontal names on tablet */
         }}>
-          {/* Machine Loehrning buzzword - tech hipster spin */}
+          {/* Machine Loehrning */}
           <div style={{ position: 'relative', display: 'inline-block' }}>
             {!isMobile && (
               <MachineLoehrning
@@ -868,7 +889,7 @@ const Header = () => {
                   transform: 'translateY(-50%)',
                   height: isTablet ? '180px' : '250px',
                   zIndex: 100,
-                  willChange: 'transform' // Performance optimization
+                  willChange: 'transform' 
                 }}
                 animate={{
                   x: [0, 15, 0]
@@ -897,7 +918,7 @@ const Header = () => {
             {cursorVisible && <span className="cursor"></span>}
           </JobTitle>
           
-          {/* Social media links with semantic nav element for SEO */}
+          {/* Social media links */}
         <nav aria-label="Social media links and resume">
           <SocialLinks
             initial={{ opacity: 0, y: 20 }}
@@ -1022,23 +1043,24 @@ const Header = () => {
         width: '100%',
         zIndex: 50 /* Increased z-index to ensure it's above everything */
       }}>
-        {/* Pikachu mascot - only visible on desktop */}
-        {(!isMobile || isTablet) && (
+        {/* Pikachu mascot - only rendered when shouldShowPikachu is true AND image is loaded */}
+        {shouldShowPikachu && pikachuImage && (
           <img 
-            src={`${process.env.PUBLIC_URL}/images/pikachu.png`}
+            src={pikachuImage}
             alt=""
             aria-hidden="true"
             loading="lazy" 
             decoding="async"
             fetchPriority="low"
-            width={isTablet ? 120 : 150}
-            height={isTablet ? 120 : 150}
+            width={150}
+            height={150}
+            className="desktop-only-image"
             style={{
               position: 'absolute',
               bottom: '100%',
               marginBottom: '3px',
               right: '20px',
-              width: isTablet ? '120px' : '150px',
+              width: '150px',
               height: 'auto',
               zIndex: 10
             }}

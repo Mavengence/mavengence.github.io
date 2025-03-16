@@ -35,7 +35,25 @@
     
     <!-- Preload critical assets -->
     <link rel="preload" href="%PUBLIC_URL%/images/astronaut.png" as="image" />
-    <link rel="preload" href="%PUBLIC_URL%/images/pikachu.png" as="image" />
+    <!-- Only preload Pikachu for desktop users -->
+    <link rel="preload" href="%PUBLIC_URL%/images/pikachu.png" as="image" media="(min-width: 1025px)" />
+    
+    <!-- Critical CSS to hide Pikachu image on mobile/tablet devices -->
+    <style>
+      @media (max-width: 1024px) {
+        img[src*="pikachu.png"] {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          position: absolute !important;
+          pointer-events: none !important;
+          clip: rect(0, 0, 0, 0) !important;
+          overflow: hidden !important;
+        }
+      }
+    </style>
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
