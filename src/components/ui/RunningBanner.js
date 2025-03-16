@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
-import { BiCodeAlt, BiData } from 'react-icons/bi';
+import { BiCodeAlt, BiData, BiChip, BiAtom, BiMath, BiBrain, BiTerminal, BiCloud } from 'react-icons/bi';
 import { FONTS } from './Theme';
 
 // Running banner component styled like the one in Header
@@ -67,7 +67,7 @@ const BannerContainer = styled(motion.div)`
 
 const BannerContent = styled.div`
   display: inline-block;
-  animation: marquee 30s linear infinite;
+  animation: marquee 24s linear infinite;
   padding-left: 100%;
   font-family: ${FONTS.mono};
   color: #0F0F0F;
@@ -129,16 +129,17 @@ const BannerContent = styled.div`
 
 // Default items for the banner
 const defaultItems = [
-  { text: "Machine Learning", blink: true, icon: <BiData /> },
-  { text: "Data Engineering", blink: false, icon: <BiCodeAlt /> },
-  { text: "Python · TensorFlow · PyTorch", blink: false, icon: <BiCodeAlt /> },
+  { text: "Machine Learning", blink: true, icon: <BiBrain /> },
+  { text: "Data Engineering", blink: false, icon: <BiChip /> },
+  { text: "Data Science", blink: false, icon: <BiCodeAlt /> },
+  { text: "Python · TensorFlow · PyTorch", blink: false, icon: <BiTerminal /> },
   { text: "Natural Language Processing", blink: true, icon: <BiData /> },
   { text: "Computer Vision", blink: false, icon: <BiData /> },
-  { text: "SQL · NoSQL · Graph Databases", blink: false, icon: <BiCodeAlt /> },
-  { text: "AWS · Azure · GCP", blink: true, icon: <BiCodeAlt /> },
+  { text: "SQL · NoSQL · Graph Databases", blink: false, icon: <BiData/> },
+  { text: "AWS · Azure · GCP", blink: true, icon: <BiAtom /> },
   { text: "ETL Pipeline Design", blink: false, icon: <BiData /> },
-  { text: "Distributed Computing", blink: false, icon: <BiCodeAlt /> },
-  { text: "A/B Testing", blink: true, icon: <BiData /> },
+  { text: "Distributed Computing", blink: false, icon: <BiCloud /> },
+  { text: "A/B Testing", blink: true, icon: <BiMath /> },
 ];
 
 const RunningBanner = ({ items = defaultItems, className }) => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaGithub, FaFileAlt, FaLinkedin, FaMedium } from 'react-icons/fa';
-import { BiCodeAlt } from 'react-icons/bi';
+import { BiCodeAlt, BiData, BiChip, BiAtom, BiMath, BiBrain, BiTerminal, BiCloud } from 'react-icons/bi';
 import { SiGooglescholar } from 'react-icons/si';
 import { COLORS, FONTS } from '../ui/Theme';
 import TerminalButton from '../ui/TerminalButton';
@@ -528,7 +528,7 @@ const RunningBanner = styled(motion.div)`
 
 const BannerContent = styled.div`
   display: inline-block;
-  animation: marquee 30s linear infinite;
+  animation: marquee 24s linear infinite;
   padding-left: 100%;
   font-family: ${FONTS.mono};
   color: ${COLORS.dataDark};
@@ -773,12 +773,13 @@ const Header = () => {
   
   // Memoized banner content to prevent re-creation on every render
   const bannerItems = useMemo(() => [
-    { text: "ETL Pipeline Design", icon: <BiCodeAlt />, blink: true },
-    { text: "SQL & NoSQL Databases", icon: <BiCodeAlt /> },
+    { text: "ETL Pipeline Design", icon: <BiData />, blink: true },
+    { text: "Dimensional Modeling", icon: <BiBrain />, blink: true },
+    { text: "SQL & NoSQL Databases", icon: <BiChip /> },
     { text: "Data Warehousing", icon: <BiCodeAlt />, blink: true },
-    { text: "Kafka & Spark", icon: <BiCodeAlt /> },
-    { text: "Airflow & Orchestration", icon: <BiCodeAlt />, blink: true },
-    { text: "Cloud Infrastructure", icon: <BiCodeAlt /> }
+    { text: "Presto & Spark", icon: <BiTerminal /> },
+    { text: "Data Pipelines & Orchestration", icon: <BiAtom />, blink: true },
+    { text: "Cloud Infrastructure", icon: <BiCloud /> }
   ], []);
   
   // Optimized scroll handler with memoization

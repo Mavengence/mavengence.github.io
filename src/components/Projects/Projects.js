@@ -32,8 +32,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
 import RetroSection from '../ui/RetroSection';
-import RetroButton from '../ui/RetroButton';
-import { COLORS, FONTS } from '../ui/Theme';
+import { FONTS } from '../ui/Theme';
 
 const ProjectsContainer = styled.div`
   width: 100%;
@@ -488,6 +487,17 @@ const projectsByRow = {
         { label: 'Thesis', url: 'https://drive.google.com/file/d/13fBq7cbFENh3P6NSFUtC5ROXlaYpaHok/view?usp=sharing', primary: true },
         { label: 'Presentation', url: 'https://drive.google.com/file/d/1CEw7Icy97BMWJfAVU_q-VCswe2eEaCrP/view?usp=sharing', primary: false }
       ]
+    },
+    {
+      title: 'Python Package: <br> Gap Statistics',
+      description: 'My GapStatistics package provides a Python implementation of the Gap Statistics method for determining the optimal number of clusters in a dataset using K-means clustering derived from Tibshirani et al.',
+      gradient: GRADIENT_PRESETS.PURPLE,
+      technologies: ['Elbow Method', 'k-Means', 'Clustering'],
+      actions: [
+        { label: 'Github', url: 'https://github.com/Mavengence/GapStatistics', primary: true },
+        { label: 'PyPi', url: 'https://pypi.org/project/gapstatistics/', primary: false }
+      ],
+      banner: { text: 'Package', color: GRADIENT_PRESETS.PURPLE, isLong: true }
     }
   ]
 };
