@@ -8,7 +8,7 @@
     
     <!-- Primary Meta Tags -->
     <title>Tim Loehr</title>
-    <meta name="title" content="Tim Loehr | Data Science & Machine Learning Portfolio">
+    <meta name="title" content="Tim Loehr | Data Science & Data Engineering Portfolio">
     <meta name="description" content="Data Engineer & Scientist with expertise in data pipelines, ML engineering, and cloud data solutions. View projects and professional experience.">
     <meta name="keywords" content="data science, machine learning, data engineer, portfolio, ML engineering, data visualization, neural networks, cloud computing">
     <meta name="author" content="Tim Loehr">
@@ -33,29 +33,39 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
+    <!-- Preload critical assets -->
+    <link rel="preload" href="%PUBLIC_URL%/images/astronaut.png" as="image" />
+    <link rel="preload" href="%PUBLIC_URL%/images/pikachu.png" as="image" />
+    
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Google Fonts with display=swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Optimized Google Fonts loading with font-display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" media="print" onload="this.media='all'" crossorigin="anonymous">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&family=VT323&display=swap">
     
     <!-- Structured data for better SEO and rich snippets -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
-        "headline": "Tim Loehr | Data Science & Machine Learning Portfolio",
-        "description": "Data Engineer and Machine Learning specialist with expertise in data pipelines, ML engineering, and cloud data solutions. View projects and professional experience.",
-        "datePublished": "2025-03-11",
-        "dateModified": "2025-03-11",
+        "headline": "Tim Loehr | Data Engineer & Data Scientist Portfolio",
+        "description": "Data Engineer and Data Scientist with expertise in ETL pipelines, ML engineering, and cloud data solutions. View projects and professional experience.",
+        "datePublished": "2025-03-16",
+        "dateModified": "2025-03-16",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://mavengence.github.io/"
+        },
         "author": {
           "@type": "Person",
           "name": "Tim Loehr",
           "jobTitle": "Data Engineer",
-          "url": "https://www.timloehr.me/",
+          "url": "https://mavengence.github.io/",
+          "image": "https://mavengence.github.io/images/astronaut.png",
           "sameAs": [
-            "https://www.github.com/mavengence",
+            "https://github.com/mavengence",
             "https://www.linkedin.com/in/tim-loehr-821ba8188/",
             "https://medium.com/@mavengence",
             "https://scholar.google.com/citations?user=DLV7IqAAAAAJ&hl=en"
@@ -64,12 +74,12 @@
             "Data Science",
             "Machine Learning",
             "Data Engineering",
-            "Cloud Computing",
-            "Data Visualization",
-            "Neural Networks",
-            "Feature Engineering",
-            "Big Data",
-            "Real-time Processing"
+            "ETL Pipeline Design",
+            "SQL & NoSQL Databases",
+            "Data Warehousing",
+            "Kafka & Spark",
+            "Airflow & Orchestration",
+            "Cloud Infrastructure"
           ]
         },
         "mainEntity": {
@@ -79,19 +89,19 @@
               "@type": "ListItem",
               "position": 1,
               "name": "Work Experience",
-              "url": "https://www.apple.com"
+              "url": "https://mavengence.github.io/#experience"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Projects",
-              "url": "https://www.redbull.com/"
+              "url": "https://mavengence.github.io/#projects"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Interactive Console",
-              "url": "https://www.meta.com/"
+              "url": "https://mavengence.github.io/#console"
             }
           ]
         }

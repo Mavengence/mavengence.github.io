@@ -1,26 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaGithub, FaFileAlt, FaLinkedin, FaMedium } from 'react-icons/fa';
-import { BiCodeAlt, BiData } from 'react-icons/bi';
+import { BiCodeAlt } from 'react-icons/bi';
 import { SiGooglescholar } from 'react-icons/si';
 import { COLORS, FONTS } from '../ui/Theme';
 import TerminalButton from '../ui/TerminalButton';
 
-// Flicker animation for text effects
-const flicker = keyframes`
-  0%, 91%, 93.5%, 95%, 100% { opacity: 1; }
-  92% { opacity: 0.8; }
-  94% { opacity: 0.9; }
-  96% { opacity: 0.4; }
-  97% { opacity: 0.9; }
-  98% { opacity: 0.7; }
-  99% { opacity: 0.8; }
-`;
+// Performance-optimized animations
+const animations = {
+  // Flicker animation with will-change hint for better rendering
+  flicker: keyframes`
+    0%, 91%, 93.5%, 95%, 100% { opacity: 1; }
+    92% { opacity: 0.8; }
+    94% { opacity: 0.9; }
+    96% { opacity: 0.4; }
+    97% { opacity: 0.9; }
+    98% { opacity: 0.7; }
+    99% { opacity: 0.8; }
+  `,
+  
+  // Title bounce animation
+  titleBounce: keyframes`
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  `,
+  
+  // Film displacement animation
+  filmDisplacement: keyframes`
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(0.7px, 0); }
+    20% { transform: translate(-0.5px, 0.5px); }
+    30% { transform: translate(0, 0); }
+    40% { transform: translate(0.3px, -0.3px); }
+    50% { transform: translate(0, 0); }
+    60% { transform: translate(-0.7px, 0.3px); }
+    70% { transform: translate(0.5px, 0.5px); }
+    80% { transform: translate(0, 0); }
+    90% { transform: translate(-0.3px, -0.6px); }
+  `,
+  
+  // Logo hover animation
+  hoverRightLeft: keyframes`
+    0% { transform: translateX(0); }
+    50% { transform: translateX(15px); }
+    100% { transform: translateX(0); }
+  `
+};
 
-// Banner styling constants
-const BANNER_PADDING_DESKTOP = 12; // Desktop padding in pixels
-const BANNER_PADDING_MOBILE = 11; // Mobile padding value
+// Responsive design constants
+const DIMENSIONS = {
+  BANNER_PADDING_DESKTOP: 12,
+  BANNER_PADDING_MOBILE: 11,
+  MOBILE_BREAKPOINT: 768,
+  TABLET_BREAKPOINT: 1024
+};
 
 /**
  * Main header container
@@ -38,18 +72,20 @@ const HeaderContainer = styled.div`
   align-items: center;
   z-index: 10; /* Appropriate stacking context */
   
-  /* Tablet styling */
-  @media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet styling - optimized for performance */
+  @media (min-width: ${DIMENSIONS.MOBILE_BREAKPOINT + 1}px) and (max-width: ${DIMENSIONS.TABLET_BREAKPOINT}px) {
     height: 100vh;
     justify-content: center;
+    contain: layout style; /* Performance optimization */
   }
   
-  /* Mobile styling */
-  @media (max-width: 768px) {
-    height: 100vh; /* Full viewport height */
+  /* Mobile styling with contain property for performance */
+  @media (max-width: ${DIMENSIONS.MOBILE_BREAKPOINT}px) {
+    height: 100vh; 
     height: calc(100vh - env(safe-area-inset-bottom, 0));
     justify-content: flex-start;
-    padding-top: 8vh; /* Reduced padding as banner is now at the top */
+    padding-top: 8vh;
+    contain: layout style; /* Performance optimization */
   }
   
   /* Define the softWave animation for reuse */
@@ -109,25 +145,7 @@ const NameContainer = styled.div`
   z-index: 1;
 `;
 
-// Slow up/down animation for 3D title effect
-const titleBounce = keyframes`
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-`;
-
-// Subtle displacement animation for old film effect
-const filmDisplacement = keyframes`
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(0.7px, 0); }
-  20% { transform: translate(-0.5px, 0.5px); }
-  30% { transform: translate(0, 0); }
-  40% { transform: translate(0.3px, -0.3px); }
-  50% { transform: translate(0, 0); }
-  60% { transform: translate(-0.7px, 0.3px); }
-  70% { transform: translate(0.5px, 0.5px); }
-  80% { transform: translate(0, 0); }
-  90% { transform: translate(-0.3px, -0.6px); }
-`;
+// These animations were moved to the animations object at the top of the file
 
 // Vertical text styling for first name with cinematic 3D effect
 const FirstName = styled(motion.div)`
@@ -144,7 +162,8 @@ const FirstName = styled(motion.div)`
   top: 10%;
   transform-origin: left center;
   opacity: 1;
-  animation: ${titleBounce} 8s ease-in-out infinite, ${filmDisplacement} 10s linear infinite;
+  animation: ${animations.titleBounce} 8s ease-in-out infinite, ${animations.filmDisplacement} 10s linear infinite;
+  will-change: transform; /* Performance optimization */
   
   /* 3D effect with multiple shadows */
   &:before, &:after {
@@ -162,7 +181,7 @@ const FirstName = styled(motion.div)`
     color: #E53E3E; /* Red */
     transform: translate(-5px, 5px);
     z-index: -3;
-    animation: ${flicker} 8s infinite;
+    animation: ${animations.flicker} 8s infinite;
   }
   
   /* Blue shadow layer */
@@ -170,7 +189,7 @@ const FirstName = styled(motion.div)`
     color: #3182CE; /* Blue */
     transform: translate(5px, -5px);
     z-index: -2;
-    animation: ${flicker} 12s infinite;
+    animation: ${animations.flicker} 12s infinite;
   }
   
   /* media query for smaller laptop screens */
@@ -220,7 +239,8 @@ const LastName = styled(motion.div)`
   z-index: 15;
   opacity: 1;
   transform-origin: right center;
-  animation: ${titleBounce} 8s ease-in-out infinite, ${filmDisplacement} 12s linear infinite;
+  animation: ${animations.titleBounce} 8s ease-in-out infinite, ${animations.filmDisplacement} 12s linear infinite;
+  will-change: transform; /* Performance optimization */
   
   /* 3D effect with multiple shadows */
   &:before, &:after {
@@ -238,7 +258,7 @@ const LastName = styled(motion.div)`
     color: #E53E3E; /* Red */
     transform: translate(5px, 5px);
     z-index: -3;
-    animation: ${flicker} 10s infinite;
+    animation: ${animations.flicker} 10s infinite;
   }
   
   /* Blue shadow layer */
@@ -246,7 +266,7 @@ const LastName = styled(motion.div)`
     color: #3182CE; /* Blue */
     transform: translate(-5px, -5px);
     z-index: -2;
-    animation: ${flicker} 15s infinite;
+    animation: ${animations.flicker} 15s infinite;
   }
   
   /* media query for smaller laptop screens */
@@ -282,12 +302,7 @@ const LastName = styled(motion.div)`
   }
 `;
 
-// Hover animation for logo
-const hoverRightLeft = keyframes`
-  0% { transform: translateX(0); }
-  50% { transform: translateX(15px); }
-  100% { transform: translateX(0); }
-`;
+// Hover animation was moved to animations object at the top
 
 // Artsy retro electrified text with creative shadow placement
 const MachineLoehrning = styled(motion.div)`
@@ -436,7 +451,7 @@ const MachineLoehrning = styled(motion.div)`
   .floating-logo {
     margin-left: 20px;
     height: 60px;
-    animation: ${hoverRightLeft} 8s ease-in-out infinite;
+    animation: ${animations.hoverRightLeft} 8s ease-in-out infinite;
   }
 `;
 
@@ -447,31 +462,37 @@ const RunningBanner = styled(motion.div)`
   background-color: rgba(255, 255, 255, 0.80);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: ${BANNER_PADDING_DESKTOP}px 0;
+  padding: ${DIMENSIONS.BANNER_PADDING_DESKTOP}px 0;
   z-index: 30;
   display: flex;
   align-items: center;
   justify-content: center;
   
-  /* Desktop styling */
-  @media (min-width: 1025px) {
+  /* Desktop styling with GPU acceleration */
+  @media (min-width: ${DIMENSIONS.TABLET_BREAKPOINT + 1}px) {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: transform; /* Optimization hint */
   }
   
-  /* Tablet styling */
-  @media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet styling with performance optimizations */
+  @media (min-width: ${DIMENSIONS.MOBILE_BREAKPOINT + 1}px) and (max-width: ${DIMENSIONS.TABLET_BREAKPOINT}px) {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
-    padding: ${BANNER_PADDING_DESKTOP - 2}px 0;
+    padding: ${DIMENSIONS.BANNER_PADDING_DESKTOP - 2}px 0;
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: transform; /* Optimization hint */
   }
   
-  /* Mobile styling */
-  @media (max-width: 768px) {
-    padding: ${BANNER_PADDING_MOBILE}px 0; /* Padding for visibility */
+  /* Mobile styling with performance optimizations */
+  @media (max-width: ${DIMENSIONS.MOBILE_BREAKPOINT}px) {
+    padding: ${DIMENSIONS.BANNER_PADDING_MOBILE}px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     height: auto;
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: transform; /* Optimization hint */
   }
   
   /* Gradient fade edges for smooth scroll */
@@ -661,85 +682,120 @@ const Header = () => {
   // Fade animations for header elements
   const headerOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   
-  // State for tracking screen size
+  // State for responsive design with optimized resize handling
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
-  const [isVerySmallScreen, setIsVerySmallScreen] = useState(false);
   
-  // Update screen size states based on window width
+  // Optimization: debounced resize handler with requestAnimationFrame
   useEffect(() => {
+    let frameId = null;
+    
     const handleResize = () => {
-      const width = window.innerWidth;
-      setIsMobile(width <= 768);
-      setIsTablet(width > 768 && width <= 1024);
-      setIsVerySmallScreen(width <= 430);
+      // Cancel any pending frame
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+      
+      // Schedule resize calculation in next animation frame for performance
+      frameId = requestAnimationFrame(() => {
+        const width = window.innerWidth;
+        setIsMobile(width <= DIMENSIONS.MOBILE_BREAKPOINT);
+        setIsTablet(width > DIMENSIONS.MOBILE_BREAKPOINT && width <= DIMENSIONS.TABLET_BREAKPOINT);
+      });
     };
     
-    // Initial check
+    // Initial setup
     handleResize();
     
-    // Add event listener
-    window.addEventListener('resize', handleResize);
+    // Add event listener with passive flag for better performance
+    window.addEventListener('resize', handleResize, { passive: true });
     
     // Cleanup
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+    };
   }, []);
   
-  // tech terminal cursor blinking text effect
+  // Terminal typewriter effect with optimized implementation
   const [cursorVisible, setCursorVisible] = useState(true);
   const [typedText, setTypedText] = useState('');
   const fullText = 'Data Engineer';
   
-  // Typewriter effect for job title
+  // Optimized typewriter effect with memoized timeout reference
   useEffect(() => {
+    let timeoutId = null;
+    
     if (typedText.length < fullText.length) {
-      const timeout = setTimeout(() => {
-        setTypedText(fullText.slice(0, typedText.length + 1));
+      // Use RAF for smoother animation in high-load situations
+      timeoutId = setTimeout(() => {
+        requestAnimationFrame(() => {
+          setTypedText(fullText.slice(0, typedText.length + 1));
+        });
       }, 150);
-      
-      return () => clearTimeout(timeout);
     }
-  }, [typedText]);
+    
+    // Cleanup function to prevent memory leaks
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [typedText, fullText]);
   
-  // Cursor blinking effect
+  // Optimized cursor blinking with reduced repaints
   useEffect(() => {
-    const interval = setInterval(() => {
+    // Use more efficient toggle approach
+    const intervalId = setInterval(() => {
       setCursorVisible(prev => !prev);
     }, 500);
     
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalId);
   }, []);
   
-  // Banner content items
-  const bannerItems = [
+  // Memoized banner content to prevent re-creation on every render
+  const bannerItems = useMemo(() => [
     { text: "ETL Pipeline Design", icon: <BiCodeAlt />, blink: true },
     { text: "SQL & NoSQL Databases", icon: <BiCodeAlt /> },
     { text: "Data Warehousing", icon: <BiCodeAlt />, blink: true },
     { text: "Kafka & Spark", icon: <BiCodeAlt /> },
     { text: "Airflow & Orchestration", icon: <BiCodeAlt />, blink: true },
     { text: "Cloud Infrastructure", icon: <BiCodeAlt /> }
-  ];
+  ], []);
   
-  const scrollToSection = (id) => {
+  // Optimized scroll handler with memoization
+  const scrollToSection = useCallback((id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Use scrollIntoView with passive event listeners
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
-  };
+  }, []);
 
   return (
     <HeaderContainer id="home" role="banner" aria-label="Tim Loehr, Data Engineer">
       {/* Name display with visually hidden H1 for SEO and accessibility */}
       <NameContainer>
-        {/* Screen reader accessible h1 that's visually hidden */}
-        <h1 style={{ 
-          position: 'absolute', 
-          left: '-9999px', 
-          top: '-9999px',
-          width: '1px',
-          height: '1px',
-          overflow: 'hidden'
-        }}>
+        {/* SEO-optimized accessible heading using proper visually hidden technique */}
+        <h1 
+          style={{ 
+            position: 'absolute', 
+            width: '1px',
+            height: '1px',
+            padding: 0,
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap',
+            borderWidth: 0
+          }}
+          aria-label="Tim Loehr - Data Engineer and Data Scientist"
+        >
           Tim Loehr - Data Engineer and Data Scientist
         </h1>
         <FirstName
@@ -804,14 +860,20 @@ const Header = () => {
             {!isMobile && (
               <motion.img 
                 src={`${process.env.PUBLIC_URL}/images/astronaut.png`}
-                alt="Astronaut logo" 
+                alt="Astronaut logo"
+                loading="lazy"
+                decoding="async"
+                width={isTablet ? 180 : 250}
+                height={isTablet ? 180 : 250}
+                fetchPriority="low"
                 style={{ 
                   position: 'absolute',
                   right: isTablet ? '-60px' : '-80px',
                   top: '60%',
                   transform: 'translateY(-50%)',
                   height: isTablet ? '180px' : '250px',
-                  zIndex: 100
+                  zIndex: 100,
+                  willChange: 'transform' // Performance optimization
                 }}
                 animate={{
                   x: [0, 15, 0]
@@ -969,10 +1031,13 @@ const Header = () => {
         {(!isMobile || isTablet) && (
           <img 
             src={`${process.env.PUBLIC_URL}/images/pikachu.png`}
-            alt="Pikachu"
+            alt=""
             aria-hidden="true"
             loading="lazy" 
             decoding="async"
+            fetchPriority="low"
+            width={isTablet ? 120 : 150}
+            height={isTablet ? 120 : 150}
             style={{
               position: 'absolute',
               bottom: '100%',

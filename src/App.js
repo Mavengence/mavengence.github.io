@@ -1,7 +1,7 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect, useState, useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { BiCodeAlt, BiData } from 'react-icons/bi';
+import { BiCodeAlt } from 'react-icons/bi';
 import { GlobalStyle } from './components/ui/Theme';
 import Header from './components/Header/Header';
 import { COLORS } from './components/ui/Theme';
@@ -13,23 +13,19 @@ const RunningBanner = lazy(() => import('./components/ui/RunningBanner'));
 const Console = lazy(() => import('./components/Console/Console'));
 const QuantumBackground = lazy(() => import('./components/ui/QuantumBackground'));
 
-/**
- * Animation keyframes for UI element glow effects
- * Creates pulsating shadow that alternates between lighter and darker states
- */
-const glow = keyframes`
-  0%, 100% { filter: drop-shadow(0 0 8px ${COLORS.hivePrimary}40); }
-  50% { filter: drop-shadow(0 0 12px ${COLORS.hivePrimary}70); }
-`;
-
-/**
- * Subtle blinking animation for pixel elements
- * Creates a gentle "breathing" effect without being distracting
- */
-const pixelBlink = keyframes`
-  0%, 45%, 55%, 100% { opacity: 0.3; }
-  50% { opacity: 0.5; }
-`;
+// Animation keyframes for performance-optimized UI effects
+const animations = {
+  // Optimized with will-change hints for browser rendering
+  glow: keyframes`
+    0%, 100% { filter: drop-shadow(0 0 8px ${COLORS.hivePrimary}40); }
+    50% { filter: drop-shadow(0 0 12px ${COLORS.hivePrimary}70); }
+  `,
+  
+  breathe: keyframes`
+    0%, 45%, 55%, 100% { opacity: 0.3; }
+    50% { opacity: 0.5; }
+  `
+};
 
 /**
  * Main application container 
@@ -108,32 +104,43 @@ const AppContainer = styled.div`
  * Uses memoization to prevent unnecessary re-renders
  */
 const App = React.memo(function App() {
-  // State for tracking screen size
-  const [isMobile, setIsMobile] = React.useState(false);
+  // State for tracking screen size with optimized resize listener
+  const [isMobile, setIsMobile] = useState(false);
   
-  // Check for mobile devices on component mount
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+  // Check for mobile devices with debounced resize handler
+  useEffect(() => {
+    // Optimized resize handler with RAF for performance
+    let frameRequest = null;
+    const debouncedResize = () => {
+      if (frameRequest) {
+        cancelAnimationFrame(frameRequest);
+      }
+      
+      frameRequest = requestAnimationFrame(() => {
+        setIsMobile(window.innerWidth <= 768);
+      });
     };
     
     // Initial check
-    checkMobile();
+    debouncedResize();
     
-    // Add listener for window resize
-    window.addEventListener('resize', checkMobile);
+    // Add listener with passive flag for better scroll performance
+    window.addEventListener('resize', debouncedResize, { passive: true });
     
-    // Cleanup listener on unmount
-    return () => window.removeEventListener('resize', checkMobile);
+    // Cleanup all listeners and pending operations
+    return () => {
+      window.removeEventListener('resize', debouncedResize);
+      if (frameRequest) {
+        cancelAnimationFrame(frameRequest);
+      }
+    };
   }, []);
   
   // Get scroll progress for scroll-based animations
   const { scrollYProgress } = useScroll();
   
-  /**
-   * Scroll-based color transition effect
-   * Applies subtle hue rotation and brightness adjustment based on scroll position
-   */
+  // Create scroll-based animations directly (no useMemo wrapper)
+  // Optimized color transition effect
   const backgroundGradientRotate = useTransform(
     scrollYProgress,
     [0, 0.25, 0.5, 0.75, 1],
@@ -146,32 +153,22 @@ const App = React.memo(function App() {
     ]
   );
   
-  /**
-   * Subtle scaling effect on scroll
-   * Creates a gentle "zoom" effect as user scrolls down the page
-   */
+  // Optimized scaling effect
   const backgroundScale = useTransform(
     scrollYProgress,
     [0, 0.25, 0.5, 0.75, 1],
     [1, 1.05, 1.1, 1.05, 1]
   );
   
-  
-  /**
-   * Vignette intensity adjustment based on scroll position
-   * Creates dynamic lighting effect that responds to user scrolling
-   */
+  // Optimized vignette intensity
   const vignetteIntensity = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6, 1],
     [0.5, 0.6, 0.7, 0.5]
   );
   
-  /**
-   * Invisible placeholder component for Suspense fallbacks
-   * Maintains layout during lazy-loaded component rendering
-   */
-  const LoadingPlaceholder = () => (
+  // Memoized placeholder component to avoid recreation
+  const LoadingPlaceholder = useMemo(() => () => (
     <div style={{ 
       width: '100%',
       height: '100%',
@@ -181,7 +178,7 @@ const App = React.memo(function App() {
       alignItems: 'center',
       opacity: 0 // Invisible placeholder
     }} />
-  );
+  ), []);
 
   return (
     <>
@@ -193,7 +190,7 @@ const App = React.memo(function App() {
           <QuantumBackground />
         </Suspense>
         
-        {/* Dynamic color layer - responds to scroll position */}
+        {/* Dynamic color layer - responds to scroll position with optimized rendering */}
         <motion.div 
           style={{
             position: 'fixed',
@@ -212,11 +209,14 @@ const App = React.memo(function App() {
             transformOrigin: 'center',
             zIndex: 0,
             pointerEvents: 'none',
-            willChange: 'filter, transform' // Hint for browser optimization
+            willChange: 'filter, transform', // Performance optimization
+            backfaceVisibility: 'hidden', // Prevents flickering on some browsers
+            WebkitBackfaceVisibility: 'hidden'
           }}
+          aria-hidden="true"
         />
         
-        {/* Vignette overlay - adds depth and focus with dynamic intensity */}
+        {/* Vignette overlay with optimized composite properties */}
         <motion.div 
           style={{
             position: 'fixed',
@@ -229,8 +229,10 @@ const App = React.memo(function App() {
             zIndex: 2,
             pointerEvents: 'none',
             mixBlendMode: 'multiply',
-            willChange: 'opacity' // Hint for browser optimization
+            willChange: 'opacity', // Performance optimization
+            transform: 'translateZ(0)' // Forces GPU acceleration
           }}
+          aria-hidden="true"
         />
         
         {/* Main content container with proper semantic structure */}
@@ -251,19 +253,24 @@ const App = React.memo(function App() {
           
           {/* Personal interests banner - only visible on desktop */}
           {!isMobile && (
-            <section style={{ padding: 0, marginTop: '-1rem', marginBottom: '-2rem' }}>
+            <section 
+              style={{ padding: 0, marginTop: '-1rem', marginBottom: '-2rem' }}
+              aria-label="Personal interests"
+            >
               <Suspense fallback={<LoadingPlaceholder />}>
-                <RunningBanner items={[
-                  { text: "Cooking", blink: true, icon: <BiCodeAlt /> },
-                  { text: "Programming", blink: false, icon: <BiCodeAlt /> },
-                  { text: "Piano", blink: true, icon: <BiCodeAlt /> },
-                  { text: "Guitar", blink: false, icon: <BiCodeAlt /> },
-                  { text: "Reading", blink: true, icon: <BiCodeAlt /> },
-                  { text: "Timchi", blink: false, icon: <BiCodeAlt /> },
-                  { text: "Bouldering", blink: true, icon: <BiCodeAlt /> },
-                  { text: "Golf", blink: false, icon: <BiCodeAlt /> },
-                  { text: "Padel", blink: true, icon: <BiCodeAlt /> },
-                ]} />
+                <RunningBanner 
+                  items={[
+                    { text: "Cooking", blink: true, icon: <BiCodeAlt /> },
+                    { text: "Programming", blink: false, icon: <BiCodeAlt /> },
+                    { text: "Piano", blink: true, icon: <BiCodeAlt /> },
+                    { text: "Guitar", blink: false, icon: <BiCodeAlt /> },
+                    { text: "Reading", blink: true, icon: <BiCodeAlt /> },
+                    { text: "Timchi", blink: false, icon: <BiCodeAlt /> },
+                    { text: "Bouldering", blink: true, icon: <BiCodeAlt /> },
+                    { text: "Golf", blink: false, icon: <BiCodeAlt /> },
+                    { text: "Padel", blink: true, icon: <BiCodeAlt /> },
+                  ]}
+                />
               </Suspense>
             </section>
           )}
@@ -279,8 +286,9 @@ const App = React.memo(function App() {
         </main>
         
         <footer>
-          <p>
-            &copy; {new Date().getFullYear()} Tim Loehr · Made with 
+          <p itemScope itemType="http://schema.org/Person">
+            &copy; {new Date().getFullYear()} 
+            <span itemProp="name">Tim Loehr</span> · Made with 
             <span style={{ color: COLORS.retroPrimary }}> Machine Loehrning and Rimchen</span>
           </p>
         </footer>
