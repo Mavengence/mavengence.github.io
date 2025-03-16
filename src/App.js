@@ -249,22 +249,24 @@ const App = React.memo(function App() {
             </Suspense>
           </article>
           
-          {/* Personal interests banner */}
-          <section style={{ padding: 0, marginTop: '-1rem', marginBottom: '-2rem' }}>
-            <Suspense fallback={<LoadingPlaceholder />}>
-              <RunningBanner items={[
-                { text: "Cooking", blink: true, icon: <BiCodeAlt /> },
-                { text: "Programming", blink: false, icon: <BiCodeAlt /> },
-                { text: "Piano", blink: true, icon: <BiCodeAlt /> },
-                { text: "Guitar", blink: false, icon: <BiCodeAlt /> },
-                { text: "Reading", blink: true, icon: <BiCodeAlt /> },
-                { text: "Timchi", blink: false, icon: <BiCodeAlt /> },
-                { text: "Bouldering", blink: true, icon: <BiCodeAlt /> },
-                { text: "Golf", blink: false, icon: <BiCodeAlt /> },
-                { text: "Padel", blink: true, icon: <BiCodeAlt /> },
-              ]} />
-            </Suspense>
-          </section>
+          {/* Personal interests banner - only visible on desktop */}
+          {!isMobile && (
+            <section style={{ padding: 0, marginTop: '-1rem', marginBottom: '-2rem' }}>
+              <Suspense fallback={<LoadingPlaceholder />}>
+                <RunningBanner items={[
+                  { text: "Cooking", blink: true, icon: <BiCodeAlt /> },
+                  { text: "Programming", blink: false, icon: <BiCodeAlt /> },
+                  { text: "Piano", blink: true, icon: <BiCodeAlt /> },
+                  { text: "Guitar", blink: false, icon: <BiCodeAlt /> },
+                  { text: "Reading", blink: true, icon: <BiCodeAlt /> },
+                  { text: "Timchi", blink: false, icon: <BiCodeAlt /> },
+                  { text: "Bouldering", blink: true, icon: <BiCodeAlt /> },
+                  { text: "Golf", blink: false, icon: <BiCodeAlt /> },
+                  { text: "Padel", blink: true, icon: <BiCodeAlt /> },
+                ]} />
+              </Suspense>
+            </section>
+          )}
 
           {/* Only render console on non-mobile devices */}
           {!isMobile && (

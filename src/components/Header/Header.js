@@ -21,7 +21,6 @@ const flicker = keyframes`
 // Banner styling constants
 const BANNER_PADDING_DESKTOP = 12; // Desktop padding in pixels
 const BANNER_PADDING_MOBILE = 11; // Mobile padding value
-const BANNER_MARGIN_MOBILE = 11; // 7vh margin from bottom on mobile
 
 /**
  * Main header container
@@ -44,7 +43,7 @@ const HeaderContainer = styled.div`
     height: 100vh; /* Full viewport height */
     height: calc(100vh - env(safe-area-inset-bottom, 0));
     justify-content: flex-start;
-    padding-top: 15vh; /* Increased padding to move content down */
+    padding-top: 8vh; /* Reduced padding as banner is now at the top */
   }
   
   /* Define the softWave animation for reuse */
@@ -168,21 +167,26 @@ const FirstName = styled(motion.div)`
     animation: ${flicker} 12s infinite;
   }
   
+  /* media query for smaller laptop screens */
+  @media (max-height: 800px) and (min-width: 769px) {
+    font-size: clamp(10rem, 9vh, 9rem);
+  }
+  
+  /* Mobile styling */
   @media (max-width: 768px) {
-    font-size: clamp(5rem, 13vw, 10rem);
+    font-size: clamp(5rem, 11vh, 10rem);
     transform: rotate(-90deg);
     writing-mode: horizontal-tb;
     margin-right: 0;
     letter-spacing: -0.2rem;
     left: 10%;
-    top: 12%; /* Positioned lower */
+    top: 18%; 
     transform-origin: center;
     z-index: 5;
   }
 `;
 
-// "LOE" part of last name - positioned in the header only
-const LastNamePrefix = styled(motion.div)`
+const LastName = styled(motion.div)`
   font-family: 'Impact', 'Anton', ${FONTS.title};
   font-size: clamp(8rem, 16vw, 8.5rem);
   font-weight: 800;
@@ -226,6 +230,12 @@ const LastNamePrefix = styled(motion.div)`
     animation: ${flicker} 15s infinite;
   }
   
+  /* media query for smaller laptop screens */
+  @media (max-height: 800px) and (min-width: 769px) {
+    font-size: clamp(7rem, 9vh, 8rem);
+  }
+  
+  /* Mobile styling */
   @media (max-width: 768px) {
     font-size: clamp(5rem, 13vw, 10rem);
     transform: rotate(90deg);
@@ -233,59 +243,9 @@ const LastNamePrefix = styled(motion.div)`
     margin-left: 0;
     letter-spacing: -0.2rem;
     right: 10%;
-    top: 12%; /* Positioned lower */
+    top: 18%; 
     z-index: 5;
     transform-origin: center;
-  }
-`;
-
-// "HR" part of last name - positioned in the work section only
-const LastNameSuffix = styled(motion.div)`
-  font-family: 'Impact', 'Anton', ${FONTS.title};
-  font-size: clamp(7rem, 16vw, 15rem);
-  font-weight: 800;
-  color: #FFFFFF;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  letter-spacing: -0.5rem;
-  line-height: 0.85;
-  position: absolute;
-  right: 20%;
-  top: -55%; /* Position to align with LOE from header */
-  z-index: 15;
-  opacity: 0.6;
-  transform-origin: right center;
-  pointer-events: none; /* Allow clicking through the text */
-  
-  /* Double shadow effect with transparent overlay */
-  text-shadow: 
-    -1px -1px 0 rgba(0, 0, 0, 0.8),
-    1px 1px 0 rgba(255, 255, 255, 0.1);
-  
-  &:after {
-    content: "HR";
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    opacity: 0.3;
-    color: ${COLORS.retroPrimary};
-    filter: blur(4px) brightness(1.5);
-    z-index: -1;
-  }
-  
-  /* Echo effect on hover with multiple layers */
-  &:hover:after {
-    animation: echoEffect 2s infinite alternate;
-    opacity: 0.5;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: clamp(5rem, 13vw, 10rem);
-    transform: rotate(90deg);
-    writing-mode: horizontal-tb;
-    margin-left: 0;
-    letter-spacing: -0.2rem;
   }
 `;
 
@@ -341,9 +301,7 @@ const MachineLoehrning = styled(motion.div)`
     opacity: 0.85;
     text-shadow: 0 0 8px ${COLORS.retroPrimary}40;
   }
-  
-  /* No media query needed - using conditional rendering */
-  
+    
   /* Sporadic electrical flicker - step animation for authentic feel */
   animation: textFlicker 5s infinite steps(1);
   
@@ -450,19 +408,24 @@ const RunningBanner = styled(motion.div)`
   background-color: rgba(255, 255, 255, 0.80);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: ${BANNER_PADDING_DESKTOP}px 0;
   z-index: 30;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+  
+  /* Desktop styling */
+  @media (min-width: 769px) {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+  }
   
   /* Mobile styling */
   @media (max-width: 768px) {
     padding: ${BANNER_PADDING_MOBILE}px 0; /* Padding for visibility */
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    height: auto;
   }
   
   /* Gradient fade edges for smooth scroll */
@@ -735,7 +698,7 @@ const Header = () => {
           TIM
         </FirstName>
         
-        <LastNamePrefix
+        <LastName
           aria-hidden="true"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
@@ -743,7 +706,7 @@ const Header = () => {
           style={{ opacity: headerOpacity }}
         >
           LOEHR
-        </LastNamePrefix>
+        </LastName>
       </NameContainer>
   
       {/* Header Content with centered elements */}
@@ -753,8 +716,8 @@ const Header = () => {
         flexDirection: 'column', 
         alignItems: 'center', 
         justifyContent: isMobile ? 'flex-start' : 'center', 
-        height: isMobile ? '90%' : '100%',  /* Even taller on mobile */
-        paddingTop: isMobile ? '4vh' : '0',
+        height: isMobile ? '90%' : '100%',
+        paddingTop: isMobile ? '6vh' : '0', /* Increased padding for mobile */
         position: 'relative', 
         zIndex: 5 
       }}>
@@ -764,34 +727,35 @@ const Header = () => {
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center',
-          height: isMobile ? 'auto' : '100%', /* Don't use full height on mobile */
-          justifyContent: isMobile ? 'flex-start' : 'center' /* Align to top on mobile */
+          height: isMobile ? 'auto' : '100%', 
+          justifyContent: isMobile ? 'flex-start' : 'center',
+          marginTop: isMobile ? '15vh' : '0' /* Push content below vertical text on mobile */
         }}>
           {/* Machine Loehrning buzzword - tech hipster spin */}
           <div style={{ position: 'relative', display: 'inline-block' }}>
-            {!isVerySmallScreen && (
+            {!isMobile && (
               <MachineLoehrning
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 style={{ 
-                  margin: isMobile ? '0.5rem 0 1rem' : '1rem 0 2rem',
-                  fontSize: isMobile ? 'clamp(3.2rem, 4vw, 2.5rem)' : 'clamp(3.8rem, 4.5vw, 2.8rem)'
+                  margin: '1rem 0 2rem',
+                  fontSize: 'clamp(3.8rem, 4.5vw, 2.8rem)'
                 }}
               >
                 Machine Loehrning
               </MachineLoehrning>
             )}
-            {!isVerySmallScreen && (
+            {!isMobile && (
               <motion.img 
                 src={`${process.env.PUBLIC_URL}/images/astronaut.png`}
                 alt="Astronaut logo" 
                 style={{ 
                   position: 'absolute',
-                  right: isMobile ? '-40px' : '-80px',
+                  right: '-80px',
                   top: '60%',
                   transform: 'translateY(-50%)',
-                  height: isMobile ? '80px' : '250px',
+                  height: '250px',
                   zIndex: 100
                 }}
                 animate={{
@@ -812,7 +776,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{ 
-              marginTop: isVerySmallScreen ? '4rem' : (isMobile ? '1.5rem' : '1rem')
+              marginTop: isMobile ? '2.5rem' : '1rem'
             }}
           >
             <span className="command">$</span>
@@ -829,7 +793,7 @@ const Header = () => {
             style={{ 
               display: 'flex', 
               justifyContent: 'center', 
-              marginTop: isVerySmallScreen ? '2rem' : (isMobile ? '3rem' : '7rem'),
+              marginTop: isMobile ? '1.5rem' : '7rem',
               marginBottom: isMobile ? '0.5rem' : '0',
               gap: '12px',
               maxWidth: isMobile ? '380px' : '900px', /* Increased width for mobile */
@@ -884,7 +848,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             style={{ 
-              marginTop: isVerySmallScreen ? '2rem' : (isMobile ? 'auto' : '1rem'),
+              marginTop: isMobile ? 'auto' : '1rem',
               marginBottom: isMobile ? '12vh' : '0', /* Closer to the banner */
               position: isMobile ? 'relative' : 'static'
             }}
@@ -935,31 +899,35 @@ const Header = () => {
         </motion.div>
       </HeaderContent>
 
-      {/* Bottom banner */}
+      {/* Banner - positioned at bottom for desktop, top for mobile */}
       <div style={{ 
         position: 'absolute',
-        bottom: isMobile ? `${BANNER_MARGIN_MOBILE}vh` : 0,
+        ...(isMobile 
+          ? { top: 0 } // Mobile: at the top
+          : { bottom: 0 }), // Desktop: at the bottom
         left: 0,
         width: '100%',
-        zIndex: 30
+        zIndex: 50 /* Increased z-index to ensure it's above everything */
       }}>
-        {/* Pikachu mascot */}
-        <img 
-          src={`${process.env.PUBLIC_URL}/images/pikachu.png`}
-          alt="Pikachu"
-          aria-hidden="true"
-          loading="lazy" 
-          decoding="async"
-          style={{
-            position: 'absolute',
-            bottom: '100%',
-            right: '20px',
-            width: isMobile ? '65px' : '150px',
-            height: 'auto',
-            marginBottom: isMobile ? '5px' : '3px',
-            zIndex: 10
-          }}
-        />
+        {/* Pikachu mascot - only visible on desktop */}
+        {!isMobile && (
+          <img 
+            src={`${process.env.PUBLIC_URL}/images/pikachu.png`}
+            alt="Pikachu"
+            aria-hidden="true"
+            loading="lazy" 
+            decoding="async"
+            style={{
+              position: 'absolute',
+              bottom: '100%',
+              marginBottom: '3px',
+              right: '20px',
+              width: '150px',
+              height: 'auto',
+              zIndex: 10
+            }}
+          />
+        )}
         
         <RunningBanner
           initial={{ opacity: 0 }}
@@ -984,6 +952,5 @@ const Header = () => {
   );
 };
 
-export { LastNameSuffix };
 // Use React.memo to prevent unnecessary re-renders
 export default React.memo(Header);
