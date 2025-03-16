@@ -207,14 +207,34 @@ const ExperienceCard = styled(motion.div)`
     z-index: 1;
   }
   
+  /* Main hover effect for card */
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 
                 0 0 40px rgba(${props => props.bgColorRGB || '0, 0, 0'}, 0.1),
-                0 0 20px rgba(${props => props.bgColorRGB || '0, 0, 0'}, 0.07);
+                0 0 20px rgba(${props => props.bgColorRGB || '0, 0, 0'}, 0.07),
+                0 0 5px ${COLORS.retroPrimary}30;
+    border-color: rgba(255, 255, 255, 0.15);
     
     .company-pattern {
-      opacity: 0.8;
+      opacity: 0.9;
+    }
+    
+    .timeline-dot {
+      transform: translateY(-50%) scale(1.3);
+      box-shadow: 0 0 12px ${props => props.accentColor || '#3182CE'},
+                  0 0 5px ${COLORS.retroPrimary}50;
+      animation: dotPulse 1.5s infinite alternate;
+    }
+  }
+  
+  @keyframes dotPulse {
+    0% {
+      box-shadow: 0 0 5px ${props => props.accentColor || '#3182CE'};
+    }
+    100% {
+      box-shadow: 0 0 12px ${props => props.accentColor || '#3182CE'},
+                  0 0 5px ${COLORS.retroPrimary}50;
     }
   }
   
@@ -251,17 +271,6 @@ const ExperienceCard = styled(motion.div)`
   
   /* Modern hover state */
   transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.2);
-    
-    .timeline-dot {
-      transform: translateY(-50%) scale(1.2);
-      box-shadow: 0 0 12px ${props => props.accentColor || '#3182CE'};
-    }
-  }
   
   /* Responsive styles */
   @media (max-width: 900px) {
@@ -487,7 +496,7 @@ const experienceData = [
     dateRange: 'February 2025 - Present',
     // Simple array of strings - each item will be a bullet point
     descriptionPoints: [
-      'Still learning...'
+      'TBA'
     ],
     technologies: ['Python', 'PyTorch', 'SQL', 'Hadoop', 'Spark', 'A/B Testing']
   },
@@ -495,7 +504,7 @@ const experienceData = [
     id: 2,
     year: 2024,
     company: 'Red Bull',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Logo_of_Red_bull.svg',
+    logo: 'https://media.licdn.com/dms/image/v2/D4D0BAQFdoIhv055bEw/company-logo_200_200/company-logo_200_200/0/1715940378252/red_bull_logo?e=1750291200&v=beta&t=hMSyOrzY-aOeigU1cq2_hO94mSX9ZWVhr04bNwQ-4d0',
     logoBackground: '#D52B1E', // Red
     bgColorRGB: hexToRgb('#D52B1E'),
     bgPattern: 'linear-gradient(135deg, rgba(213, 43, 30, 0.07) 0%, transparent 70%)',

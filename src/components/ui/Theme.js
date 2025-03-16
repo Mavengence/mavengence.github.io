@@ -14,7 +14,7 @@ export const COLORS = {
   retroDarkBg: '#0F0F0F',    // Dark background
   retroDarkAccent: '#1E1E1E', // Slightly lighter dark accent
   
-  // Modern digital palette
+  // digital palette
   synthPink: '#FF41A6',    // Digital pink
   synthPurple: '#9B5DE5',  // Digital purple
   synthBlue: '#2CA8FF',    // Digital blue
@@ -38,8 +38,8 @@ export const COLORS = {
   appleBlue: '#0066CC',     // Interface blue
   
   // Social interface colors
-  metaBlue: '#1877F2',      // Social blue
-  metaLightBlue: '#0668E1', // Light social blue
+  metaBlue: '#1877F2',      
+  metaLightBlue: '#0668E1',
   
   // Modern design palette
   hipsterTeal: '#2A9D8F',
