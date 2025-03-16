@@ -7,7 +7,6 @@ import { SiGooglescholar } from 'react-icons/si';
 import { COLORS, FONTS } from '../ui/Theme';
 import TerminalButton from '../ui/TerminalButton';
 
-// Performance-optimized animations
 const animations = {
   // Flicker animation with will-change hint for better rendering
   flicker: keyframes`
@@ -144,8 +143,6 @@ const NameContainer = styled.div`
   max-width: 100%;
   z-index: 1;
 `;
-
-// These animations were moved to the animations object at the top of the file
 
 // Vertical text styling for first name with cinematic 3D effect
 const FirstName = styled(motion.div)`
@@ -301,8 +298,6 @@ const LastName = styled(motion.div)`
     transform-origin: center;
   }
 `;
-
-// Hover animation was moved to animations object at the top
 
 // Artsy retro electrified text with creative shadow placement
 const MachineLoehrning = styled(motion.div)`
@@ -649,7 +644,7 @@ const JobTitle = styled(motion.div)`
   }
 `;
 
-// Social links container - designed for rectangular buttons
+// Social links container 
 const SocialLinks = styled(motion.div)`
   display: flex;
   justify-content: center;
