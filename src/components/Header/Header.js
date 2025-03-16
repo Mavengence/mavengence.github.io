@@ -38,6 +38,12 @@ const HeaderContainer = styled.div`
   align-items: center;
   z-index: 10; /* Appropriate stacking context */
   
+  /* Tablet styling */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    height: 100vh;
+    justify-content: center;
+  }
+  
   /* Mobile styling */
   @media (max-width: 768px) {
     height: 100vh; /* Full viewport height */
@@ -168,8 +174,21 @@ const FirstName = styled(motion.div)`
   }
   
   /* media query for smaller laptop screens */
-  @media (max-height: 800px) and (min-width: 769px) {
+  @media (max-height: 800px) and (min-width: 1025px) {
     font-size: clamp(10rem, 9vh, 9rem);
+  }
+  
+  /* Tablet styling */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: clamp(8rem, 10vh, 8rem);
+    transform: none;
+    writing-mode: horizontal-tb;
+    margin-right: 0;
+    letter-spacing: -0.2rem;
+    left: 18%;
+    top: 8%;
+    transform-origin: center;
+    z-index: 5;
   }
   
   /* Mobile styling */
@@ -231,8 +250,22 @@ const LastName = styled(motion.div)`
   }
   
   /* media query for smaller laptop screens */
-  @media (max-height: 800px) and (min-width: 769px) {
+  @media (max-height: 800px) and (min-width: 1025px) {
     font-size: clamp(7rem, 9vh, 8rem);
+  }
+  
+  /* Tablet styling */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: clamp(8rem, 10vh, 8rem);
+    transform: none;
+    writing-mode: horizontal-tb;
+    margin-left: 0;
+    letter-spacing: -0.2rem;
+    left: auto;
+    right: 18%;
+    top: 8%;
+    z-index: 5;
+    transform-origin: center;
   }
   
   /* Mobile styling */
@@ -269,6 +302,12 @@ const MachineLoehrning = styled(motion.div)`
   padding: 0.5rem 0.8rem;
   display: inline-block;
   z-index: 20;
+  
+  /* Tablet styling */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: clamp(2.5rem, 3vw, 2.2rem);
+    margin-bottom: 1.5rem;
+  }
   
   /* Base text glow */
   text-shadow: 0 0 8px ${COLORS.retroPrimary}40;
@@ -415,9 +454,16 @@ const RunningBanner = styled(motion.div)`
   justify-content: center;
   
   /* Desktop styling */
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+  }
+  
+  /* Tablet styling */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+    padding: ${BANNER_PADDING_DESKTOP - 2}px 0;
   }
   
   /* Mobile styling */
@@ -591,6 +637,11 @@ const SocialLinks = styled(motion.div)`
   flex-wrap: wrap;
   max-width: 900px;
   
+  @media (min-width: 769px) and (max-width: 1024px) {
+    gap: 0.9rem;
+    margin: 1.8rem 0;
+  }
+  
   @media (max-width: 768px) {
     gap: 0.7rem;
   }
@@ -612,13 +663,16 @@ const Header = () => {
   
   // State for tracking screen size
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [isVerySmallScreen, setIsVerySmallScreen] = useState(false);
   
   // Update screen size states based on window width
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      setIsVerySmallScreen(window.innerWidth <= 430);
+      const width = window.innerWidth;
+      setIsMobile(width <= 768);
+      setIsTablet(width > 768 && width <= 1024);
+      setIsVerySmallScreen(width <= 430);
     };
     
     // Initial check
@@ -717,7 +771,8 @@ const Header = () => {
         alignItems: 'center', 
         justifyContent: isMobile ? 'flex-start' : 'center', 
         height: isMobile ? '90%' : '100%',
-        paddingTop: isMobile ? '6vh' : '0', /* Increased padding for mobile */
+        paddingTop: isMobile ? '6vh' : (isTablet ? '0' : '0'),
+        paddingBottom: isTablet ? '5vh' : '0',
         position: 'relative', 
         zIndex: 5 
       }}>
@@ -729,7 +784,7 @@ const Header = () => {
           alignItems: 'center',
           height: isMobile ? 'auto' : '100%', 
           justifyContent: isMobile ? 'flex-start' : 'center',
-          marginTop: isMobile ? '15vh' : '0' /* Push content below vertical text on mobile */
+          marginTop: isMobile ? '15vh' : (isTablet ? '18vh' : '0') /* Push content below horizontal names on tablet */
         }}>
           {/* Machine Loehrning buzzword - tech hipster spin */}
           <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -740,7 +795,7 @@ const Header = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 style={{ 
                   margin: '1rem 0 2rem',
-                  fontSize: 'clamp(3.8rem, 4.5vw, 2.8rem)'
+                  fontSize: isTablet ? 'clamp(2.6rem, 3.5vw, 2.4rem)' : 'clamp(3.8rem, 4.5vw, 2.8rem)'
                 }}
               >
                 Machine Loehrning
@@ -752,10 +807,10 @@ const Header = () => {
                 alt="Astronaut logo" 
                 style={{ 
                   position: 'absolute',
-                  right: '-80px',
+                  right: isTablet ? '-60px' : '-80px',
                   top: '60%',
                   transform: 'translateY(-50%)',
-                  height: '250px',
+                  height: isTablet ? '180px' : '250px',
                   zIndex: 100
                 }}
                 animate={{
@@ -776,7 +831,8 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{ 
-              marginTop: isMobile ? '2.5rem' : '1rem'
+              marginTop: isMobile ? '2.5rem' : (isTablet ? '1.8rem' : '1rem'),
+              fontSize: isTablet ? '1.2rem' : '1.4rem'
             }}
           >
             <span className="command">$</span>
@@ -793,11 +849,11 @@ const Header = () => {
             style={{ 
               display: 'flex', 
               justifyContent: 'center', 
-              marginTop: isMobile ? '1.5rem' : '7rem',
-              marginBottom: isMobile ? '0.5rem' : '0',
-              gap: '12px',
-              maxWidth: isMobile ? '380px' : '900px', /* Increased width for mobile */
-              flexFlow: isMobile ? 'row wrap' : 'row'
+              marginTop: isMobile ? '1.5rem' : (isTablet ? '3rem' : '7rem'),
+              marginBottom: isMobile ? '0.5rem' : (isTablet ? '1rem' : '0'),
+              gap: isTablet ? '10px' : '12px',
+              maxWidth: isMobile ? '380px' : (isTablet ? '600px' : '900px'),
+              flexFlow: (isMobile || isTablet) ? 'row wrap' : 'row'
             }}
           >
             <TerminalButton 
@@ -848,9 +904,9 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             style={{ 
-              marginTop: isMobile ? 'auto' : '1rem',
-              marginBottom: isMobile ? '12vh' : '0', /* Closer to the banner */
-              position: isMobile ? 'relative' : 'static'
+              marginTop: isMobile ? 'auto' : (isTablet ? '2rem' : '5rem'),
+              marginBottom: isMobile ? '12vh' : (isTablet ? '10vh' : '0'),
+              position: (isMobile || isTablet) ? 'relative' : 'static'
             }}
         >
           <motion.div 
@@ -874,7 +930,7 @@ const Header = () => {
               textTransform: 'uppercase',
               fontWeight: 'bold'
             }}>
-              {(isMobile ? '' : 'Scroll Down')}
+              {((isMobile || isTablet) ? '' : 'Scroll Down')}
             </span>
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -910,7 +966,7 @@ const Header = () => {
         zIndex: 50 /* Increased z-index to ensure it's above everything */
       }}>
         {/* Pikachu mascot - only visible on desktop */}
-        {!isMobile && (
+        {(!isMobile || isTablet) && (
           <img 
             src={`${process.env.PUBLIC_URL}/images/pikachu.png`}
             alt="Pikachu"
@@ -922,7 +978,7 @@ const Header = () => {
               bottom: '100%',
               marginBottom: '3px',
               right: '20px',
-              width: '150px',
+              width: isTablet ? '120px' : '150px',
               height: 'auto',
               zIndex: 10
             }}
