@@ -287,8 +287,8 @@ const App = React.memo(function App() {
         <footer>
           <p itemScope itemType="http://schema.org/Person">
             &copy; {new Date().getFullYear()} 
-            <span itemProp="name">Tim Loehr</span> · Made with 
-            <span style={{ color: COLORS.retroPrimary }}> Machine Loehrning and Rimchen</span>
+            <span itemProp="name"> Tim Loehr</span> · Made with 
+            <span style={{ color: COLORS.retroPrimary }}> Machine Loehrning</span>
           </p>
         </footer>
       </AppContainer>
