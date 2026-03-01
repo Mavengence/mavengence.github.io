@@ -1,41 +1,52 @@
-import React, { Suspense, lazy, useEffect, useState, useMemo } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { BiCodeAlt } from 'react-icons/bi';
-import { GlobalStyle } from './components/ui/Theme';
 import Header from './components/Header/Header';
-import { COLORS } from './components/ui/Theme';
+import { GlobalStyle, COLORS, FONTS } from './components/ui/Theme';
 
 // Lazy load non-critical components
 const WorkExperience = lazy(() => import('./components/WorkExperience/WorkExperience'));
 const Projects = lazy(() => import('./components/Projects/Projects'));
 const RunningBanner = lazy(() => import('./components/ui/RunningBanner'));
 const Console = lazy(() => import('./components/Console/Console'));
-const QuantumBackground = lazy(() => import('./components/ui/QuantumBackground'));
 
-// Animation keyframes for performance-optimized UI effects
-const animations = {
-  glow: keyframes`
-    0%, 100% { filter: drop-shadow(0 0 8px ${COLORS.hivePrimary}40); }
-    50% { filter: drop-shadow(0 0 12px ${COLORS.hivePrimary}70); }
-  `,
-  
-  breathe: keyframes`
-    0%, 45%, 55%, 100% { opacity: 0.3; }
-    50% { opacity: 0.5; }
-  `
-};
+// ── Gradient accent line at top of page (like Linear.app) ────────────
+const gradientShift = keyframes`
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+`;
+
+// ── Ambient orb drift animations (GPU-composited: transform only) ────
+const drift1 = keyframes`
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(60px, -80px, 0); }
+  50% { transform: translate3d(-40px, 40px, 0); }
+  75% { transform: translate3d(80px, 60px, 0); }
+`;
+
+const drift2 = keyframes`
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(-70px, 50px, 0); }
+  50% { transform: translate3d(50px, -60px, 0); }
+  75% { transform: translate3d(-30px, -40px, 0); }
+`;
+
+const drift3 = keyframes`
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  33% { transform: translate3d(40px, 70px, 0); }
+  66% { transform: translate3d(-60px, -30px, 0); }
+`;
 
 /**
- * Main application container 
- * Handles overall layout structure and applies background effects
+ * Main application container
+ * All background effects are pure CSS — no canvas, no JS scroll listeners
  */
 const AppContainer = styled.div`
   position: relative;
   background-color: ${COLORS.hiveDarkBg};
   min-height: 100vh;
-  
-  /* Vignette background effect with radial gradient */
+
+  /* Single radial gradient */
   &:after {
     content: '';
     position: fixed;
@@ -43,221 +54,192 @@ const AppContainer = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-      radial-gradient(
-        circle at center,
-        ${COLORS.hiveDarkAccent} 0%,
-        ${COLORS.hiveDarkBg} 80%
-      );
+    background: radial-gradient(circle at center, ${COLORS.hiveDarkAccent} 0%, ${COLORS.hiveDarkBg} 80%);
     z-index: 0;
     pointer-events: none;
-    transition: all 1.5s ease-in-out;
   }
-  
-  /* Footer styling with grid overlay */
+
+  /* Vignette */
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Footer */
   footer {
-    background: ${COLORS.appleDark};
+    background: linear-gradient(180deg, ${COLORS.appleDark} 0%, #111 100%);
     color: ${COLORS.white};
-    padding: 1.5rem;
+    padding: 2.5rem 1.5rem;
     text-align: center;
     position: relative;
-    font-size: 0.9rem;
-    overflow: hidden;
+    font-size: 0.85rem;
     z-index: 30;
-    
-    /* Grid pattern overlay */
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        linear-gradient(${COLORS.white}08 1px, transparent 1px),
-        linear-gradient(90deg, ${COLORS.white}08 1px, transparent 1px);
-      background-size: 20px 20px;
-      z-index: 0;
-    }
-    
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
     p {
       position: relative;
       z-index: 1;
+      font-family: ${FONTS.mono};
+      letter-spacing: 0.5px;
+      opacity: 0.7;
     }
-    
     a {
-      color: ${COLORS.hivePrimary};
+      color: ${COLORS.retroPrimary};
       text-decoration: none;
-      
-      &:hover {
-        text-decoration: underline;
-      }
+      transition: opacity 0.2s ease;
+      &:hover { opacity: 0.8; }
     }
   }
 `;
 
+/**
+ * Ambient floating gradient orbs — inspired by Linear.app / Vercel.
+ * Only animate transform (GPU-composited). Zero layout/paint cost.
+ */
+const AmbientOrbs = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const Orb = styled.div`
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+`;
+
+const Orb1 = styled(Orb)`
+  width: 500px;
+  height: 500px;
+  top: 10%;
+  left: 15%;
+  background: radial-gradient(circle, rgba(67, 97, 238, 0.06) 0%, transparent 70%);
+  animation: ${drift1} 80s ease-in-out infinite;
+`;
+
+const Orb2 = styled(Orb)`
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(247, 37, 133, 0.04) 0%, transparent 70%);
+  animation: ${drift2} 70s ease-in-out infinite;
+`;
+
+const Orb3 = styled(Orb)`
+  width: 350px;
+  height: 350px;
+  bottom: 20%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(76, 201, 240, 0.04) 0%, transparent 70%);
+  animation: ${drift3} 90s ease-in-out infinite;
+`;
 
 /**
- * Main App component
- * Handles scroll-based animations and overall page structure
- * Uses memoization to prevent unnecessary re-renders
+ * Animated gradient accent line — fixed at top of viewport.
+ * Tiny element (2px tall), uses background-position animation.
  */
+const AccentLine = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 9999;
+  background: linear-gradient(
+    90deg,
+    ${COLORS.dataBlue},
+    ${COLORS.dataCyan},
+    ${COLORS.dataPink},
+    ${COLORS.dataViolet},
+    ${COLORS.dataBlue}
+  );
+  background-size: 200% 100%;
+  animation: ${gradientShift} 8s linear infinite;
+  pointer-events: none;
+`;
+
+// ── Static style constants (never re-created) ───────────────────────
+
+const EMPTY_PLACEHOLDER_STYLE = { width: '100%', height: '100%', backgroundColor: COLORS.hiveDarkBg, opacity: 0 };
+const EMPTY_PLACEHOLDER = <div style={EMPTY_PLACEHOLDER_STYLE} />;
+
+const MAIN_STYLE = { position: 'relative', zIndex: 20 };
+const CONTENT_VISIBILITY_STYLE = { contentVisibility: 'auto', containIntrinsicSize: '0 2000px' };
+const BANNER_SECTION_STYLE = { padding: 0, marginTop: '-1rem', marginBottom: '-2rem' };
+const FOOTER_COPYRIGHT_STYLE = { opacity: 0.5 };
+const FOOTER_NAME_STYLE = { fontWeight: 600, opacity: 0.9 };
+const FOOTER_DIVIDER_STYLE = { opacity: 0.4, margin: '0 0.5rem' };
+const FOOTER_BRAND_STYLE = { color: COLORS.retroPrimary, opacity: 0.8 };
+const CURRENT_YEAR = new Date().getFullYear();
+
 const App = React.memo(function App() {
-  // State for tracking screen size with optimized resize listener
   const [isMobile, setIsMobile] = useState(false);
-  
-  // Check for mobile devices with debounced resize handler
+
   useEffect(() => {
-    // Optimized resize handler with RAF for performance
     let frameRequest = null;
-    const debouncedResize = () => {
-      if (frameRequest) {
-        cancelAnimationFrame(frameRequest);
-      }
-      
+    const onResize = () => {
+      if (frameRequest) cancelAnimationFrame(frameRequest);
       frameRequest = requestAnimationFrame(() => {
         setIsMobile(window.innerWidth <= 768);
       });
     };
-    
-    // Initial check
-    debouncedResize();
-    
-    // Add listener with passive flag for better scroll performance
-    window.addEventListener('resize', debouncedResize, { passive: true });
-    
-    // Cleanup all listeners and pending operations
+    onResize();
+    window.addEventListener('resize', onResize, { passive: true });
     return () => {
-      window.removeEventListener('resize', debouncedResize);
-      if (frameRequest) {
-        cancelAnimationFrame(frameRequest);
-      }
+      window.removeEventListener('resize', onResize);
+      if (frameRequest) cancelAnimationFrame(frameRequest);
     };
   }, []);
-  
-  // Get scroll progress for scroll-based animations
-  const { scrollYProgress } = useScroll();
-  
-  // Create scroll-based animations directly (no useMemo wrapper)
-  // Optimized color transition effect
-  const backgroundGradientRotate = useTransform(
-    scrollYProgress,
-    [0, 0.25, 0.5, 0.75, 1],
-    [
-      'hue-rotate(0deg) brightness(1)',
-      'hue-rotate(5deg) brightness(1.05)',
-      'hue-rotate(10deg) brightness(1.1)',
-      'hue-rotate(15deg) brightness(1.05)',
-      'hue-rotate(0deg) brightness(1)'
-    ]
-  );
-  
-  // Optimized scaling effect
-  const backgroundScale = useTransform(
-    scrollYProgress,
-    [0, 0.25, 0.5, 0.75, 1],
-    [1, 1.05, 1.1, 1.05, 1]
-  );
-  
-  // Optimized vignette intensity
-  const vignetteIntensity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [0.5, 0.6, 0.7, 0.5]
-  );
-  
-  // Memoized placeholder component to avoid recreation
-  const LoadingPlaceholder = useMemo(() => () => (
-    <div style={{ 
-      width: '100%',
-      height: '100%',
-      backgroundColor: COLORS.hiveDarkBg,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      opacity: 0 // Invisible placeholder
-    }} />
-  ), []);
 
   return (
     <>
       <GlobalStyle />
+      <AccentLine />
       <AppContainer>
-        
-        {/* animated background layer */}
-        <Suspense fallback={<LoadingPlaceholder />}>
-          <QuantumBackground />
-        </Suspense>
-        
-        {/* Dynamic color layer - responds to scroll position with optimized rendering */}
-        <motion.div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundImage: `
-              linear-gradient(217deg, rgba(49, 130, 206, 0.15), rgba(49, 130, 206, 0) 70.71%),
-              linear-gradient(127deg, rgba(229, 62, 62, 0.15), rgba(229, 62, 62, 0) 70.71%),
-              linear-gradient(336deg, rgba(253, 238, 33, 0.18), rgba(253, 238, 33, 0) 70.71%)
-            `,
-            backgroundSize: '200% 200%',
-            filter: backgroundGradientRotate,
-            scale: backgroundScale,
-            transformOrigin: 'center',
-            zIndex: 0,
-            pointerEvents: 'none',
-            willChange: 'filter, transform', // Performance optimization
-            backfaceVisibility: 'hidden', // Prevents flickering on some browsers
-            WebkitBackfaceVisibility: 'hidden'
-          }}
-          aria-hidden="true"
-        />
-        
-        {/* Vignette overlay with optimized composite properties */}
-        <motion.div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            boxShadow: 'inset 0 0 150px 60px rgba(0, 0, 0, 0.8)',
-            opacity: vignetteIntensity,
-            zIndex: 2,
-            pointerEvents: 'none',
-            mixBlendMode: 'multiply',
-            willChange: 'opacity', 
-            transform: 'translateZ(0)' // Forces GPU acceleration
-          }}
-          aria-hidden="true"
-        />
-        
-        {/* Main content container with proper semantic structure */}
-        <main style={{ position: 'relative', zIndex: 20 }}>
+        {/* Ambient gradient orbs — GPU-composited, zero lag */}
+        <AmbientOrbs aria-hidden="true">
+          <Orb1 />
+          <Orb2 />
+          <Orb3 />
+        </AmbientOrbs>
+
+        <main style={MAIN_STYLE}>
           <Header />
-          
-          <article id="experience">
-            <Suspense fallback={<LoadingPlaceholder />}>
+
+          <div style={CONTENT_VISIBILITY_STYLE}>
+            <Suspense fallback={EMPTY_PLACEHOLDER}>
               <WorkExperience />
             </Suspense>
-          </article>
-          
-          <article id="projects">
-            <Suspense fallback={<LoadingPlaceholder />}>
+          </div>
+
+          <div style={CONTENT_VISIBILITY_STYLE}>
+            <Suspense fallback={EMPTY_PLACEHOLDER}>
               <Projects />
             </Suspense>
-          </article>
-          
-          {/* Personal interests banner - only visible on desktop */}
+          </div>
+
           {!isMobile && (
-            <section 
-              style={{ padding: 0, marginTop: '-1rem', marginBottom: '-2rem' }}
-              aria-label="Personal interests"
-            >
-              <Suspense fallback={<LoadingPlaceholder />}>
-                <RunningBanner 
+            <section style={BANNER_SECTION_STYLE} aria-label="Personal interests">
+              <Suspense fallback={EMPTY_PLACEHOLDER}>
+                <RunningBanner
                   items={[
                     { text: "Cooking", blink: true, icon: <BiCodeAlt /> },
                     { text: "Programming", blink: false, icon: <BiCodeAlt /> },
@@ -274,21 +256,22 @@ const App = React.memo(function App() {
             </section>
           )}
 
-          {/* Only render console on non-mobile devices */}
           {!isMobile && (
-            <section id="console">
-              <Suspense fallback={<LoadingPlaceholder />}>
-                <Console />
-              </Suspense>
-            </section>
+            <Suspense fallback={EMPTY_PLACEHOLDER}>
+              <Console />
+            </Suspense>
           )}
         </main>
-        
+
         <footer>
           <p itemScope itemType="http://schema.org/Person">
-            &copy; {new Date().getFullYear()} 
-            <span itemProp="name"> Tim Loehr</span> · Made with 
-            <span style={{ color: COLORS.retroPrimary }}> Machine Loehrning</span>
+            <span style={FOOTER_COPYRIGHT_STYLE}>&copy; {CURRENT_YEAR}</span>
+            {' '}
+            <span itemProp="name" style={FOOTER_NAME_STYLE}>Tim Loehr</span>
+            {' '}
+            <span style={FOOTER_DIVIDER_STYLE}>|</span>
+            {' '}
+            <span style={FOOTER_BRAND_STYLE}>Machine Loehrning</span>
           </p>
         </footer>
       </AppContainer>

@@ -13,6 +13,14 @@ export const COLORS = {
   retroTertiary: '#FF5722',  // Orange-red
   retroDarkBg: '#0F0F0F',    // Dark background
   retroDarkAccent: '#1E1E1E', // Slightly lighter dark accent
+  retroPurple: '#9B5DE5',    // Terminal purple
+  retroTeal: '#00F5D0',      // Terminal teal/cyan
+  retroGreen: '#28C840',     // Terminal green dot
+
+  // Hive (main page) colors
+  hiveDarkBg: '#0B0F19',     // Deep dark blue-black
+  hiveDarkAccent: '#131925',  // Slightly lighter dark accent
+  hivePrimary: '#FDEE21',    // Primary accent (same as retroPrimary)
   
   // digital palette
   synthPink: '#FF41A6',    // Digital pink
@@ -92,7 +100,7 @@ export const FONTS = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600&family=Fraunces:wght@400;500;600;700&display=swap');
+  /* Fonts loaded via <link> in public/index.html for non-blocking load */
   
   :root {
     --primary: ${COLORS.primary};
@@ -120,8 +128,35 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  ::selection {
+    background: ${COLORS.retroPrimary};
+    color: ${COLORS.retroDarkBg};
+  }
+
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   body {
@@ -132,12 +167,17 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Subtle data grid pattern */
-    background-image: 
-      linear-gradient(to right, ${COLORS.retroPrimary}05 1px, transparent 1px),
-      linear-gradient(to bottom, ${COLORS.retroPrimary}05 1px, transparent 1px);
-    background-size: 20px 20px;
-    background-position: center;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Focus-visible for keyboard navigation accessibility */
+  :focus-visible {
+    outline: 2px solid ${COLORS.retroPrimary};
+    outline-offset: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -164,102 +204,7 @@ export const GlobalStyle = createGlobalStyle`
     /* Hover animation removed */
   }
 
-  /* Modern data-inspired button style with sleek interface aesthetics */
-  .retro-button {
-    display: inline-block;
-    font-family: ${FONTS.accent};
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 0.85rem 1.75rem;
-    margin: 0.5rem;
-    color: white;
-    background-color: ${COLORS.dataBlue};
-    border: none;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
-    letter-spacing: 0.5px;
-    
-    /* Modern gradient background */
-    background-image: linear-gradient(
-      135deg, 
-      ${COLORS.dataBlue}, 
-      ${COLORS.dataIndigo}
-    );
-    
-    /* Elegant shine effect for enhanced aesthetics */
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-      );
-      transform: skewX(-25deg);
-      transition: 0.75s ease;
-    }
-    
-    /* Data point - small visual element */
-    &:after {
-      content: '';
-      position: absolute;
-      top: 7px;
-      right: 7px;
-      width: 6px;
-      height: 6px;
-      background: ${COLORS.dataPink};
-      border-radius: 50%;
-      opacity: 0.8;
-    }
-    
-    /* Modern hover effect */
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
-      
-      &:before {
-        animation: shine 0.85s;
-      }
-      
-      @keyframes shine {
-        100% {
-          left: 125%;
-        }
-      }
-      
-      /* Data visualization feedback on hover */
-      &:after {
-        animation: pulseData 1.5s infinite alternate;
-      }
-      
-      @keyframes pulseData {
-        0% {
-          transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.4);
-        }
-        100% {
-          transform: scale(1.2);
-          box-shadow: 0 0 0 5px rgba(247, 37, 133, 0);
-        }
-      }
-    }
-    
-    &:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 6px rgba(67, 97, 238, 0.2);
-    }
-  }
-  
-  /* Technical retro-inspired rectangular button style */
+  /* Retro-inspired button style */
   .retro-button {
     display: inline-block;
     font-family: ${FONTS.secondary};
@@ -275,10 +220,9 @@ export const GlobalStyle = createGlobalStyle`
     text-shadow: 0 0 5px ${COLORS.retroPrimary};
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
     letter-spacing: 1px;
-    
-    /* Retro border effect */
+
     &:before {
       content: '';
       position: absolute;
@@ -286,16 +230,14 @@ export const GlobalStyle = createGlobalStyle`
       left: -2px;
       right: -2px;
       bottom: -2px;
-      background: linear-gradient(90deg, 
+      background: linear-gradient(90deg,
         ${COLORS.retroPrimary},
         ${COLORS.retroSecondary},
         ${COLORS.retroPrimary}
       );
-      background-size: 200% 100%;
       z-index: -1;
-      animation: movingGradient 3s ease infinite;
     }
-    
+
     &:after {
       content: '';
       position: absolute;
@@ -306,36 +248,19 @@ export const GlobalStyle = createGlobalStyle`
       background: ${COLORS.retroDarkBg};
       z-index: -1;
     }
-    
+
     &:hover {
       color: ${COLORS.white};
-      text-shadow: 0 0 8px ${COLORS.retroPrimary}, 
-                   0 0 12px ${COLORS.retroSecondary};
+      text-shadow: 0 0 8px ${COLORS.retroPrimary};
       transform: translateY(-2px);
-      
-      &:before {
-        animation-duration: 1s;
-      }
     }
-    
+
     &:active {
       transform: translateY(0);
     }
-    
-    @keyframes movingGradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
   }
 
-  /* Modern data engineering terminal with contemporary design elements */
+  /* Terminal — only final pseudo-element definitions matter */
   .terminal {
     background-color: ${COLORS.dataDark};
     border: none;
@@ -344,43 +269,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${FONTS.mono};
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    /* Data engineering grid pattern */
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        linear-gradient(to right, rgba(76, 201, 240, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(76, 201, 240, 0.03) 1px, transparent 1px);
-      background-size: 20px 20px;
-      z-index: 0;
-    }
-    
-    /* Data-engineering dots for visualization feel */
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      width: 120px;
-      height: 40px;
-      background-image: radial-gradient(circle, ${COLORS.dataBlue}30 3px, transparent 3px),
-                        radial-gradient(circle, ${COLORS.dataCyan}30 3px, transparent 3px),
-                        radial-gradient(circle, ${COLORS.dataPink}30 3px, transparent 3px);
-      background-size: 12px 12px;
-      background-position: 0 0, 12px 6px, 6px 12px;
-      z-index: 1;
-      opacity: 0.7;
-    }
-    
-    /* Modern styled terminal header */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
     &:before {
       content: '';
       position: absolute;
@@ -393,8 +283,7 @@ export const GlobalStyle = createGlobalStyle`
       border-radius: 12px 12px 0 0;
       z-index: 1;
     }
-    
-    /* Terminal window controls */
+
     &:after {
       content: '';
       position: absolute;
@@ -404,38 +293,12 @@ export const GlobalStyle = createGlobalStyle`
       height: 12px;
       background: #ff5f57;
       border-radius: 50%;
-      box-shadow: 
-        20px 0 0 #febc2e,
-        40px 0 0 #28c840;
+      box-shadow: 20px 0 0 #febc2e, 40px 0 0 #28c840;
       z-index: 2;
-    }
-    
-    /* Terminal title - data style */
-    &:before {
-      content: attr(data-title);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255, 255, 255, 0.8);
-      font-family: ${FONTS.accent};
-      font-size: 13px;
-      font-weight: 500;
-      z-index: 2;
-    }
-    
-    /* Subtle cursor animation */
-    @keyframes cursorPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
     }
   }
 
-  /* Modern data engineering card style with refined aesthetics */
+  /* Card style */
   .retro-card {
     background-color: ${COLORS.white};
     border: none;
@@ -443,94 +306,27 @@ export const GlobalStyle = createGlobalStyle`
     padding: 1.75rem;
     margin: 1.25rem 0;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-    
-    /* Data visualization color accent */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
     &:before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 4px;
-      background: linear-gradient(
-        to right, 
-        ${COLORS.dataBlue},
-        ${COLORS.dataCyan},
-        ${COLORS.dataPink}
-      );
+      height: 3px;
+      background: linear-gradient(to right, ${COLORS.dataBlue}, ${COLORS.dataCyan}, ${COLORS.dataPink});
       opacity: 0.9;
       z-index: 1;
     }
-    
-    /* Data point dot marker */
-    &:after {
-      content: '';
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 8px;
-      height: 8px;
-      background: ${COLORS.dataPink};
-      border-radius: 50%;
-      z-index: 2;
-      opacity: 0.8;
-    }
-    
-    /* Modern glass effect */
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    
-    /* Modern elegant hover effect */
+
     &:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-      
-      /* Data point animation */
-      &:after {
-        animation: dataPointPulse 2s infinite alternate;
-      }
-      
-      @keyframes dataPointPulse {
-        0% { 
-          transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.2);
-        }
-        100% { 
-          transform: scale(1.3);
-          box-shadow: 0 0 0 6px rgba(247, 37, 133, 0);
-        }
-      }
-      
-      /* Subtle gradient effect on hover for enhanced visual feedback */
-      &:before {
-        background: linear-gradient(
-          to right, 
-          ${COLORS.dataBlue},
-          ${COLORS.dataCyan},
-          ${COLORS.dataPink},
-          ${COLORS.dataViolet}
-        );
-        transition: background 1s ease;
-      }
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
-    
-    /* Subtle shine effect for enhanced depth perception */
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: ${COLORS.glassGradient};
-      z-index: -1;
-      opacity: 0.7;
-    }
-    
-    /* Responsive adjustments */
+
     @media (max-width: 768px) {
       padding: 1.5rem;
     }
@@ -572,20 +368,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: ${COLORS.modernGradient};
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      opacity: 0.5;
-      filter: blur(4px);
-      z-index: -1;
-    }
+    /* No blurred pseudo-element for performance */
   }
 
   /* Modern grid background */
@@ -635,7 +418,7 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     padding-left: 30px;
     margin-bottom: 40px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     
     &:before {
       content: '';
@@ -686,39 +469,7 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
   }
 
-  /* Animation keyframes */
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-  
-  @keyframes glitchText {
-    0%, 5% {
-      text-shadow: -2px 0 ${COLORS.dataPink}, 2px 0 ${COLORS.dataCyan};
-      transform: translate(0);
-    }
-    2%, 4% {
-      text-shadow: 2px 0 ${COLORS.dataPink}, -2px 0 ${COLORS.dataCyan};
-      transform: translate(4px, 0);
-    }
-    3% {
-      text-shadow: -2px 0 ${COLORS.dataPink}, 2px 0 ${COLORS.dataCyan};
-      transform: translate(-4px, 0);
-    }
-  }
+  /* No global animation keyframes — all animations are component-scoped */
 
   /* Media queries */
   @media (max-width: 768px) {

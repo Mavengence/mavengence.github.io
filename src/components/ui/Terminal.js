@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import styled, { keyframes } from 'styled-components';
 import { COLORS, FONTS } from './Theme';
 
-const TerminalContainer = styled(motion.div)`
+const fadeInUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+const TerminalContainer = styled.div`
   background-color: ${COLORS.retroDarkBg};
   border: 1px solid ${COLORS.retroPurple};
   border-radius: 0;
@@ -12,8 +16,8 @@ const TerminalContainer = styled(motion.div)`
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   margin: 2rem 0;
   font-family: ${FONTS.mono};
-  
-  /* Pixelated corner effects */
+  animation: ${fadeInUp} 0.6s ease-out both;
+
   &:before {
     content: '';
     position: absolute;
@@ -30,8 +34,8 @@ const TerminalContainer = styled(motion.div)`
 `;
 
 const TerminalHeader = styled.div`
-  background: linear-gradient(90deg, 
-    ${COLORS.retroPurple}80, 
+  background: linear-gradient(90deg,
+    ${COLORS.retroPurple}80,
     ${COLORS.retroTeal}80
   );
   height: 40px;
@@ -39,8 +43,7 @@ const TerminalHeader = styled.div`
   align-items: center;
   padding: 0 15px;
   position: relative;
-  
-  /* Pixelated texture */
+
   &:after {
     content: '';
     position: absolute;
@@ -48,7 +51,7 @@ const TerminalHeader = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
       linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 3px 3px;
@@ -61,7 +64,7 @@ const TerminalDots = styled.div`
   gap: 8px;
   position: relative;
   z-index: 1;
-  
+
   span {
     width: 12px;
     height: 12px;
@@ -69,20 +72,11 @@ const TerminalDots = styled.div`
     display: inline-block;
     position: relative;
     overflow: hidden;
-    
-    &:nth-child(1) {
-      background: ${COLORS.retroPrimary};
-    }
-    
-    &:nth-child(2) {
-      background: ${COLORS.retroSecondary};
-    }
-    
-    &:nth-child(3) {
-      background: ${COLORS.retroGreen};
-    }
-    
-    /* Add pixelated border */
+
+    &:nth-child(1) { background: ${COLORS.retroPrimary}; }
+    &:nth-child(2) { background: ${COLORS.retroSecondary}; }
+    &:nth-child(3) { background: ${COLORS.retroGreen}; }
+
     &:before {
       content: '';
       position: absolute;
@@ -117,10 +111,7 @@ const TerminalContent = styled.div`
   max-height: 500px;
   overflow-y: auto;
   position: relative;
-  
-  /* Scanline effect removed */
-  
-  /* Styling for the blinking cursor */
+
   .cursor {
     display: inline-block;
     width: 10px;
@@ -129,90 +120,51 @@ const TerminalContent = styled.div`
     margin-left: 2px;
     animation: blink 1s step-end infinite;
   }
-  
+
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
   }
-  
-  .command {
-    color: ${COLORS.retroTeal};
-    font-weight: bold;
-  }
-  
-  .path {
-    color: ${COLORS.retroPrimary};
-  }
-  
-  .prompt {
-    color: ${COLORS.retroPurple};
-  }
-  
-  .result {
-    color: ${COLORS.white};
-    margin: 0.5rem 0 1.5rem;
-    opacity: 0.9;
-  }
-  
-  .highlight {
-    color: ${COLORS.retroSecondary};
-    font-weight: bold;
-  }
+
+  .command { color: ${COLORS.retroTeal}; font-weight: bold; }
+  .path { color: ${COLORS.retroPrimary}; }
+  .prompt { color: ${COLORS.retroPurple}; }
+  .result { color: ${COLORS.white}; margin: 0.5rem 0 1.5rem; opacity: 0.9; }
+  .highlight { color: ${COLORS.retroSecondary}; font-weight: bold; }
 `;
 
 const Terminal = ({ commands, title = "terminal" }) => {
   const [displayedCommands, setDisplayedCommands] = useState([]);
   const [currentCommandIndex, setCurrentCommandIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
-  
+
   useEffect(() => {
     if (commands.length === 0) return;
-    
+
     if (currentCommandIndex < commands.length) {
       const currentCommand = commands[currentCommandIndex];
-      
+
       if (currentCharIndex < currentCommand.command.length) {
         const timer = setTimeout(() => {
           setCurrentCharIndex(currentCharIndex + 1);
-        }, 50); // Typing speed
-        
+        }, 50);
         return () => clearTimeout(timer);
       } else {
         const timer = setTimeout(() => {
           setDisplayedCommands(prev => [
-            ...prev, 
-            {
-              ...currentCommand,
-              isTyping: false, 
-              isComplete: true
-            }
+            ...prev,
+            { ...currentCommand, isTyping: false, isComplete: true }
           ]);
           setCurrentCommandIndex(currentCommandIndex + 1);
           setCurrentCharIndex(0);
-        }, 500); // Pause after typing
-        
+        }, 500);
         return () => clearTimeout(timer);
       }
     }
   }, [commands, currentCommandIndex, currentCharIndex]);
-  
-  // Cursor blinking effect
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 530);
-    
-    return () => clearInterval(cursorInterval);
-  }, []);
-  
+
   return (
-    <TerminalContainer
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="terminal"
-    >
+    <TerminalContainer className="terminal">
       <TerminalHeader>
         <TerminalDots>
           <span></span>
@@ -221,25 +173,25 @@ const Terminal = ({ commands, title = "terminal" }) => {
         </TerminalDots>
         <TerminalTitle>{title}</TerminalTitle>
       </TerminalHeader>
-      
+
       <TerminalContent>
-        {displayedCommands.map((cmd, index) => (
-          <div key={index}>
+        {displayedCommands.map((cmd) => (
+          <div key={cmd.command}>
             <div>
-              <span className="prompt">λ</span> <span className="path">~/tim-loehr</span> <span className="command">{cmd.command}</span>
+              <span className="prompt">&lambda;</span> <span className="path">~/tim-loehr</span> <span className="command">{cmd.command}</span>
             </div>
             {cmd.isComplete && (
               <div className="result">{cmd.result}</div>
             )}
           </div>
         ))}
-        
+
         {currentCommandIndex < commands.length && (
           <div>
-            <span className="prompt">λ</span> <span className="path">~/tim-loehr</span> <span className="command">
+            <span className="prompt">&lambda;</span> <span className="path">~/tim-loehr</span> <span className="command">
               {commands[currentCommandIndex].command.substring(0, currentCharIndex)}
             </span>
-            {showCursor && <span className="cursor"></span>}
+            <span className="cursor"></span>
           </div>
         )}
       </TerminalContent>

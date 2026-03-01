@@ -1,31 +1,20 @@
-import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import styled from 'styled-components';
 import { InView } from 'react-intersection-observer';
 import RetroSection from '../ui/RetroSection';
 import RunningBanner from '../ui/RunningBanner';
-import { COLORS, FONTS } from '../ui/Theme';
+import { FONTS } from '../ui/Theme';
 
-// Helper function to convert hex to RGB
 const hexToRgb = (hex) => {
-  // Remove the # if present
   hex = hex.replace('#', '');
-  
-  // Parse the hex values
   const r = parseInt(hex.substring(0, 2), 16);
   const g = parseInt(hex.substring(2, 4), 16);
   const b = parseInt(hex.substring(4, 6), 16);
-  
   return `${r}, ${g}, ${b}`;
 };
 
-// Subtle pulse animation
-const pulse = keyframes`
-  0%, 100% { opacity: 0.9; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-`;
+// No infinite animation keyframes
 
-// container for timeline
 const ExperienceContainer = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -45,8 +34,7 @@ const TimelineAxis = styled.div`
   background: rgba(255, 255, 255, 0.2);
   border-radius: 1px;
   z-index: 1;
-  
-  /* Top marker dot */
+
   &:before {
     content: '';
     position: absolute;
@@ -57,8 +45,7 @@ const TimelineAxis = styled.div`
     background: #3182CE;
     border-radius: 50%;
   }
-  
-  /* Bottom marker dot */
+
   &:after {
     content: '';
     position: absolute;
@@ -68,21 +55,19 @@ const TimelineAxis = styled.div`
     height: 8px;
     background: #3182CE;
     border-radius: 50%;
-    animation: ${pulse} 3s infinite ease-in-out;
+    opacity: 0.9;
   }
-  
+
   @media (max-width: 768px) {
-    left: -47px; /* Aligned with left blue connector line */
+    left: -47px;
   }
-  
-  /* Hide on very small screens */
+
   @media (max-width: 430px) {
     display: none;
   }
 `;
 
-// year marker for timeline
-const YearMarker = styled(motion.div)`
+const YearMarker = styled.div`
   position: absolute;
   left: -15px;
   background: rgba(49, 130, 206, 0.9);
@@ -96,9 +81,17 @@ const YearMarker = styled(motion.div)`
   z-index: 2;
   transform: translateY(-50%);
   letter-spacing: 0.5px;
-  backdrop-filter: blur(8px);
-  
-  /* Modern connector to timeline (left side) */
+
+  /* CSS transition for InView reveal */
+  opacity: 0;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transform: translateY(-50%) translateX(-20px);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
   &:after {
     content: '';
     position: absolute;
@@ -110,72 +103,63 @@ const YearMarker = styled(motion.div)`
     background-color: rgba(49, 130, 206, 0.7);
     transform: translateY(-50%);
   }
-  
-  /* No right connector */
-  
-  /* Subtle hover effect */
-  transition: all 0.2s ease;
+
   &:hover {
-    transform: translateY(-50%) translateX(3px);
     background: rgba(49, 130, 206, 1);
   }
-  
-  /* Show/hide year versions based on screen size */
-  .mobile-year {
-    display: none;
-  }
-  
+
+  .mobile-year { display: none; }
+
   @media (max-width: 768px) {
     left: -35px;
     font-size: 12px;
     padding: 4px 10px;
     z-index: 10;
-    background: rgba(49, 130, 206, 1); /* Increased opacity for better visibility */
+    background: rgba(49, 130, 206, 1);
     box-shadow: 0 0 10px rgba(49, 130, 206, 0.5);
-    
-    .desktop-year {
-      display: none;
-    }
-    
-    .mobile-year {
-      display: inline;
-    }
-    
+
+    .desktop-year { display: none; }
+    .mobile-year { display: inline; }
+
     &:after {
       width: 10px;
       right: auto;
       left: -15px;
     }
-    
-    /* No right connector for mobile */
   }
-  
-  /* Hide on very small screens */
+
   @media (max-width: 430px) {
     display: none;
   }
 `;
 
-// glass-morphism job card with consistent spacing
-const ExperienceCard = styled(motion.div)`
+const ExperienceCard = styled.div`
   position: relative;
   background: ${props => `linear-gradient(120deg, rgba(22, 22, 26, 0.9) 0%, rgba(${props.bgColorRGB || '22, 22, 26'}, 0.06) 100%)`};
   border-radius: 16px;
   padding: 28px;
-  margin: 0 0 70px 70px; /* Moved further right to avoid interference with year buttons */
+  margin: 0 0 70px 70px;
   width: calc(100% - 100px);
-  min-height: 160px; /* Slightly reduced to fit all cards comfortably */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 0 30px rgba(${props => props.bgColorRGB || '0, 0, 0'}, 0.05);
-  backdrop-filter: blur(10px);
+  min-height: 160px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   border: 1px solid ${props => `rgba(${props.bgColorRGB || '255, 255, 255'}, 0.1)`};
+  border-left: 3px solid ${props => props.accentColor || '#3182CE'};
   z-index: 2;
   display: grid;
   grid-template-columns: 220px 1fr;
   grid-gap: 28px;
   overflow: hidden;
-  transition: all 0.3s ease, box-shadow 0.4s ease;
-  
-  /* Company-themed pattern */
+
+  /* CSS transition for InView reveal + hover */
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.4s ease, border-color 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
   .company-pattern {
     content: '';
     position: absolute;
@@ -189,8 +173,7 @@ const ExperienceCard = styled(motion.div)`
     transition: opacity 0.3s ease;
     z-index: 0;
   }
-  
-  /* Subtle gradient overlay for depth */
+
   &:after {
     content: "";
     position: absolute;
@@ -198,47 +181,23 @@ const ExperienceCard = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0) 50%
-    );
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
     pointer-events: none;
     z-index: 1;
   }
-  
-  /* Main hover effect for card */
+
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 
-                0 0 40px rgba(${props => props.bgColorRGB || '0, 0, 0'}, 0.1),
-                0 0 20px rgba(${props => props.bgColorRGB || '0, 0, 0'}, 0.07),
-                0 0 5px ${COLORS.retroPrimary}30;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     border-color: rgba(255, 255, 255, 0.15);
-    
-    .company-pattern {
-      opacity: 0.9;
-    }
-    
+
+    .company-pattern { opacity: 0.9; }
     .timeline-dot {
       transform: translateY(-50%) scale(1.3);
-      box-shadow: 0 0 12px ${props => props.accentColor || '#3182CE'},
-                  0 0 5px ${COLORS.retroPrimary}50;
-      animation: dotPulse 1.5s infinite alternate;
+      box-shadow: 0 0 12px ${props => props.accentColor || '#3182CE'};
     }
   }
-  
-  @keyframes dotPulse {
-    0% {
-      box-shadow: 0 0 5px ${props => props.accentColor || '#3182CE'};
-    }
-    100% {
-      box-shadow: 0 0 12px ${props => props.accentColor || '#3182CE'},
-                  0 0 5px ${COLORS.retroPrimary}50;
-    }
-  }
-  
-  /* Clean connector to timeline */
+
   &:before {
     content: '';
     position: absolute;
@@ -249,13 +208,9 @@ const ExperienceCard = styled(motion.div)`
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-50%);
   }
-  
-  /* Add proper spacing for the first card */
-  &:first-of-type {
-    margin-top: 50px;
-  }
-  
-  /* Timeline marker dot */
+
+  &:first-of-type { margin-top: 50px; }
+
   .timeline-dot {
     position: absolute;
     left: -70px;
@@ -266,40 +221,26 @@ const ExperienceCard = styled(motion.div)`
     border-radius: 50%;
     transform: translateY(-50%);
     z-index: 3;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
-  /* Modern hover state */
-  transition: all 0.3s ease;
-  
-  /* Responsive styles */
+
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
   }
-  
+
   @media (max-width: 768px) {
     margin-left: 65px;
     width: calc(100% - 80px);
-    
-    &:before {
-      left: -55px;
-      width: 55px;
-    }
-    
-    .timeline-dot {
-      left: -60px;
-    }
+
+    &:before { left: -55px; width: 55px; }
+    .timeline-dot { left: -60px; }
   }
-  
-  /* Adjust margins for very small screens */
+
   @media (max-width: 430px) {
     margin-left: 15px;
     width: calc(100% - 30px);
-    
-    &:before, .timeline-dot {
-      display: none;
-    }
+    &:before, .timeline-dot { display: none; }
   }
 `;
 
@@ -308,8 +249,7 @@ const CompanyInfo = styled.div`
   flex-direction: column;
   position: relative;
   z-index: 2;
-  
-  /* Modern company logo */
+
   .company-logo {
     width: 70px;
     height: 70px;
@@ -321,33 +261,17 @@ const CompanyInfo = styled.div`
     border-radius: 14px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    
-    img {
-      width: 85%;
-      height: 85%;
-      object-fit: contain;
-    }
-    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+    img { width: 85%; height: 85%; object-fit: contain; }
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-    
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-      pointer-events: none;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
     }
   }
-  
-  /* Clean company name */
+
   .company-name {
     font-size: 24px;
     font-weight: 700;
@@ -357,8 +281,7 @@ const CompanyInfo = styled.div`
     letter-spacing: -0.5px;
     position: relative;
     display: inline-block;
-    
-    /* Subtle underline effect */
+
     &:after {
       content: '';
       position: absolute;
@@ -369,8 +292,7 @@ const CompanyInfo = styled.div`
       background-color: ${props => props.logoBackground || '#3182CE'};
     }
   }
-  
-  /* Modern job title */
+
   .job-title {
     font-size: 16px;
     color: rgba(255, 255, 255, 0.9);
@@ -384,31 +306,14 @@ const CompanyInfo = styled.div`
     border-radius: 6px;
     letter-spacing: 0.3px;
     border: 1px solid ${props => `rgba(${hexToRgb(props.logoBackground)}, 0.2)` || 'rgba(49, 130, 206, 0.2)'};
-    
-    /* Subtle glow effect */
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: ${props => props.logoBackground || '#3182CE'};
-      opacity: 0.08;
-      filter: blur(10px);
-      border-radius: 6px;
-      z-index: -1;
-    }
-    
-    /* Subtle hover */
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
+
     &:hover {
       background: ${props => `rgba(${hexToRgb(props.logoBackground)}, 0.18)` || 'rgba(49, 130, 206, 0.15)'};
       transform: translateY(-2px);
     }
   }
-  
-  /* Clean date range */
+
   .date-range {
     font-family: ${FONTS.mono};
     font-size: 14px;
@@ -417,42 +322,22 @@ const CompanyInfo = styled.div`
   }
 `;
 
-// job details
 const JobDetails = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 2;
-  
-  /* Clean, readable job description */
+
   .job-description {
     font-family: ${FONTS.primary};
     font-size: 15px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 24px;
-    position: relative;
-    padding: 0;
     margin: 0 0 24px 0;
-    
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0 0 10px 0;
-    }
-    
-    ul li {
-      padding-left: 15px;
-      position: relative;
-      margin-bottom: 6px;
-    }
-    
-    ul li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
+
+    ul { list-style-type: none; padding: 0; margin: 0 0 10px 0; }
+    ul li { padding-left: 15px; position: relative; margin-bottom: 6px; }
+    ul li:before { content: "\u2022"; position: absolute; left: 0; top: 0; }
   }
 `;
 
@@ -463,58 +348,48 @@ const TechStack = styled.div`
   margin-top: auto;
 `;
 
-const TechButton = styled.button`
+const TechBadge = styled.span`
   font-size: 0.7rem;
   padding: 0.35rem 0.75rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
   font-family: ${FONTS.accent};
   font-weight: 500;
   letter-spacing: 0.5px;
   border-radius: 14px;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  
-  /* Exact same hover effect as in Projects component */
-  &:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
+  transition: background 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  user-select: none;
 `;
 
-// Experience data with company information
 const experienceData = [
   {
     id: 1,
     year: 2025,
     company: 'Meta',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png',
-    logoBackground: '#1877F2', // Blue
+    logoBackground: '#1877F2',
     bgColorRGB: hexToRgb('#1877F2'),
     bgPattern: 'radial-gradient(circle at 90% 10%, rgba(24, 119, 242, 0.08), transparent 30%)',
     title: 'Data Engineer',
     dateRange: 'February 2025 - Present',
-    // Simple array of strings - each item will be a bullet point
-    descriptionPoints: [
-      'TBA'
-    ],
-    technologies: ['Python', 'PyTorch', 'SQL', 'Hadoop', 'Spark', 'A/B Testing']
+    descriptionPoints: ['Enterprise Infrastructure and Security Analytics'],
+    technologies: ['Python', 'Presto', 'Hive', 'SQL']
   },
   {
     id: 2,
     year: 2024,
     company: 'Red Bull',
-    logo: 'https://media.licdn.com/dms/image/v2/D4D0BAQFdoIhv055bEw/company-logo_200_200/company-logo_200_200/0/1715940378252/red_bull_logo?e=1750291200&v=beta&t=hMSyOrzY-aOeigU1cq2_hO94mSX9ZWVhr04bNwQ-4d0',
-    logoBackground: '#D52B1E', // Red
+    logo: 'https://www.svgrepo.com/show/303227/redbull-logo.svg',
+    logoBackground: '#D52B1E',
     bgColorRGB: hexToRgb('#D52B1E'),
     bgPattern: 'linear-gradient(135deg, rgba(213, 43, 30, 0.07) 0%, transparent 70%)',
     title: 'Data Scientist',
     dateRange: 'July 2024 - January 2025',
-    // Simple array of strings - each item will be a bullet point
     descriptionPoints: [
-      'Applying data science to build full stack MLOps data products to support all parts of Red Bulls supply chain processes.',
+      "Applying data science to build full stack MLOps data products to support all parts of Red Bull's supply chain processes.",
       'Leading the Databricks integration by designing robust workflows, managing asset bundles, and setting up CI/CD pipelines.',
-      'Developing an R-based tool to automate data sourcing, using YAML configurations and dependency injection, enabling.'
+      'Developing an R-based tool to automate data sourcing, using YAML configurations and dependency injection for scalable analytics.'
     ],
     technologies: ['Python', 'R', 'Databricks', 'Snowflake', 'R Studio', 'SQL', 'SAP S4/HANA']
   },
@@ -523,14 +398,13 @@ const experienceData = [
     year: 2022,
     company: 'Apple',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
-    logoBackground: '#000000', // Black
-    bgColorRGB: hexToRgb('#555555'), // Using dark gray for better visibility
+    logoBackground: '#000000',
+    bgColorRGB: hexToRgb('#555555'),
     bgPattern: 'repeating-linear-gradient(to right, rgba(85, 85, 85, 0.02), rgba(85, 85, 85, 0.02) 1px, transparent 1px, transparent 30px)',
     title: 'Data Scientist',
     dateRange: 'October 2022 - May 2024',
-    // Simple array of strings - each item will be a bullet point
     descriptionPoints: [
-      'Collaborated with engineers and business stakeholders to build full stack, MLOps data products for Apples supply chain business.',
+      "Collaborated with engineers and business stakeholders to build full stack, MLOps data products for Apple's supply chain business.",
       'Developed and deployed anomaly detection, time series forecasting, and NLP tools that automated repetitive tasks, saving over 100 hours per week across departments and reducing manual workload by 60%.',
       'Contributed to a Python package project that integrated core AI tools, reducing project onboarding time by 80%, from 3-4 weeks to just 2-3 days, accelerating anomaly detection deployment across teams.'
     ],
@@ -541,12 +415,11 @@ const experienceData = [
     year: 2021,
     company: 'Amazon',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
-    logoBackground: '#FF9900', // Orange
+    logoBackground: '#FF9900',
     bgColorRGB: hexToRgb('#FF9900'),
     bgPattern: 'radial-gradient(circle at 90% 90%, rgba(255, 153, 0, 0.08), transparent 40%)',
-    title: 'Business Intelligence Engineer - Intern',
+    title: 'BI Engineer',
     dateRange: 'February 2021 - July 2021',
-    // Simple array of strings - each item will be a bullet point
     descriptionPoints: [
       'Optimized SQL scripts by reducing length over 50% and built a multiple regression model to predict upcoming number of sales.',
       'Optimized the data retrieval SQL scripts from the Redshift cluster.',
@@ -556,105 +429,60 @@ const experienceData = [
   }
 ];
 
-const WorkExperience = () => {
-  // State for tracking active cards
-  const [activeCard, setActiveCard] = useState(null);
-  
-  const { scrollYProgress } = useScroll();
+const yearMarkers = [
+  { top: '17%', year: '2025', short: '25', delay: 0 },
+  { top: '36%', year: '2024', short: '24', delay: 0.15 },
+  { top: '60%', year: '2022', short: '22', delay: 0.3 },
+  { top: '85%', year: '2021', short: '21', delay: 0.45 },
+];
 
+const WorkExperience = () => {
   return (
     <>
-      <RetroSection 
+      <RetroSection
         id="experience"
         title="WORK"
-        titleColor="#3182CE" // Modern blue color scheme
+        titleColor="#3182CE"
         gridColor="#3182CE"
-        gridOpacity="0.05" // Subtle grid
+        gridOpacity="0.05"
         className="experience-section"
       >
         <InView threshold={0.1} triggerOnce>
           {({ ref, inView }) => (
             <ExperienceContainer ref={ref}>
-              {/* Timeline axis */}
               <TimelineAxis />
-              
-              {/* Year markers with subtle blue styling - positioned to match card centers */}
-              <YearMarker 
-                top="17%" 
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="year-marker"
-              >
-                <span className="desktop-year">2025</span>
-                <span className="mobile-year">25</span>
-              </YearMarker>
-              
-              <YearMarker 
-                top="36%" /* Red Bull position - percentage for responsiveness */
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
-                className="year-marker"
-              >
-                <span className="desktop-year">2024</span>
-                <span className="mobile-year">24</span>
-              </YearMarker>
-              
-              <YearMarker 
-                top="60%" 
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-                className="year-marker"
-              >
-                <span className="desktop-year">2022</span>
-                <span className="mobile-year">22</span>
-              </YearMarker>
-              
-              <YearMarker 
-                top="85%" /* Amazon position - percentage for responsiveness */
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
-                className="year-marker"
-              >
-                <span className="desktop-year">2021</span>
-                <span className="mobile-year">21</span>
-              </YearMarker>
-              
-              {/* Experience cards with glass-morphism styling */}
+
+              {yearMarkers.map((marker) => (
+                <YearMarker
+                  key={marker.year}
+                  top={marker.top}
+                  className={inView ? 'visible' : ''}
+                  style={{ transitionDelay: `${marker.delay}s` }}
+                >
+                  <span className="desktop-year">{marker.year}</span>
+                  <span className="mobile-year">{marker.short}</span>
+                </YearMarker>
+              ))}
+
               {experienceData.map((job, index) => (
                 <ExperienceCard
                   key={job.id}
                   accentColor={job.logoBackground}
                   bgColorRGB={job.bgColorRGB}
                   bgPattern={job.bgPattern}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={inView ? { 
-                    opacity: 1, 
-                    x: 0,
-                    transition: { 
-                      duration: 0.5, 
-                      delay: 0.2 * index,
-                      ease: "easeOut"
-                    }
-                  } : {}}
-                  onMouseEnter={() => setActiveCard(job.id)}
-                  onMouseLeave={() => setActiveCard(null)}
+                  className={inView ? 'visible' : ''}
+                  style={{ transitionDelay: `${0.2 * index}s` }}
                 >
-                  {/* Company-themed background pattern */}
                   <div className="company-pattern" />
-                  
-                  {/* Timeline marker dot */}
                   <div className="timeline-dot" />
-                  
-                  {/* Company info side with modern styling */}
+
                   <CompanyInfo logoBackground={job.logoBackground}>
                     <div className="company-logo">
-                      <img 
-                        src={job.logo} 
-                        alt={`${job.company} logo`} 
+                      <img
+                        src={job.logo}
+                        alt={`${job.company} logo`}
+                        loading="lazy"
+                        decoding="async"
                         style={job.company === 'Apple' ? { width: '50%', height: '50%' } : {}}
                       />
                     </div>
@@ -662,30 +490,25 @@ const WorkExperience = () => {
                     <h4 className="job-title">{job.title}</h4>
                     <div className="date-range">{job.dateRange}</div>
                   </CompanyInfo>
-                  
-                  {/* Job details side with clean styling */}
+
                   <JobDetails>
                     <div className="job-description">
                       {job.descriptionPoints && job.descriptionPoints.length > 0 ? (
                         <ul>
-                          {job.descriptionPoints.map((point, idx) => (
-                            <li key={idx}>{point}</li>
+                          {job.descriptionPoints.map((point) => (
+                            <li key={point.slice(0, 40)}>{point}</li>
                           ))}
                         </ul>
                       ) : (
                         <p>{job.description || 'No description available'}</p>
                       )}
                     </div>
-                    
+
                     <TechStack>
-                      {job.technologies.map((tech, idx) => (
-                        <TechButton 
-                          key={idx}
-                          companyColor={job.bgColorRGB}
-                          onClick={(e) => e.preventDefault()} // Prevent default to make button non-functional
-                        >
+                      {job.technologies.map((tech) => (
+                        <TechBadge key={tech}>
                           {tech}
-                        </TechButton>
+                        </TechBadge>
                       ))}
                     </TechStack>
                   </JobDetails>
@@ -695,8 +518,7 @@ const WorkExperience = () => {
           )}
         </InView>
       </RetroSection>
-      
-      {/* Running Banner between Work and Projects sections */}
+
       <RunningBanner />
     </>
   );
