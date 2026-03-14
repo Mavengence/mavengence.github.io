@@ -5,6 +5,7 @@ import { BiCodeAlt, BiData, BiChip, BiAtom, BiBrain, BiTerminal, BiCloud } from 
 import { SiGooglescholar } from 'react-icons/si';
 import { COLORS, FONTS } from '../ui/Theme';
 import TerminalButton from '../ui/TerminalButton';
+import { SOCIAL_LINKS } from '../../constants/socialLinks';
 
 // ── CSS-only animations (one-shot only, no infinite loops) ───────────
 
@@ -32,6 +33,7 @@ const DIMENSIONS = {
  */
 const HeaderContainer = styled.header`
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -43,13 +45,14 @@ const HeaderContainer = styled.header`
 
   @media (min-width: ${DIMENSIONS.MOBILE_BREAKPOINT + 1}px) and (max-width: ${DIMENSIONS.TABLET_BREAKPOINT}px) {
     height: 100vh;
+    height: 100dvh;
     justify-content: center;
     contain: layout style;
   }
 
   @media (max-width: ${DIMENSIONS.MOBILE_BREAKPOINT}px) {
     height: 100vh;
-    height: calc(100vh - env(safe-area-inset-bottom, 0));
+    height: 100dvh;
     justify-content: flex-start;
     padding-top: 8vh;
     contain: layout style;
@@ -716,7 +719,7 @@ const Header = () => {
                 decoding="async"
                 width={isTablet ? 180 : 250}
                 height={isTablet ? 180 : 250}
-                fetchPriority="low"
+                fetchpriority="low"
                 style={isTablet ? TABLET_ASTRONAUT_STYLE : undefined}
               />
             )}
@@ -733,7 +736,7 @@ const Header = () => {
           <nav aria-label="Social media links">
             <SocialLinks style={socialLinksStyle}>
               <TerminalButton
-                href="https://github.com/mavengence"
+                href={SOCIAL_LINKS.github.url}
                 aria-label="Visit Tim Loehr's GitHub profile"
                 rel="noopener noreferrer"
                 icon={<FaGithub />}
@@ -741,7 +744,7 @@ const Header = () => {
                 GitHub
               </TerminalButton>
               <TerminalButton
-                href="https://www.linkedin.com/in/tim-loehr-821ba8188/"
+                href={SOCIAL_LINKS.linkedin.url}
                 aria-label="Connect with Tim Loehr on LinkedIn"
                 rel="noopener noreferrer"
                 icon={<FaLinkedin />}
@@ -749,7 +752,7 @@ const Header = () => {
                 LinkedIn
               </TerminalButton>
               <TerminalButton
-                href="https://medium.com/@mavengence"
+                href={SOCIAL_LINKS.medium.url}
                 aria-label="Read Tim Loehr's articles on Medium"
                 rel="noopener noreferrer"
                 icon={<FaMedium />}
@@ -757,7 +760,7 @@ const Header = () => {
                 Medium
               </TerminalButton>
               <TerminalButton
-                href="https://scholar.google.com/citations?user=DLV7IqAAAAAJ&hl=en"
+                href={SOCIAL_LINKS.scholar.url}
                 aria-label="View Tim Loehr's research on Google Scholar"
                 rel="noopener noreferrer"
                 icon={<SiGooglescholar />}
@@ -807,7 +810,7 @@ const Header = () => {
             aria-hidden="true"
             loading="lazy"
             decoding="async"
-            fetchPriority="low"
+            fetchpriority="low"
             width={150}
             height={150}
             className="desktop-only-image"

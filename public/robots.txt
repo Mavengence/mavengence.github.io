@@ -7,4 +7,4 @@ Allow: /images/
 Allow: /static/
 
 # Add sitemap reference for better discovery
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://www.timloehr.me/sitemap.xml

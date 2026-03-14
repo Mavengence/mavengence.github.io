@@ -9,6 +9,20 @@ const WorkExperience = lazy(() => import('./components/WorkExperience/WorkExperi
 const Projects = lazy(() => import('./components/Projects/Projects'));
 const RunningBanner = lazy(() => import('./components/ui/RunningBanner'));
 const Console = lazy(() => import('./components/Console/Console'));
+const Contact = lazy(() => import('./components/Contact/Contact'));
+
+// Prefetch all lazy chunks after initial paint so they're cached before scroll
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', () => {
+    requestIdleCallback(() => {
+      import('./components/WorkExperience/WorkExperience');
+      import('./components/Projects/Projects');
+      import('./components/Contact/Contact');
+      import('./components/Console/Console');
+      import('./components/ui/RunningBanner');
+    });
+  }, { once: true });
+}
 
 // ── Gradient accent line at top of page (like Linear.app) ────────────
 const gradientShift = keyframes`
@@ -178,11 +192,10 @@ const AccentLine = styled.div`
 
 // ── Static style constants (never re-created) ───────────────────────
 
-const EMPTY_PLACEHOLDER_STYLE = { width: '100%', height: '100%', backgroundColor: COLORS.hiveDarkBg, opacity: 0 };
+const EMPTY_PLACEHOLDER_STYLE = { width: '100%', height: '100%', backgroundColor: COLORS.hiveDarkBg, opacity: 1 };
 const EMPTY_PLACEHOLDER = <div style={EMPTY_PLACEHOLDER_STYLE} />;
 
 const MAIN_STYLE = { position: 'relative', zIndex: 20 };
-const CONTENT_VISIBILITY_STYLE = { contentVisibility: 'auto', containIntrinsicSize: '0 2000px' };
 const BANNER_SECTION_STYLE = { padding: 0, marginTop: '-1rem', marginBottom: '-2rem' };
 const FOOTER_COPYRIGHT_STYLE = { opacity: 0.5 };
 const FOOTER_NAME_STYLE = { fontWeight: 600, opacity: 0.9 };
@@ -224,17 +237,13 @@ const App = React.memo(function App() {
         <main style={MAIN_STYLE}>
           <Header />
 
-          <div style={CONTENT_VISIBILITY_STYLE}>
-            <Suspense fallback={EMPTY_PLACEHOLDER}>
-              <WorkExperience />
-            </Suspense>
-          </div>
+          <Suspense fallback={EMPTY_PLACEHOLDER}>
+            <WorkExperience />
+          </Suspense>
 
-          <div style={CONTENT_VISIBILITY_STYLE}>
-            <Suspense fallback={EMPTY_PLACEHOLDER}>
-              <Projects />
-            </Suspense>
-          </div>
+          <Suspense fallback={EMPTY_PLACEHOLDER}>
+            <Projects />
+          </Suspense>
 
           {!isMobile && (
             <section style={BANNER_SECTION_STYLE} aria-label="Personal interests">
@@ -261,6 +270,10 @@ const App = React.memo(function App() {
               <Console />
             </Suspense>
           )}
+
+          <Suspense fallback={EMPTY_PLACEHOLDER}>
+            <Contact />
+          </Suspense>
         </main>
 
         <footer>

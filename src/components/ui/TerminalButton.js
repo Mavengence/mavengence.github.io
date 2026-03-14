@@ -8,7 +8,8 @@ const RetroButtonContainer = styled.a`
   align-items: center;
   justify-content: center;
   padding: 10px 0;
-  width: 120px;
+  min-width: 120px;
+  width: auto;
   height: 42px;
   background-color: #000000;
   border: 1px solid #FFFFFF;

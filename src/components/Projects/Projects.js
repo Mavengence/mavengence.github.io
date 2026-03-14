@@ -81,7 +81,7 @@ const ProjectCard = styled.div`
   /* CSS transition for InView reveal + hover */
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.4s ease;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.4s ease;
 
   &.visible {
     opacity: 1;
@@ -186,7 +186,6 @@ const ProjectTitle = styled.h3`
   word-wrap: break-word;
   hyphens: auto;
   line-height: 1.4;
-  max-height: 5.6em;
   transition: transform 0.4s ease, text-shadow 0.4s ease;
 
   @media (max-width: 768px) {
@@ -472,14 +471,14 @@ const Projects = () => {
           {projects
             .sort((a, b) => a.row - b.row || a.positionInRow - b.positionInRow)
             .map((project, index) => (
-              <InView threshold={0.1} triggerOnce key={project.id}>
+              <InView threshold={0.1} triggerOnce rootMargin="150px 0px" key={project.id}>
                 {({ ref, inView }) => (
                   <ProjectCard
                     ref={ref}
                     className={inView ? 'visible' : ''}
                     style={{
                       ...getGridPlacement(project),
-                      transitionDelay: `${index * 0.08}s`
+                      transitionDelay: `${index * 0.04}s`
                     }}
                   >
                     {project.banner && (
@@ -522,6 +521,7 @@ const Projects = () => {
                             href={action.url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`${action.label} — ${project.title.replace(/<br\s*\/?>/g, ' ')}`}
                           >
                             {action.label}
                           </ProjectButton>

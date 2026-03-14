@@ -153,7 +153,7 @@ const ExperienceCard = styled.div`
   /* CSS transition for InView reveal + hover */
   opacity: 0;
   transform: translateX(30px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.4s ease, border-color 0.3s ease;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.4s ease, border-color 0.3s ease;
 
   &.visible {
     opacity: 1;
@@ -367,7 +367,7 @@ const experienceData = [
     id: 1,
     year: 2025,
     company: 'Meta',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png',
+    logo: `${process.env.PUBLIC_URL}/images/logos/meta.png`,
     logoBackground: '#1877F2',
     bgColorRGB: hexToRgb('#1877F2'),
     bgPattern: 'radial-gradient(circle at 90% 10%, rgba(24, 119, 242, 0.08), transparent 30%)',
@@ -380,16 +380,16 @@ const experienceData = [
     id: 2,
     year: 2024,
     company: 'Red Bull',
-    logo: 'https://www.svgrepo.com/show/303227/redbull-logo.svg',
+    logo: `${process.env.PUBLIC_URL}/images/logos/redbull.svg`,
     logoBackground: '#D52B1E',
     bgColorRGB: hexToRgb('#D52B1E'),
     bgPattern: 'linear-gradient(135deg, rgba(213, 43, 30, 0.07) 0%, transparent 70%)',
     title: 'Data Scientist',
     dateRange: 'July 2024 - January 2025',
     descriptionPoints: [
-      "Applying data science to build full stack MLOps data products to support all parts of Red Bull's supply chain processes.",
-      'Leading the Databricks integration by designing robust workflows, managing asset bundles, and setting up CI/CD pipelines.',
-      'Developing an R-based tool to automate data sourcing, using YAML configurations and dependency injection for scalable analytics.'
+      "Applied data science to build full stack MLOps data products to support all parts of Red Bull's supply chain processes.",
+      'Led the Databricks integration by designing robust workflows, managing asset bundles, and setting up CI/CD pipelines.',
+      'Developed an R-based tool to automate data sourcing, using YAML configurations and dependency injection for scalable analytics.'
     ],
     technologies: ['Python', 'R', 'Databricks', 'Snowflake', 'R Studio', 'SQL', 'SAP S4/HANA']
   },
@@ -397,7 +397,7 @@ const experienceData = [
     id: 3,
     year: 2022,
     company: 'Apple',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+    logo: `${process.env.PUBLIC_URL}/images/logos/apple.svg`,
     logoBackground: '#000000',
     bgColorRGB: hexToRgb('#555555'),
     bgPattern: 'repeating-linear-gradient(to right, rgba(85, 85, 85, 0.02), rgba(85, 85, 85, 0.02) 1px, transparent 1px, transparent 30px)',
@@ -414,7 +414,7 @@ const experienceData = [
     id: 4,
     year: 2021,
     company: 'Amazon',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+    logo: `${process.env.PUBLIC_URL}/images/logos/amazon.svg`,
     logoBackground: '#FF9900',
     bgColorRGB: hexToRgb('#FF9900'),
     bgPattern: 'radial-gradient(circle at 90% 90%, rgba(255, 153, 0, 0.08), transparent 40%)',
@@ -431,9 +431,9 @@ const experienceData = [
 
 const yearMarkers = [
   { top: '17%', year: '2025', short: '25', delay: 0 },
-  { top: '36%', year: '2024', short: '24', delay: 0.15 },
-  { top: '60%', year: '2022', short: '22', delay: 0.3 },
-  { top: '85%', year: '2021', short: '21', delay: 0.45 },
+  { top: '36%', year: '2024', short: '24', delay: 0.06 },
+  { top: '60%', year: '2022', short: '22', delay: 0.12 },
+  { top: '85%', year: '2021', short: '21', delay: 0.18 },
 ];
 
 const WorkExperience = () => {
@@ -447,7 +447,7 @@ const WorkExperience = () => {
         gridOpacity="0.05"
         className="experience-section"
       >
-        <InView threshold={0.1} triggerOnce>
+        <InView threshold={0.1} triggerOnce rootMargin="150px 0px">
           {({ ref, inView }) => (
             <ExperienceContainer ref={ref}>
               <TimelineAxis />
@@ -471,7 +471,7 @@ const WorkExperience = () => {
                   bgColorRGB={job.bgColorRGB}
                   bgPattern={job.bgPattern}
                   className={inView ? 'visible' : ''}
-                  style={{ transitionDelay: `${0.2 * index}s` }}
+                  style={{ transitionDelay: `${0.08 * index}s` }}
                 >
                   <div className="company-pattern" />
                   <div className="timeline-dot" />
@@ -487,7 +487,7 @@ const WorkExperience = () => {
                       />
                     </div>
                     <h3 className="company-name">{job.company}</h3>
-                    <h4 className="job-title">{job.title}</h4>
+                    <p className="job-title">{job.title}</p>
                     <div className="date-range">{job.dateRange}</div>
                   </CompanyInfo>
 

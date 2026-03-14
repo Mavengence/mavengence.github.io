@@ -38,7 +38,7 @@ const SectionTitle = styled.h2`
   /* Transition for InView reveal */
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 
   &.visible {
     opacity: 1;
@@ -95,7 +95,7 @@ const SectionContent = styled.div`
   /* Transition for InView reveal */
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.5s ease-out 0.15s, transform 0.5s ease-out 0.15s;
+  transition: opacity 0.3s ease-out 0.05s, transform 0.3s ease-out 0.05s;
 
   &.visible {
     opacity: 1;
@@ -134,7 +134,7 @@ const RetroSection = ({
       <SectionDivider />
 
       <SectionInner>
-        <InView threshold={0.2} triggerOnce>
+        <InView threshold={0.05} triggerOnce rootMargin="200px 0px">
           {({ ref, inView }) => (
             <div ref={ref}>
               {title && (

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Terminal from '../ui/Terminal';
 import RetroSection from '../ui/RetroSection';
 import { COLORS } from '../ui/Theme';
+// Note: Console displays contact info as terminal ASCII art.
+// Canonical URLs live in src/constants/socialLinks.js
 
 const TerminalContainer = styled.div`
   max-width: 900px;
