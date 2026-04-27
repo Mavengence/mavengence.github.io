@@ -398,9 +398,7 @@ const projectsByRow = {
     }
   ],
 
-  // row4 — featured interactive course
-  // Update actions.url to the live demo URL once the repo goes public
-  // and GitHub Pages is enabled (see INTEGRATION.md at the repo root).
+  // row4 — featured interactive course (live at timloehr.me/de-fundamentals)
   row4: [
     {
       title: 'Data Engineering Fundamentals',
@@ -416,9 +414,10 @@ const projectsByRow = {
         'Open Source', 'No-build', 'Pedagogy'
       ],
       actions: [
-        { label: 'GitHub', url: 'https://github.com/Mavengence/de-fundamentals', primary: true }
+        { label: 'Live demo', url: 'https://www.timloehr.me/de-fundamentals/', primary: true },
+        { label: 'GitHub',    url: 'https://github.com/Mavengence/de-fundamentals', primary: false }
       ],
-      banner: { text: 'Coming Soon', color: '#06B6D4' }
+      banner: { text: 'Interactive', color: '#06B6D4' }
     }
   ]
 };
