@@ -396,6 +396,30 @@ const projectsByRow = {
       ],
       banner: { text: 'Package', color: GRADIENT_PRESETS.PURPLE, isLong: true }
     }
+  ],
+
+  // row4 — featured interactive course
+  // Update actions.url to the live demo URL once the repo goes public
+  // and GitHub Pages is enabled (see INTEGRATION.md at the repo root).
+  row4: [
+    {
+      title: 'Data Engineering Fundamentals',
+      description:
+        'An interactive crash course on building production data pipelines. ' +
+        '10 chapters, 15 live simulators — watermark drag, hash-join shuffle, ' +
+        'idempotent backfill, trust-meter gate, and a full capstone pipeline you can break. ' +
+        'No signup, no build step, runs entirely in the browser. ' +
+        'By the end you know where a pipeline fails before it does.',
+      gradient: GRADIENT_PRESETS.CYAN,
+      technologies: [
+        'Data Engineering', 'React', 'Interactive Viz',
+        'Open Source', 'No-build', 'Pedagogy'
+      ],
+      actions: [
+        { label: 'GitHub', url: 'https://github.com/Mavengence/de-fundamentals', primary: true }
+      ],
+      banner: { text: 'Coming Soon', color: '#06B6D4' }
+    }
   ]
 };
 
