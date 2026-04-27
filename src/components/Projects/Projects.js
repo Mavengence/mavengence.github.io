@@ -398,28 +398,6 @@ const projectsByRow = {
     }
   ],
 
-  // row4 — featured interactive course (live at timloehr.me/de-fundamentals)
-  row4: [
-    {
-      title: 'Data Engineering Fundamentals',
-      description:
-        'An interactive crash course on building production data pipelines. ' +
-        '10 chapters, 15 live simulators — watermark drag, hash-join shuffle, ' +
-        'idempotent backfill, trust-meter gate, and a full capstone pipeline you can break. ' +
-        'No signup, no build step, runs entirely in the browser. ' +
-        'By the end you know where a pipeline fails before it does.',
-      gradient: GRADIENT_PRESETS.CYAN,
-      technologies: [
-        'Data Engineering', 'React', 'Interactive Viz',
-        'Open Source', 'No-build', 'Pedagogy'
-      ],
-      actions: [
-        { label: 'Live demo', url: 'https://www.timloehr.me/de-fundamentals/', primary: true },
-        { label: 'GitHub',    url: 'https://github.com/Mavengence/de-fundamentals', primary: false }
-      ],
-      banner: { text: 'Interactive', color: '#06B6D4' }
-    }
-  ]
 };
 
 const processProjects = () => {

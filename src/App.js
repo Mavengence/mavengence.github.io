@@ -6,6 +6,7 @@ import { GlobalStyle, COLORS, FONTS } from './components/ui/Theme';
 
 // Lazy load non-critical components
 const WorkExperience = lazy(() => import('./components/WorkExperience/WorkExperience'));
+const Courses = lazy(() => import('./components/Courses/Courses'));
 const Projects = lazy(() => import('./components/Projects/Projects'));
 const RunningBanner = lazy(() => import('./components/ui/RunningBanner'));
 const Console = lazy(() => import('./components/Console/Console'));
@@ -16,6 +17,7 @@ if (typeof window !== 'undefined') {
   window.addEventListener('load', () => {
     requestIdleCallback(() => {
       import('./components/WorkExperience/WorkExperience');
+      import('./components/Courses/Courses');
       import('./components/Projects/Projects');
       import('./components/Contact/Contact');
       import('./components/Console/Console');
@@ -239,6 +241,10 @@ const App = React.memo(function App() {
 
           <Suspense fallback={EMPTY_PLACEHOLDER}>
             <WorkExperience />
+          </Suspense>
+
+          <Suspense fallback={EMPTY_PLACEHOLDER}>
+            <Courses />
           </Suspense>
 
           <Suspense fallback={EMPTY_PLACEHOLDER}>
