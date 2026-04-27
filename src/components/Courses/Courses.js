@@ -24,8 +24,8 @@ const COURSES = [
     tags: ['Kafka', 'Spark', 'Airflow', 'Presto', 'dbt', 'Iceberg', 'Parquet', 'ClickHouse'],
     badge: { text: 'Interactive', color: '#0891B2' },
     actions: [
-      { label: '▶ Start the course', url: 'https://www.timloehr.me/de-fundamentals/', primary: true },
-      { label: 'GitHub',             url: 'https://github.com/Mavengence/de-fundamentals',  primary: false },
+      { label: '▶ Start the course', url: 'https://www.timloehr.me/data-engineering-fundamentals/', primary: true },
+      { label: 'GitHub',             url: 'https://github.com/Mavengence/data-engineering-fundamentals',  primary: false },
     ],
   },
 ];
