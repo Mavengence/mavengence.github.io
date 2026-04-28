@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# internal — never publish to public repo
+CLAUDE.md
+INTEGRATION.md
+.claude/
+plans/
+discuss-*.md
+NOTES.md
+TODO.md
+*.local.md
