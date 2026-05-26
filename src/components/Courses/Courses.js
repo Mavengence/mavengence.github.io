@@ -24,8 +24,68 @@ const COURSES = [
     tags: ['Kafka', 'Spark', 'Airflow', 'Presto', 'dbt', 'Iceberg', 'Parquet', 'ClickHouse'],
     badge: { text: 'Interactive', color: '#0891B2' },
     actions: [
-      { label: '▶ Start the course', url: 'https://www.timloehr.me/data-engineering-fundamentals/', primary: true },
-      { label: 'GitHub',             url: 'https://github.com/Mavengence/data-engineering-fundamentals',  primary: false },
+      { label: '▶ Start the course', url: 'https://www.timloehr.me/interactive-courses/data-engineering-fundamentals/', primary: true },
+      { label: 'GitHub',             url: 'https://github.com/Mavengence/interactive-courses', primary: false },
+    ],
+  },
+  {
+    title: 'Data Science Fundamentals',
+    subtitle: 'From distributions to deployment, live.',
+    description:
+      'An animated, interactive deep-dive into the full data science loop. ' +
+      'CLT, SHAP, A/B testing, causal inference, and drift detection — every concept is a live simulator you can break.',
+    gradient: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #C084FC 100%)',
+    stats: [
+      { label: 'Chapters',   value: '13' },
+      { label: 'Simulators', value: '18' },
+      { label: 'Duration',   value: '~2h' },
+      { label: 'Level',      value: 'Intermediate' },
+    ],
+    tags: ['Statistics', 'SHAP', 'A/B Testing', 'Causal Inference', 'scikit-learn', 'XGBoost', 'Drift', 'CUPED'],
+    badge: { text: 'Interactive', color: '#7C3AED' },
+    actions: [
+      { label: '▶ Start the course', url: 'https://www.timloehr.me/interactive-courses/data-science/', primary: true },
+      { label: 'GitHub',             url: 'https://github.com/Mavengence/interactive-courses', primary: false },
+    ],
+  },
+  {
+    title: 'Data Infrastructure',
+    subtitle: 'Staff-level system design, animated.',
+    description:
+      'A 12-lesson field guide to data engineering system design at the IC5 level. ' +
+      'CAP theorem, lakehouses, CDC, idempotency — with live interactive diagrams and an interview replay simulator.',
+    gradient: 'linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #14B8A6 100%)',
+    stats: [
+      { label: 'Lessons',    value: '12' },
+      { label: 'Simulators', value: '8' },
+      { label: 'Duration',   value: '~2h 30min' },
+      { label: 'Level',      value: 'Advanced' },
+    ],
+    tags: ['CAP Theorem', 'Lakehouse', 'CDC', 'Debezium', 'Kafka', 'dbt', 'Iceberg', 'System Design'],
+    badge: { text: 'Advanced', color: '#0F766E' },
+    actions: [
+      { label: '▶ Start the course', url: 'https://www.timloehr.me/interactive-courses/data-infrastructure/', primary: true },
+      { label: 'GitHub',             url: 'https://github.com/Mavengence/interactive-courses', primary: false },
+    ],
+  },
+  {
+    title: 'AI Coding with Claude',
+    subtitle: 'Ship faster with AI as your co-pilot.',
+    description:
+      'A practical 12-lesson guide to AI-assisted development. ' +
+      'Mental models, task specs, scope management, code review, parallelism, and end-to-end workflows for shipping production code with AI.',
+    gradient: 'linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%)',
+    stats: [
+      { label: 'Lessons',   value: '12' },
+      { label: 'Exercises', value: '24' },
+      { label: 'Duration',  value: '~90 min' },
+      { label: 'Level',     value: 'All levels' },
+    ],
+    tags: ['Claude', 'GitHub Copilot', 'Cursor', 'Prompting', 'TDD', 'Code Review', 'Agentic Dev'],
+    badge: { text: 'Practical', color: '#B45309' },
+    actions: [
+      { label: '▶ Start the course', url: 'https://www.timloehr.me/interactive-courses/codex/', primary: true },
+      { label: 'GitHub',             url: 'https://github.com/Mavengence/interactive-courses', primary: false },
     ],
   },
 ];
